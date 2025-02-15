@@ -8,17 +8,157 @@ body {
 
 body {
 	font-size: 16px;
+	font-family: "Open Sans", sans-serif;
+	background: #fff;
+	color: #222;
 }
 
 *, *::before, *::after {
 	box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: Futura;
+}
+
 h1, h2, h3, h4, h5, h6, p {
 	margin-top: 0;
 }
 
+a {
+	color: #6000B2;
+}
+
+header > *, main, footer, #banner {
+	padding-left: calc((100vw - 1400px) / 2);
+	padding-right: calc((100vw - 1400px) / 2);
+}
+
 /* header */
+
+header {
+	position: sticky;
+	top: 0;
+	left: 0;
+}
+
+header .branding {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/* #contact-bar */
+
+#contact-bar {
+	background: #6000B2;
+	padding-top: 6px;
+	padding-bottom: 8px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 20px;
+}
+
+#contact-bar a {
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+#contact-bar span {
+	font-weight: bold;
+}
+
+#contact-bar .primary {
+	padding-left: 30px;
+	background: url("../assets/icons/phone.icon.svg") no-repeat left center;
+	background-size: 30px;
+}
+
+#contact-bar .facebook-social span,
+#contact-bar .instagram-social span {
+	display: none;
+}
+
+#contact-bar .facebook-social,
+#contact-bar .instagram-social {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+#contact-bar .facebook-social {
+	background: url("../assets/icons/facebook.icon.svg") 0 0 no-repeat;
+}
+
+#contact-bar .instagram-social {
+	background: url("../assets/icons/instagram.icon.svg") 0 0 no-repeat;
+}
+
+/* #logo */
+
+#logo {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	text-decoration: none;
+	color: #222;
+}
+
+#logo h1 {
+	margin: 0;
+	font-size: 21px;
+	line-height: 120%;
+	font-weight: bolder;
+}
+
+#logo p {
+	margin: 0;
+	font-size: 14px;
+	color: #555;
+}
+
+/* #logo */
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+nav a {
+	color: #222;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: capitalize;
+	border-bottom: 2px solid transparent;
+	padding: 5px 10px;
+	transition: border 0.25s ease;
+}
+
+nav a.primary {
+	background: #277B93;
+	color: #fff;
+	border-radius: 25px;
+	border-bottom: none;
+	padding: 5px 15px;
+}
+
+nav a:hover,
+nav a[active] {
+	color: #6000B2;
+	border-bottom: 2px solid #6000B2;
+}
+
+nav a.primary:hover,
+nav a.primary[active]{
+	border: none;
+	color: #fff;
+	background: #6000B2;
+}
 
 /* footer */
 
