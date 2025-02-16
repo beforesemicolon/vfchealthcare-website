@@ -53,3 +53,15 @@
 	line-height: 110%;
 	color: #666;
 }
+
+/* #about-us */
+
+#about-us {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 0;
+}
+
+#about-us > * {
+	width: calc(50% - 30px);
+}
