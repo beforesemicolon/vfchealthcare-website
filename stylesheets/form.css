@@ -21,18 +21,6 @@ select {
 	cursor: pointer;
 }
 
-button {
-	background: var(--vfc-highlight-color);
-	color: #fff;
-	cursor: pointer;
-	border: none;
-	padding: 8px 20px;
-	width: max-content;
-	font-size: 1.2rem;
-	text-transform: capitalize;
-	border-radius: 3px;
-}
-
 fieldset {
 	all: unset;
 	padding: 0 25px;
