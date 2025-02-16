@@ -51,6 +51,7 @@ button, .btn {
 	border-radius: 3px;
 	font-weight: bold;
 	display: inline-block;
+	text-decoration: none;
 }
 
 header > *, #request-service .wrapper, main > *, footer {

@@ -1,6 +1,10 @@
 @import "common.css";
 @import "form.css";
 
+:root {
+	--gap-size: 50px;
+}
+
 /* #request-service */
 
 #request-service {
@@ -69,10 +73,11 @@
 /* #services */
 
 #services {
-	--gap-size: 50px;
 	background:
 		linear-gradient(90deg, var(--vfc-color) 50%, transparent 0) no-repeat 0 var(--gap-size),
 		linear-gradient(90deg, transparent 50%, #d2dce4 0) no-repeat 0 calc(var(--gap-size) * -1);
+	z-index: 1;
+	position: relative;
 }
 
 #services h2 {
@@ -94,7 +99,6 @@
 	transform: translateY(calc(var(--gap-size) * -1));
 	background: #abb4c0;
 }
-
 
 #services .details {
 	color: #fff;
@@ -148,4 +152,42 @@
 #services .details .btn {
 	background: #fff;
 	color: #222;
+}
+
+/* #massachusetts */
+
+#massachusetts {
+	display: flex;
+	background: #F2F2F2;
+	margin-top: calc(var(--gap-size) * -1);
+	padding-top: calc(var(--gap-size) * 2);
+	padding-bottom: 30px;
+}
+
+#massachusetts h2 {
+	font-size: 2rem;
+}
+
+#massachusetts > * {
+	width: 50%;
+	flex: 1;
+}
+
+#massachusetts .image {
+	position: relative;
+}
+
+#massachusetts svg {
+	position: absolute;
+	top: -75%;
+	left: 0;
+	overflow: visible;
+}
+
+#massachusetts svg path {
+	filter: drop-shadow( 1px 1px 0 #ddd);
+}
+
+#massachusetts .btn {
+	margin-top: 30px;
 }
