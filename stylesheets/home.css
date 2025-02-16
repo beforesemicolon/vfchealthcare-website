@@ -191,3 +191,43 @@
 #massachusetts .btn {
 	margin-top: 30px;
 }
+
+
+/* #credibility */
+
+#credibility {
+	display: flex;
+	gap: 25px;
+	align-items: center;
+	padding-top: 25px;
+	padding-bottom: 15px;
+}
+
+#credibility p {
+	max-width: 60%;
+}
+
+/* #satisfaction */
+
+#satisfaction {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+	background: #216C81;
+	color: #fff;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#satisfaction p {
+	margin: 0;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+#satisfaction .rating {
+	display: flex;
+	gap: 10px;
+}
