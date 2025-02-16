@@ -34,6 +34,11 @@ a {
 	color: var(--vfc-highlight-color);
 }
 
+img {
+	max-width: 100%;
+	display: block;
+}
+
 header > *, #request-service .wrapper, main, footer {
 	padding-left: calc((100vw - 1280px) / 2);
 	padding-right: calc((100vw - 1280px) / 2);
