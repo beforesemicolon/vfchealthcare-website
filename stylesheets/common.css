@@ -17,8 +17,13 @@ body {
 	box-sizing: border-box;
 }
 
+:root {
+	--vfc-color: #277B93;
+	--vfc-highlight-color: #6000B2;
+}
+
 h1, h2, h3, h4, h5, h6 {
-	font-family: Futura;
+	font-family: Futura, serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -26,12 +31,12 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 a {
-	color: #6000B2;
+	color: var(--vfc-highlight-color);
 }
 
-header > *, main, footer, #banner {
-	padding-left: calc((100vw - 1400px) / 2);
-	padding-right: calc((100vw - 1400px) / 2);
+header > *, #request-service .wrapper, main, footer {
+	padding-left: calc((100vw - 1280px) / 2);
+	padding-right: calc((100vw - 1280px) / 2);
 }
 
 /* header */
@@ -40,6 +45,7 @@ header {
 	position: sticky;
 	top: 0;
 	left: 0;
+	background: #fff;
 }
 
 header .branding {
@@ -53,7 +59,7 @@ header .branding {
 /* #contact-bar */
 
 #contact-bar {
-	background: #6000B2;
+	background: var(--vfc-highlight-color);
 	padding-top: 6px;
 	padding-bottom: 8px;
 	display: flex;
@@ -73,9 +79,9 @@ header .branding {
 }
 
 #contact-bar .primary {
-	padding-left: 30px;
+	padding-left: 25px;
 	background: url("../assets/icons/phone.icon.svg") no-repeat left center;
-	background-size: 30px;
+	background-size: 20px;
 }
 
 #contact-bar .facebook-social span,
@@ -140,7 +146,7 @@ nav a {
 }
 
 nav a.primary {
-	background: #277B93;
+	background: var(--vfc-color);
 	color: #fff;
 	border-radius: 25px;
 	border-bottom: none;
@@ -149,15 +155,15 @@ nav a.primary {
 
 nav a:hover,
 nav a[active] {
-	color: #6000B2;
-	border-bottom: 2px solid #6000B2;
+	color: var(--vfc-highlight-color);
+	border-bottom: 2px solid var(--vfc-highlight-color);
 }
 
 nav a.primary:hover,
 nav a.primary[active]{
 	border: none;
 	color: #fff;
-	background: #6000B2;
+	background: var(--vfc-highlight-color);
 }
 
 /* footer */

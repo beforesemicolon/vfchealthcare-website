@@ -1,0 +1,50 @@
+input, select {
+	display: block;
+	width: 100%;
+	border: 1px solid var(--vfc-highlight-color);
+	border-radius: 3px;
+	padding: 12px 30px 12px 12px;
+	font-size: 16px;
+	margin-bottom: 5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input::placeholder {
+	color: #888;
+}
+
+select {
+	background: url("../assets/icons/down-arrow.icon.svg") no-repeat calc(100% - 10px) center;
+	background-size: 20px;
+	cursor: pointer;
+}
+
+button {
+	background: var(--vfc-highlight-color);
+	color: #fff;
+	cursor: pointer;
+	border: none;
+	padding: 8px 20px;
+	width: max-content;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	border-radius: 3px;
+}
+
+fieldset {
+	all: unset;
+	padding: 0 25px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+fieldset legend {
+	margin-bottom: 10px;
+	padding: 0;
+	color: #555;
+}

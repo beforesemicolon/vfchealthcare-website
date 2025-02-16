@@ -67,35 +67,46 @@
 		</div>
 	</header>
 	<section id="request-service">
-		<img src="./assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services">
-		<h2>We are your healthcare solution.</h2>
-		<form id="service-request">
-			<h3>Request Service</h3>
-			<fieldset>
-				<legend>Contact Information *</legend>
-				<label aria-label="full name"><input type="text" placeholder="Full Name *"></label>
-				<label aria-label="email"><input type="email" placeholder="Email *"></label>
-				<label aria-label="phone"><input type="tel" placeholder="Phone *"></label>
-			</fieldset>
-			<fieldset>
-				<legend>Service *</legend>
-				<label aria-label="service">
-					<select>
-						<option value="adult family care" selected>Adult Family Care</option>
-						<option value="home care">Home care</option>
-						<option value="nurse staffing">Nurse Recruiting/Staffing</option>
-						<option value="nurse case management">Nurse Case Management</option>
-						<option value="other">Other</option>
-					</select>
-				</label>
-			</fieldset>
-			<p class="disclosure">
-				By requesting care I understand that VFC may contact me at this number via calls or texts (including
-				through use of an automatic telephone dialing system) to provide information about or to help me enroll
-				in Adult Foster Care.  Message and data rates may apply.
-			</p>
-			<button type="submit" aria-label="send">Send</button>
-		</form>
+		<div class="wrapper image">
+			<img src="./assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services" height="405">
+		</div>
+		<!-- /.wrapper -->
+		<div class="wrapper form-container">
+			<h2>We are your healthcare solution.</h2>
+			<form id="service-request">
+				<h3>Request Service</h3>
+				<fieldset>
+					<legend>Contact Information *</legend>
+					<label aria-label="full name"><input type="text" placeholder="Full Name *" required pattern="^(\w\w+)\s(\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
+					<label aria-label="email"><input type="email" placeholder="Email *" required></label>
+					<label aria-label="phone">
+						<input type="tel" placeholder="Phone Number *" required pattern="[0-9]{3} [0-9]{3}-[0-9]{4}" title="Must match format: XXX XXX-XXXX">
+					</label>
+				</fieldset>
+				<fieldset>
+					<legend>Service *</legend>
+					<label aria-label="service">
+						<select>
+							<option value="adult family care" selected>Adult Family Care</option>
+							<option value="home care">Home care</option>
+							<option value="nurse staffing">Nurse Recruiting/Staffing</option>
+							<option value="nurse case management">Nurse Case Management</option>
+							<option value="other">Other</option>
+						</select>
+					</label>
+				</fieldset>
+				<fieldset>
+					<p class="disclosure">
+						<small>
+							By requesting care I understand that VFC may contact me at this number via calls or texts (including
+							through use of an automatic telephone dialing system) to provide information about or to help me enroll
+							in my requested service. Message and data rates may apply.
+						</small>
+					</p>
+					<button type="submit" aria-label="send">Send</button>
+				</fieldset>
+			</form>
+		</div>
 	</section>
 	<main>
 		<section id="about-us"></section>

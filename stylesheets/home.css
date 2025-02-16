@@ -1,1 +1,55 @@
 @import "common.css";
+@import "form.css";
+
+/* #request-service */
+
+#request-service {
+	background: linear-gradient(90deg, #fafafc, #E5E0DA);
+}
+
+#request-service img {
+	transform: translateX(-50px);
+}
+
+#request-service .form-container {
+	color: #fff;
+	position: relative;
+	background: var(--vfc-color);
+	display: flex;
+	gap: 20px;
+	height: 65px;
+}
+
+#request-service h2 {
+	font-size: 34px;
+	flex: 1;
+	margin: 10px 20px 10px 0;
+	text-wrap: nowrap;
+}
+
+#request-service form {
+	background: #fff;
+	color: #222;
+	border-radius: 5px;
+	overflow: hidden;
+	flex: 1;
+	margin-top: -450px;
+	margin-right: 5%;
+	transform: translateY(15%);
+	box-shadow: -3px 6px 10px rgba(0, 0, 0, 0.1);
+	height: max-content;
+}
+
+#request-service form h3 {
+	background: var(--vfc-highlight-color);
+	font-size: 32px;
+	text-align: center;
+	padding: 10px 0;
+	color: #fff;
+}
+
+#request-service form .disclosure {
+	font-size: 14px;
+	line-height: 110%;
+	color: #666;
+}
