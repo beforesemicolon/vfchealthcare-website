@@ -36,6 +36,11 @@ p {
 
 a {
 	color: var(--vfc-highlight-color);
+	text-underline-offset: 4px;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 p a {
@@ -60,6 +65,40 @@ button, .btn {
 	font-weight: bold;
 	display: inline-block;
 	text-decoration: none;
+}
+
+/* icons */
+
+.facebook-social span,
+.facebook-social-black span,
+.instagram-social span,
+.instagram-social-black span {
+	display: none;
+}
+
+.facebook-social,
+.facebook-social-black,
+.instagram-social,
+.instagram-social-black {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.facebook-social {
+	background: url("../assets/icons/facebook.icon.svg") 0 0 no-repeat;
+}
+
+.instagram-social {
+	background: url("../assets/icons/instagram.icon.svg") 0 0 no-repeat;
+}
+
+.facebook-social-black {
+	background: url("../assets/icons/facebook-black.icon.svg") 0 0 no-repeat;
+}
+
+.instagram-social-black {
+	background: url("../assets/icons/instagram-black.icon.svg") 0 0 no-repeat;
 }
 
 header > *, #request-service .wrapper, main > *, footer {
@@ -113,29 +152,9 @@ header .branding {
 	background-size: 20px;
 }
 
-#contact-bar .facebook-social span,
-#contact-bar .instagram-social span {
-	display: none;
-}
+/* .logo */
 
-#contact-bar .facebook-social,
-#contact-bar .instagram-social {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-}
-
-#contact-bar .facebook-social {
-	background: url("../assets/icons/facebook.icon.svg") 0 0 no-repeat;
-}
-
-#contact-bar .instagram-social {
-	background: url("../assets/icons/instagram.icon.svg") 0 0 no-repeat;
-}
-
-/* #logo */
-
-#logo {
+.logo {
 	display: flex;
 	gap: 10px;
 	align-items: center;
@@ -143,20 +162,24 @@ header .branding {
 	color: #222;
 }
 
-#logo h1 {
+.logo h1 {
 	margin: 0;
 	font-size: 21px;
 	line-height: 120%;
 	font-weight: bolder;
 }
 
-#logo p {
+.logo p {
 	margin: 0;
 	font-size: 14px;
 	color: #555;
 }
 
-/* #logo */
+.logo:hover {
+	text-decoration: none;
+}
+
+/* nav */
 
 nav {
 	display: flex;
@@ -197,3 +220,55 @@ nav a.primary[active]{
 
 /* footer */
 
+footer {
+	background: #EBFBFF;
+	padding-top: 35px;
+	padding-bottom: 25px;
+}
+
+footer .content {
+	display: flex;
+	justify-content: space-between;
+	margin: 40px 0;
+}
+
+footer address {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+footer address .fax {
+	margin: 20px 0;
+}
+
+footer address a {
+	text-decoration: none;
+	color: #222;
+}
+
+footer address .mail-address span {
+	display: block;
+}
+
+footer section ul {
+	padding: 0;
+	list-style: none;
+}
+
+footer section ul li {
+	margin: 15px 0;
+}
+
+footer section ul li a {
+	color: #222;
+	padding: 10px 0;
+}
+
+footer #social {
+	text-align: right;
+}
+
+footer #social a {
+	margin-left: 15px;
+}
