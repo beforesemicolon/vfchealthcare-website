@@ -39,10 +39,6 @@ a {
 	text-underline-offset: 4px;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
 p a {
 	font-weight: bold;
 }
@@ -245,6 +241,10 @@ footer address .fax {
 footer address a {
 	text-decoration: none;
 	color: #222;
+}
+
+footer address a:hover {
+	text-decoration: underline;
 }
 
 footer address .mail-address span {
