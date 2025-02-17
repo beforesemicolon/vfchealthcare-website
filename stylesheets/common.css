@@ -97,14 +97,14 @@ button, .btn {
 	background: url("../assets/icons/instagram-black.icon.svg") 0 0 no-repeat;
 }
 
-header > *, #request-service .wrapper, main > *, footer {
+body > header > *, #request-service .wrapper, main > *, footer {
 	padding-left: calc((100vw - 1280px) / 2);
 	padding-right: calc((100vw - 1280px) / 2);
 }
 
 /* header */
 
-header {
+body > header {
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -112,7 +112,7 @@ header {
 	z-index: 1000;
 }
 
-header .branding {
+body > header .branding {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
