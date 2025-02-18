@@ -1,25 +1,92 @@
 @import "common.css";
 
 #services {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 30px;
-	padding-bottom: 50px;
+	--header-bg: #7196a8;
+	--section-gap: 80px;
 }
 
 #services > * {
 	width: calc(50% - 30px)
 }
 
-#services header {
-	width: 100%
+#services p {
+	line-height: 165%;
 }
 
-#services h2 {
+#services header {
+	width: 100%;
+	background: linear-gradient(90deg, var(--header-bg) 60%, #d2dce4 0) no-repeat 0 0;
+}
+
+#services header img {
+	float: right;
+	background: var(--header-bg);
+}
+
+#services header h2 {
 	font-size: 2rem;
+	background: var(--vfc-color);
+	color: #fff;
+	margin: 0;
+	padding: 10px 20px;
+	clear: both;
+}
+
+#services main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 60px var(--section-gap);
+	width: 100%;
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+#services main > * {
+	width: calc(50% - var(--section-gap));
+}
+
+#services main section:nth-of-type(odd) {
+	position: relative;
+}
+
+#services main section:nth-of-type(odd)::after {
+	content: '';
+	display: inline-block;
+	width: 1px;
+	height: 70%;
+	position: absolute;
+	right: -40px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: var(--vfc-color)
 }
 
 #services h3 {
 	font-size: 2.8rem;
 	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+#services ul {
+	margin: 20px 0;
+}
+
+#services li {
+	margin: 15px 0;
+	line-height: 165%;
+}
+
+#services .btn {
+	margin-top: 40px;
+}
+
+#services .call-us-btn {
+	background: var(--vfc-color);
+	color: #fff;
+	padding: 10px 25px;
+	text-decoration: none;
+	border-radius: 20px;
+	font-weight: bold;
+	margin-top: 40px;
+	display: inline-block;
 }
