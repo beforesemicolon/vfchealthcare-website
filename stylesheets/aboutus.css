@@ -1,0 +1,41 @@
+@import "common.css";
+
+#about-us {
+	--aboutus-gap: 30px;
+	display: flex;
+	gap: var(--aboutus-gap);
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-bottom: 50px;
+}
+
+#about-us header {
+	width: 100%;
+}
+
+#about-us header h2 {
+	font-size: 2rem;
+	background: var(--vfc-color);
+	color: #fff;
+	margin: 0;
+	padding: 10px 20px;
+	clear: both;
+}
+
+#about-us main,
+#about-us img {
+	width: calc(50% - var(--aboutus-gap));
+}
+
+#about-us p {
+	line-height: 165%;
+}
+
+#about-us p:first-of-type::first-letter {
+	initial-letter: 2;
+	text-transform: capitalize;
+	margin-right: 2px;
+}
+
+
+

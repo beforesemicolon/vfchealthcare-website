@@ -2,7 +2,7 @@
 
 #services {
 	--header-bg: #7196a8;
-	--section-gap: 80px;
+	--section-gap: 50px;
 }
 
 #services > * {
@@ -39,6 +39,7 @@
 	width: 100%;
 	padding-top: 35px;
 	padding-bottom: 35px;
+	justify-content: space-between;
 }
 
 #services main > * {
@@ -55,7 +56,7 @@
 	width: 1px;
 	height: 70%;
 	position: absolute;
-	right: -40px;
+	right: calc(var(--section-gap) * -1);
 	top: 50%;
 	transform: translateY(-50%);
 	background: var(--vfc-color)
