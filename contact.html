@@ -32,13 +32,14 @@
 	<meta name="theme-color" content="#429FBA">
 	<!--	fonts -->
 	<link rel="preload" href="./assets/fonts/Futura%20PT/FuturaPTBold.otf" as="font" crossorigin="anonymous">
+	<link rel="preload" href="./assets/fonts/Futura%20PT/FuturaPTDemi.otf" as="font" crossorigin="anonymous">
 	<link rel="preload" href="./assets/fonts/open-sans/OpenSans-Regular.ttf" as="font" crossorigin="anonymous">
 	<link rel="preload" href="./assets/fonts/open-sans/OpenSans-Italic.ttf" as="font" crossorigin="anonymous">
 	<link rel="preload" href="./assets/fonts/open-sans/OpenSans-Semibold.ttf" as="font" crossorigin="anonymous">
 	<link rel="preload" href="./assets/fonts/open-sans/OpenSans-SemiboldItalic.ttf" as="font" crossorigin="anonymous">
 	<link rel="preload" href="./assets/fonts/open-sans/OpenSans-ExtraBold.ttf" as="font" crossorigin="anonymous">
 	<!--	stylesheets -->
-	<link rel="stylesheet" href="./stylesheets/home.css">
+	<link rel="stylesheet" href="./stylesheets/contact.css">
 </head>
 <body>
 	<header>
@@ -66,8 +67,51 @@
 			</nav>
 		</div>
 	</header>
-	<main>
-	
+	<main class="wrapper">
+		<form id="contact">
+			<h2>Send us a message!</h2>
+			<p>We will reach out to you via email or phone as soon as possible.</p>
+			<label aria-label="full name"><input type="text" placeholder="Full Name *" required pattern="^(\w\w+)\s(\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
+			<label aria-label="email"><input type="email" placeholder="Email *" required></label>
+			<label aria-label="phone">
+				<input type="tel" placeholder="Phone Number *" required pattern="[0-9]{3} [0-9]{3}-[0-9]{4}" title="Must match format: XXX XXX-XXXX">
+			</label>
+			<label aria-label="message">
+				<textarea cols="30" rows="8" placeholder="Message *"></textarea>
+			</label>
+			<fieldset>
+				<legend>Are you a patient?</legend>
+				<div class="group">
+					<label aria-label="not patient">
+						<input type="radio" name="patient" value="no" checked>
+						<span>No</span>
+					</label>
+					<label aria-label="patient">
+						<input type="radio" name="patient" value="yes">
+						<span>Yes</span>
+					</label>
+				</div>
+			</fieldset>
+			<p class="disclosure"><small>By requesting care I understand that VFC may contact me at this number via calls or texts (including through use of an automatic telephone dialing system) to provide information about or to help me enroll in Adult Foster Care.  Message and data rates may apply.</small></p>
+			<button>Send</button>
+		</form>
+		<section id="contact-details">
+			<h2>Call or mail us!</h2>
+			<p>Please contact us directly with any questions, concerns or inquiries you may have. You can use the following email:
+				<a href="mailto:coordinator@vfchealthcare.com">coordinator@vfchealthcare.com</a></p>
+			<address>
+				<a href="tel:7744804991"><strong>Phone</strong>: (774) 480 - 4991</a>
+				<a href="tel:7744804991"><strong>Tol Free</strong>: (888) 718 - 4683</a>
+				<a href="tel:7742729322" class="fax"><strong>Fax</strong>: (774) 272 - 9322</a>
+				<p><strong>All mail corespondences should be send to:</strong></p>
+				<a class="mail-address" href="https://maps.apple.com/?address=810%20Washington%20St,%20Stoughton,%20MA%20%2002072,%20United%20States&ll=42.123759,-71.101336&q=810%20Washington%20St&t=m">
+					<span>810 Washington Street,</span>
+					<span>Stoughton,</span>
+					<span>MA. 02072</span>
+				</a>
+			</address>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.2395241517434!2d-71.10390752332923!3d42.12375524999702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e486a8e3b9af09%3A0x7b36201e6ea70532!2s810%20Washington%20St%2C%20Stoughton%2C%20MA%2002072!5e0!3m2!1sen!2sus!4v1740178375145!5m2!1sen!2sus" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</section>
 	</main>
 	<footer class="wrapper">
 		<a href="/" class="logo">

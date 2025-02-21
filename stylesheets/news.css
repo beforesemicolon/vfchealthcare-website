@@ -33,7 +33,7 @@
 /* #announcements*/
 
 #news #announcements {
-	background: var(--vfc-color);
+	background: #3f51b5;
 	color: #fff;
 	padding: 20px 30px;
 	border-radius: 3px;
@@ -122,7 +122,7 @@
 }
 
 #news .news-post {
-	background: #fcfaff;
+	background: #f4f6ff;
 	padding: 25px;
 	border-radius: 5px;
 }
