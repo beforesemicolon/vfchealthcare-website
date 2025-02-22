@@ -58,6 +58,10 @@
 	color: #666;
 }
 
+#request-service form fieldset {
+	padding: 0 25px;
+}
+
 /* #about-us */
 
 #about-us {

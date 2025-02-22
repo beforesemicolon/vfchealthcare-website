@@ -17,10 +17,6 @@ body {
 	scroll-margin-top: 120px;
 }
 
-*, *::before, *::after {
-	box-sizing: border-box;
-}
-
 :root {
 	--vfc-color: #277B93;
 	--vfc-highlight-color: #6000B2;
@@ -45,6 +41,14 @@ a {
 
 p a {
 	font-weight: bold;
+}
+
+[hidden] {
+	display: none;
+}
+
+span {
+	display: inline-block;
 }
 
 img {
