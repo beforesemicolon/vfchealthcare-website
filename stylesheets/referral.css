@@ -1,0 +1,19 @@
+@import "common.css";
+@import "form.css";
+
+main {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	display: flex;
+	align-items: flex-start;
+	gap: 50px;
+}
+
+main > * {
+	flex: 1;
+	max-width: calc(50% - 25px);
+}
+
+#referral {
+	min-width: 50%
+}

@@ -24,7 +24,6 @@ h2 {
 
 #contact label {
 	max-width: 500px;
-	display: block;
 	margin: 12px 0;
 }
 
@@ -35,15 +34,6 @@ h2 {
 #contact fieldset {
 	padding: 0;
 	margin-top: 40px;
-}
-
-#contact fieldset .group {
-	display: flex;
-	gap: 25px;
-}
-
-#contact fieldset .group label {
-	display: inline-flex;
 }
 
 #contact .disclosure {
