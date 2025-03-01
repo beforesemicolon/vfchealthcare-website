@@ -91,3 +91,39 @@
 	margin-top: 40px;
 	display: inline-block;
 }
+
+@media screen and (max-width: 1024px) {
+	#services main {
+		gap: 30px;
+	}
+	
+	#services main > * {
+		width: auto;
+		max-width: 100%;
+		min-width: 425px;
+	}
+	
+	#services main section:nth-of-type(odd)::after {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 520px) {
+	#services header {
+		padding: 0;
+	}
+	
+	#services header img {
+		float: none;
+	}
+	
+	#services h3 {
+		font-size: 2rem;
+	}
+}
+
+@media screen and (max-width: 435px) {
+	#services main > * {
+		min-width: 200px;
+	}
+}
