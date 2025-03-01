@@ -56,6 +56,14 @@ img {
 	display: block;
 }
 
+noscript p {
+	background: #ffe004;
+	color: #000;
+	border-radius: 3px;
+	padding: 5px 10px;
+	margin: 0;
+}
+
 button, .btn {
 	background: var(--vfc-highlight-color);
 	color: #fff;
@@ -108,6 +116,13 @@ button, .btn {
 .wrapper {
 	padding-left: calc((100vw - 1280px) / 2);
 	padding-right: calc((100vw - 1280px) / 2);
+}
+
+@media screen and (max-width: 1280px) {
+	.wrapper {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
 }
 
 /* header */
@@ -221,6 +236,23 @@ nav a.primary[active]{
 	border: none;
 	color: #fff;
 	background: var(--vfc-highlight-color);
+}
+
+#mobile-menu {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	nav {
+		display: none;
+	}
+	
+	#mobile-menu {
+		display: block;
+		width: px;
+		height: 24px;
+		background: red;
+	}
 }
 
 /* footer */

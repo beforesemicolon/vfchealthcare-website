@@ -15,7 +15,14 @@ textarea {
 	appearance: none;
 }
 
-input[type="radio"] {
+.invalid-form input:invalid,
+.invalid-form textarea:invalid,
+.invalid-form select:invalid {
+	border-color: red;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
 	width: 30px;
 	height: 30px;
 	border: 4px solid var(--vfc-highlight-color);
@@ -29,6 +36,7 @@ input[type="radio"] {
 	-moz-appearance: none;
 }
 
+input[type="checkbox"]::after,
 input[type="radio"]::after {
 	content: '';
 	display: none;
@@ -42,13 +50,24 @@ input[type="radio"]::after {
 	transform: translate(-50%, -50%);
 }
 
-input[type="radio"]:not(:checked):hover::after {
+input[type="radio"]:not(:checked):hover::after,
+input[type="checkbox"]:not(:checked):hover::after {
 	background: #bbb;
 }
 
 input[type="radio"]:hover::after,
-input[type="radio"]:checked::after {
+input[type="checkbox"]:hover::after,
+input[type="radio"]:checked::after,
+input[type="checkbox"]:checked::after {
 	display: inline-block;
+}
+
+input[type="checkbox"] {
+	border-radius: 3px;
+}
+
+input[type="checkbox"]::after {
+	border-radius: 2px;
 }
 
 textarea::placeholder,
