@@ -195,15 +195,14 @@
 				<p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
 				<button type="submit">Retry</button>
 			</div>
-			<button class="g-recaptcha"
-			        data-sitekey="6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"
-			        data-callback="onSubmit"
-			        data-size="invisible">send</button>
+			<button>send</button>
+			<div class="g-recaptcha"
+			     data-sitekey="6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"
+			     data-callback="SubmitForm"
+			     data-size="invisible"></div>
 		</form>
 		<script>
-			function onSubmit(token) {
-				handleForm('referral', token);
-			}
+			handleForm('referral');
 			
 			const attach = document.getElementById('documents');
 			const selectedFilesList = document.querySelector('ul.selected-files');

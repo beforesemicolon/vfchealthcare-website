@@ -43,6 +43,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css">
 	<link rel="stylesheet" href="./stylesheets/home.css">
 	<!--	scripts -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script>emailjs.init({publicKey: 'PCOzI_NKfzoaJDQkC',});</script>
 	<script src="scripts/handle-form.js"></script>
@@ -88,7 +89,7 @@
 		</div>
 		<div class="wrapper form-container">
 			<h2>We are your healthcare solution.</h2>
-			<form id="service-request" novalidate>
+			<form id="service-request" class="sending-form">
 				<h3>Request Service</h3>
 				<p class="error-check-msg">Please fix the invalid fields before you send.</p>
 				<fieldset>
@@ -134,27 +135,12 @@
 					<p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
 					<button type="submit">Retry</button>
 				</div>
-				<div id="g-recaptcha"
+				<div class="g-recaptcha"
 				     data-sitekey="6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"
-				     data-size="invisible">
-				</div>
+				     data-callback="SubmitForm"
+				     data-size="invisible"></div>
 			</form>
-			<script>
-				handleForm('service-request');
-				function onloadCallback(token) {
-					console.log('-- onloadCallback');
-					grecaptcha.ready(() => {
-						grecaptcha.render('g-recaptcha', {
-							'sitekey' : '6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr',
-							size: 'invisible',
-							'callback' : token => {
-								console.log('-- token', token);
-								grecaptcha.reset(this.widgetId);
-							}
-						});
-					})
-				}
-			</script>
+			<script>handleForm('service-request');</script>
 		</div>
 	</section>
 	<main>
@@ -271,7 +257,5 @@
 		</div>
 		<p><small>Copyright © 2025 VFC Healthcare Solutions - All Rights Reserved.</small></p>
 	</footer>
-	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
-	</script>
 </body>
 </html>

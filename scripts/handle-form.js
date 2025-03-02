@@ -8,53 +8,59 @@ function fileToBase64(file) {
   });
 }
 
+let currentForm = {};
+
+async function SubmitForm(token) {
+  const formData = new FormData(currentForm.form);
+  const data = {};
+
+  for (let [key, value] of formData) {
+    if (value instanceof File) {
+      data[key] = await fileToBase64(value);
+      data['filename'] = value.name;
+    } else {
+      data[key] = value.trim();
+    }
+  }
+  
+  emailjs.send("beforesemi", currentForm.emailTemplate, {
+      ...data,
+      "g-recaptcha-response": token
+    })
+    .then(() => {
+      currentForm.form.reset();
+      currentForm.form.className = 'success-request';
+    })
+    .catch(err => {
+      console.error(err);
+      currentForm.form.className = 'failed-request';
+    });
+  
+  grecaptcha.reset();
+}
+
 function handleForm(formId, emailTemplate = 'vfc_service_request') {
   const form = document.getElementById(formId);
   const successBtn = form.querySelector('.success-request-message button');
+  const failedBtn = form.querySelector('.failed-request-message button');
   
-  function handleError(err) {
-    console.error(err);
-    form.className = 'failed-request';
-  }
-  
-  successBtn.addEventListener('click', () => {
-    form.className = '';
+  [successBtn, failedBtn].forEach(btn => {
+    btn.addEventListener('click', () => {
+      form.className = '';
+    })
   })
   
   form.addEventListener('submit', ev => {
     ev.preventDefault();
     form.className = '';
     
-    // if (!form.checkValidity()) {
-    //   form.className = 'invalid-form';
-    //   scrollTo(form.clientTop, form.clientLeft);
-    //   return;
-    // }
-    
-    grecaptcha.execute("6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr", {action: "signup"}).then(async function (token = '') {
-      const formData = new FormData(form);
-      const data = {};
-
-      for (let [key, value] of formData) {
-        if (value instanceof File) {
-          data[key] = await fileToBase64(value);
-          data['filename'] = value.name;
-        } else {
-          data[key] = value.trim();
-        }
-      }
-
-      console.log(data, token);
-
-      // emailjs.sendForm("beforesemi", emailTemplate, {
-      //     ...data,
-      //     "g-recaptcha-response": token
-      //   })
-      //   .then(() => {
-      //     form.reset();
-      //     form.className = 'success-request';
-      //   })
-      //   .catch(handleError);
-    }).catch(handleError);
+    if (!form.checkValidity()) {
+      form.className = 'invalid-form';
+      scrollTo(form.clientTop, form.clientLeft);
+    } else {
+      form.className = 'sending-form';
+      currentForm = {form, emailTemplate};
+      grecaptcha.execute()
+    }
   })
 }

@@ -79,6 +79,11 @@ button, .btn {
 	text-decoration: none;
 }
 
+button:disabled, .btn:disabled {
+	background: #C8B1DEFF;
+	cursor: not-allowed;
+}
+
 /* icons */
 
 .facebook-social span,
