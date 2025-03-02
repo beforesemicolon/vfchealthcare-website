@@ -15,7 +15,8 @@ main > * {
 }
 
 #referral {
-	min-width: 50%
+	min-width: 50%;
+	position: relative;
 }
 
 #who:has(input[value="myself"]:focus) ~ #patient {
@@ -35,7 +36,6 @@ main > * {
 }
 
 .selected-files li {
-	background: #607D8B;
 	color: #fff;
 	padding: 10px 14px;
 	border-radius: 2px;

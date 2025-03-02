@@ -80,7 +80,7 @@
 		</div>
 	</header>
 	<main class="wrapper">
-		<form id="referral" name="adult-family-care">
+		<form id="referral" name="adult-family-care" novalidate>
 			<p class="error-check-msg">Please fix the invalid fields before you send.</p>
 			<fieldset>
 				<legend>Service *</legend>
@@ -121,7 +121,7 @@
 				<p><em>e.g: PCP form, insurance verification.</em></p>
 				<label aria-label="documents" class="btn">
 					<span>Select file(s)</span>
-					<input type="file" name="documents" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple style="display: none">
+					<input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none" multiple size="512000">
 				</label>
 				<ul class="selected-files"></ul>
 			</fieldset>
@@ -195,10 +195,15 @@
 				<p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
 				<button type="submit">Retry</button>
 			</div>
-			<button>send</button>
+			<button class="g-recaptcha"
+			        data-sitekey="6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"
+			        data-callback="onSubmit"
+			        data-size="invisible">send</button>
 		</form>
 		<script>
-			handleForm('referral', 'vfc-referral');
+			function onSubmit(token) {
+				handleForm('referral', token);
+			}
 			
 			const attach = document.getElementById('documents');
 			const selectedFilesList = document.querySelector('ul.selected-files');
@@ -207,8 +212,12 @@
 				const files = attach.querySelector('input[type="file"]').files;
 				selectedFilesList.innerHTML = '';
 				for (let i = 0; i < files.length; i++) {
+					const file = files[i];
 					const li = document.createElement('li');
-					li.textContent = files[i].name;
+					const toobig = file.size > 500 * 1024;
+					li.style.background = toobig ? '#900' : '#225400';
+					li.title = toobig ? 'File too big (> 500kb)' : 'File size is good';
+					li.textContent = file.name;
 					selectedFilesList.appendChild(li);
 				}
 			})
