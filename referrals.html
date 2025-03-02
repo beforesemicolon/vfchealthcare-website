@@ -40,6 +40,11 @@
 	<!--	stylesheets -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css">
 	<link rel="stylesheet" href="./stylesheets/referral.css">
+	<!--	scripts -->
+	<script src="https://www.google.com/recaptcha/api.js?render=6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<script>emailjs.init({publicKey: 'PCOzI_NKfzoaJDQkC',});</script>
+	<script src="scripts/handle-form.js"></script>
 </head>
 <body>
 	<noscript>
@@ -76,6 +81,7 @@
 	</header>
 	<main class="wrapper">
 		<form id="referral" name="adult-family-care">
+			<p class="error-check-msg">Please fix the invalid fields before you send.</p>
 			<fieldset>
 				<legend>Service *</legend>
 				<label aria-label="service">
@@ -87,13 +93,13 @@
 			</fieldset>
 			<fieldset>
 				<legend>About you *</legend>
-				<label aria-label="full name"><input name="full-name" type="text" placeholder="Full Name *" required pattern="^(\w\w+)\s(\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
+				<label aria-label="full name"><input name="fullname" type="text" placeholder="Full Name *" required pattern="^(\w\w+)\s(\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
 				<label aria-label="email"><input name="email" type="email" placeholder="Email *" required></label>
 				<label aria-label="phone">
 					<input type="tel" name="phone" placeholder="Phone Number *" required pattern="[0-9]{3} [0-9]{3}-[0-9]{4}" title="Must match format: XXX XXX-XXXX">
 				</label>
 			</fieldset>
-			<fieldset>
+			<fieldset id="who">
 				<legend>Who needs care?</legend>
 				<div class="group">
 					<label aria-label="someone in my care">
@@ -110,19 +116,28 @@
 					</label>
 				</div>
 			</fieldset>
+			<fieldset id="documents">
+				<legend>Attach Documents</legend>
+				<p><em>e.g: PCP form, insurance verification.</em></p>
+				<label aria-label="documents" class="btn">
+					<span>Select file(s)</span>
+					<input type="file" name="documents" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple style="display: none">
+				</label>
+				<ul class="selected-files"></ul>
+			</fieldset>
 			<fieldset id="patient">
-				<legend>About the patient *</legend>
-				<label aria-label="full name"><input name="patient-full-name" type="text" placeholder="Full Name *" required pattern="^(\w\w+)\s(\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
-				<label aria-label="email"><input name="patient-email" type="email" placeholder="Email *" required></label>
+				<legend>About the patient</legend>
+				<label aria-label="full name"><input name="patientfullname" type="text" placeholder="Full Name" pattern="^(\w\w+)\s(\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
+				<label aria-label="email"><input name="patientemail" type="email" placeholder="Email"></label>
 				<label aria-label="phone">
-					<input type="tel" name="patient-phone" placeholder="Phone Number *" required pattern="[0-9]{3} [0-9]{3}-[0-9]{4}" title="Must match format: XXX XXX-XXXX">
+					<input type="tel" name="patientphone" placeholder="Phone Number" pattern="[0-9]{3} [0-9]{3}-[0-9]{4}" title="Must match format: XXX XXX-XXXX">
 				</label>
 			</fieldset>
 			<fieldset>
 				<legend>Reason for referral?</legend>
 				<div class="group">
 					<label aria-label="medical diagnosis">
-						<input type="radio" name="reason" value="medical-diagnosis" checked>
+						<input type="radio" name="reason" value="medical diagnosis" checked>
 						<span>Medical diagnosis</span>
 					</label>
 					<label aria-label="behavioral">
@@ -130,7 +145,7 @@
 						<span>Behavioral</span>
 					</label>
 					<label aria-label="other">
-						<input type="radio" name="reason" value="myself">
+						<input type="radio" name="reason" value="other">
 						<span>Other</span>
 					</label>
 				</div>
@@ -167,11 +182,37 @@
 			<fieldset>
 				<legend>Additional information</legend>
 				<label aria-label="additional info">
-					<textarea name="additional-info" cols="30" rows="10"></textarea>
+					<textarea name="additionalinfo" cols="30" rows="10"></textarea>
 				</label>
 			</fieldset>
+			<div class="success-request-message">
+				<h4>Request Sent!</h4>
+				<p>Someone will be reaching out soon for more details.</p>
+				<button type="button">Ok</button>
+			</div>
+			<div class="failed-request-message">
+				<h4>Oops!</h4>
+				<p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
+				<button type="submit">Retry</button>
+			</div>
 			<button>send</button>
 		</form>
+		<script>
+			handleForm('referral', 'vfc-referral');
+			
+			const attach = document.getElementById('documents');
+			const selectedFilesList = document.querySelector('ul.selected-files');
+			
+			attach.addEventListener('change', () => {
+				const files = attach.querySelector('input[type="file"]').files;
+				selectedFilesList.innerHTML = '';
+				for (let i = 0; i < files.length; i++) {
+					const li = document.createElement('li');
+					li.textContent = files[i].name;
+					selectedFilesList.appendChild(li);
+				}
+			})
+		</script>
 		<img src="./assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
 	</main>
 	<footer class="wrapper">
@@ -220,6 +261,6 @@
 		<p><small>Copyright © 2025 VFC Healthcare Solutions - All Rights Reserved.</small></p>
 	</footer>
 	
-	<script src="./scripts/referrals.js"></script>
+	<script src="scripts/handle-form.js"></script>
 </body>
 </html>

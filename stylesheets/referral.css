@@ -17,3 +17,40 @@ main > * {
 #referral {
 	min-width: 50%
 }
+
+#who:has(input[value="myself"]:focus) ~ #patient {
+	display: none;
+}
+
+.selected-files:empty {
+	display: none;
+}
+
+.selected-files {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.selected-files li {
+	background: #607D8B;
+	color: #fff;
+	padding: 10px 14px;
+	border-radius: 2px;
+}
+
+@media screen and (max-width: 960px) {
+	main {
+		flex-direction: column;
+	}
+	
+	main > * {
+		max-width: 100%;
+	}
+	
+	main img {
+		display: none;
+	}
+}

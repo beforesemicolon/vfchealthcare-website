@@ -46,6 +46,7 @@
 	<script src="https://www.google.com/recaptcha/api.js?render=6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script>emailjs.init({publicKey: 'PCOzI_NKfzoaJDQkC',});</script>
+	<script src="scripts/handle-form.js"></script>
 </head>
 <body>
 	<noscript>
@@ -88,7 +89,7 @@
 		</div>
 		<div class="wrapper form-container">
 			<h2>We are your healthcare solution.</h2>
-			<form id="service-request" novalidate>
+			<form id="service-request">
 				<h3>Request Service</h3>
 				<p class="error-check-msg">Please fix the invalid fields before you send.</p>
 				<fieldset>
@@ -106,10 +107,10 @@
 					<legend>Service *</legend>
 					<label aria-label="service">
 						<select name="service">
-							<option value="adult-family-care" selected>Adult Foster/Family Care</option>
-							<option value="home-care">Home care</option>
-							<option value="nurse-staffing">Nurse Recruiting/Staffing</option>
-							<option value="nurse-case-management">Nurse Case Management</option>
+							<option value="adult foster/family care" selected>Adult Foster/Family Care</option>
+							<option value="home care">Home care</option>
+							<option value="nurse staffing">Nurse Recruiting/Staffing</option>
+							<option value="nurse case management">Nurse Case Management</option>
 							<option value="other">Other</option>
 						</select>
 					</label>
@@ -135,55 +136,7 @@
 					<button type="submit">Retry</button>
 				</div>
 			</form>
-			<script>
-				const serviceForm = document.getElementById('service-request');
-				const successBtn = serviceForm.querySelector('.success-request-message button');
-				
-				function handleError(err) {
-					console.error(err);
-					serviceForm.className = 'failed-request-message';
-				}
-				
-				successBtn.addEventListener('click', () => {
-					serviceForm.className = '';
-				})
-				
-				serviceForm.addEventListener('submit', ev => {
-					ev.preventDefault();
-					const {fullname, email, phone, service} = serviceForm.elements;
-					serviceForm.className = '';
-					
-					if (!/^(\w\w+)\s(\w+)$/.test(fullname.value) || !/[0-9]{3} [0-9]{3}-[0-9]{4}/.test(phone.value)) {
-						serviceForm.className = 'invalid-form';
-						return;
-					}
-					
-					grecaptcha.ready(function () {
-						grecaptcha.execute("6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr", {action: "signup"}).then(function (token = '') {
-							console.log({
-								fullName: fullname.value,
-								email: email.value,
-								phone: phone.value,
-								service: service.value.replace(/-/g, ' '),
-								"g-recaptcha-response": token,
-							});
-							
-							emailjs.send("beforesemi", "vfc_service_request", {
-								fullname: fullname.value,
-								email: email.value,
-								phone: phone.value,
-								service: service.value.replace(/-/g, ' '),
-								"g-recaptcha-response": token
-							})
-								.then(() => {
-									serviceForm.reset();
-									serviceForm.className = 'success-request';
-								})
-								.catch(handleError);
-						}).catch(handleError);
-					});
-				})
-			</script>
+			<script>handleForm('service-request');</script>
 		</div>
 	</section>
 	<main>
