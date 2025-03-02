@@ -75,3 +75,15 @@ h2 {
 	display: block;
 	margin: 2px 0;
 }
+
+#contact-details iframe {
+	max-width: 600px;
+	width: 100%;
+	height: 300px;
+}
+
+@media screen and (max-width: 520px){
+	main > * {
+		flex: 1 0 100%;
+	}
+}
