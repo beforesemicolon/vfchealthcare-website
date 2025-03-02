@@ -76,6 +76,24 @@
 	}
 }
 
+@media screen and (max-width: 425px) {
+	#request-service .hero-image {
+		height: 60vh;
+		position: relative;
+	}
+	
+	#request-service img {
+		position: absolute;
+		left: 70%;
+		top: 50%;
+		width: auto;
+		min-width: 100%;
+		min-height: 100% !important;
+		transform: translate(-50%, -50%);
+		max-width: unset;
+	}
+}
+
 #request-service form h3 {
 	background: var(--vfc-highlight-color);
 	font-size: 32px;
@@ -333,7 +351,6 @@
 		top: -20px;
 	}
 }
-
 
 /* #credibility */
 
