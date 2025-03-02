@@ -82,3 +82,16 @@
 	background: url("../assets/icons/ext-link.icon.svg") no-repeat center right;
 	background-size: 18px;
 }
+
+@media screen and (max-width: 1024px){
+	#careers .disclosure {
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 680px){
+	#careers .job-post {
+		max-width: 100%;
+	}
+}
+
