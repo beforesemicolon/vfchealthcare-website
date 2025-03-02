@@ -36,6 +36,7 @@ async function SubmitForm(token) {
       currentForm.form.className = 'failed-request';
     });
   
+  scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
   grecaptcha.reset();
 }
 
