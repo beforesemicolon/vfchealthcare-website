@@ -12,6 +12,10 @@
 	position: relative;
 }
 
+#request-service .hero-image {
+	overflow: hidden;
+}
+
 #request-service img {
 	transform: translateX(-50px);
 }
@@ -233,6 +237,7 @@
 		align-items: flex-start;
 		background: #abb4c0;
 		padding-left: 25px;
+		overflow: hidden;
 	}
 	
 	#services > .content * {
@@ -243,6 +248,11 @@
 	#services .content img {
 		transform: none;
 		height: 100%;
+		min-width: 60%;
+	}
+	
+	#services .content .details {
+		min-width: 40%;
 	}
 	
 	#services .content .details::after {
@@ -276,6 +286,7 @@
 		max-height: 120px;
 		width: auto;
 		align-self: flex-end;
+		min-width: unset;
 	}
 	
 	#services .content .details .btn {
@@ -375,6 +386,8 @@
 @media screen and (max-width: 425px) {
 	#credibility {
 		position: relative;
+		padding-top: 50px;
+		padding-bottom: 50px;
 	}
 	
 	#credibility p {
