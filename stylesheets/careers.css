@@ -87,6 +87,10 @@
 	#careers .disclosure {
 		max-width: 100%;
 	}
+	
+	#careers header {
+		padding: 0;
+	}
 }
 
 @media screen and (max-width: 680px){

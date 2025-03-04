@@ -21,6 +21,7 @@
 #services header img {
 	float: right;
 	background: var(--header-bg);
+	max-height: 300px;
 }
 
 #services header h2 {
