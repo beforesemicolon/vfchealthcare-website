@@ -1,0 +1,29 @@
+{
+  "extends": "base",
+  "name": "services",
+  "route": "/services",
+  "path": "/services.html",
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-no-script-for-forms"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "services"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-services-article"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "extends": "base",
+  "name": "services",
+  "route": "/services",
+  "path": "/services.html",
+  "stylesheets": [
+    "form.css"
+  ],
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-no-script-for-forms"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "referrals"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-referrals"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}

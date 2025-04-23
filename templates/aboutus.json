@@ -1,0 +1,29 @@
+{
+  "extends": "base",
+  "name": "aboutus",
+  "route": "/about-us",
+  "path": "/about.html",
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-no-script-for-forms"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "aboutus"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-aboutus-article"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}

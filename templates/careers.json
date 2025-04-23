@@ -1,0 +1,29 @@
+{
+  "extends": "base",
+  "name": "careers",
+  "route": "/careers",
+  "path": "/careers.html",
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-no-script-for-forms"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "careers"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-careers"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}

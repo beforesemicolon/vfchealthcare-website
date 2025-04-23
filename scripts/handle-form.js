@@ -23,7 +23,7 @@ async function SubmitForm(token) {
     }
   }
   
-  emailjs.send("service_lpq2084", currentForm.emailTemplate, {
+  emailjs.send("beforesemi", currentForm.emailTemplate, {
       ...data,
       "g-recaptcha-response": token
     })

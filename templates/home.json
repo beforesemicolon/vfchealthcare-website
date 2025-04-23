@@ -1,0 +1,67 @@
+{
+  "name": "home",
+  "route": "/",
+  "path": "/index.html",
+  "stylesheets": [
+    "form.css",
+    ":root {--gap-size: 50px;}"
+  ],
+  "scripts": [
+    {
+      "src": "https://www.google.com/recaptcha/api.js",
+      "async": true,
+      "defer": true
+    },
+    "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js",
+    "emailjs.init({publicKey: 'PCOzI_NKfzoaJDQkC',});",
+    "handle-form.js",
+    "handleForm('service-request');"
+  ],
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-no-script-for-forms"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-request-service-landing-form"
+    },
+    {
+      "name": "main",
+      "children": [
+        {
+          "name": "widget",
+          "id": "vfc-about-us"
+        },
+        {
+          "name": "widget",
+          "id": "vfc-our-services"
+        },
+        {
+          "name": "widget",
+          "id": "vfc-ma-foster-care"
+        },
+        {
+          "name": "widget",
+          "id": "vfc-credibility"
+        },
+        {
+          "name": "widget",
+          "id": "vfc-satisfaction"
+        }
+      ]
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}

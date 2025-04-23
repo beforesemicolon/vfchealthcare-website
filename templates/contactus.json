@@ -1,0 +1,29 @@
+{
+  "extends": "base",
+  "name": "contactus",
+  "route": "/contact-us",
+  "path": "/contact.html",
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-no-script-for-forms"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "contactus"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-contact"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}
