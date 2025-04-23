@@ -1,7 +1,7 @@
 export default {
    id: "vfc-request-service-landing-form",
    title: "Request service form",
-  inputDefinitions: [
+  inputs: [
     {
       name: "phrase",
       type: "string",
@@ -71,7 +71,7 @@ export default {
         },
         {
           name: 'disclosure',
-          type: 'long-string',
+          type: 'string',
           value: 'By requesting care I understand that VFC may contact me at this number via calls or texts (including through use of an automatic telephone dialing system) to provide information about or to help me enroll in my requested service. Message and data rates may apply.'
         },
         {
@@ -82,8 +82,7 @@ export default {
       ]
     }
   ],
-  stylesheets: [
-`
+  style: `
 #request-service {
  background: #E5E0DA;
  position: relative;
@@ -192,12 +191,11 @@ export default {
 #request-service form fieldset {
  padding: 0 25px;
 }
-`
-  ],
-  content: ({phrase} = {}) => `
+`,
+  render: ({phrase} = {}) => `
 <section id="request-service">
   <div class="wrapper hero-image">
-   <img src="./assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
+   <img src="/assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
         height="400">
   </div>
   <div class="wrapper form-container">

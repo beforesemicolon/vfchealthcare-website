@@ -1,9 +1,8 @@
 export default {
    id: "vfc-referrals",
    title: "Referrals",
-  inputDefinitions: [],
-  stylesheets: [
-`
+  inputs: [],
+  style: `
 main {
  padding-top: 50px;
  padding-bottom: 50px;
@@ -58,8 +57,7 @@ main > * {
  }
 }
 
-`
-  ],
+`,
   content: `
 <main class="wrapper">
   <form id="referral" name="adult-family-care" novalidate>
@@ -203,7 +201,7 @@ main > * {
     }
    })
   </script>
-  <img src="./assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
+  <img src="/assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
  </main>
   `
 }

@@ -1,9 +1,8 @@
 export default {
    id: "vfc-about-us",
    title: "About us",
-  inputDefinitions: [],
-  stylesheets: [
-`
+  inputs: [],
+  style: `
 #about-us {
   display: flex;
   flex-direction: column;
@@ -19,8 +18,7 @@ export default {
     width: 100%;
   }
 }
-`
-  ],
+`,
   content: `
 <section id="about-us" class="wrapper">
  <h2>Welcome to VFC</h2>

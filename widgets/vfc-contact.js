@@ -1,9 +1,8 @@
 export default {
    id: "vfc-contact",
    title: "Contact",
-  inputDefinitions: [],
-  stylesheets: [
-    `
+  inputs: [],
+  style: `
 main {
  display: flex;
  flex-wrap: wrap;
@@ -91,8 +90,7 @@ h2 {
  }
 }
 
-    `
-  ],
+    `,
   content: `
 <main class="wrapper">
   <div id="contact-container">

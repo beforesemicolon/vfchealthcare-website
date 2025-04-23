@@ -1,9 +1,8 @@
 export default {
    id: "vfc-our-services",
    title: "Our services",
-  inputDefinitions: [],
-  stylesheets: [
-`
+  inputs: [],
+  style: `
 #services {
  background:
   linear-gradient(90deg, var(--vfc-color) 50%, transparent 0) no-repeat 0 var(--gap-size),
@@ -162,8 +161,7 @@ export default {
   color: #fff;
  }
 }
-`
-  ],
+`,
   content: `
 <section id="services" class="wrapper">
  <h2>Our Services</h2>
@@ -177,7 +175,7 @@ export default {
    </ul>
    <a href="/services" class="btn">Learn More</a>
   </div>
-  <img src="./assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
+  <img src="/assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
  </div>
 </section>
   `

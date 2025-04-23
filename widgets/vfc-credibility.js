@@ -1,9 +1,8 @@
 export default {
    id: "vfc-credibility",
    title: "Credibility",
-  inputDefinitions: [],
-  stylesheets: [
-`
+  inputs: [],
+  style: `
 #credibility {
  display: flex;
  gap: 25px;
@@ -40,11 +39,10 @@ export default {
   top: 0;
  }
 }
-`
-  ],
+`,
   content: `
 <div id="credibility" class="wrapper">
-   <img src="./assets/carf.png" alt="carf logo" width="150" height="150">
+   <img src="/assets/carf.png" alt="carf logo" width="150" height="150">
    <p>VFC Healthcare Solutions LLC has gone through a rigorous peer review process and
       demonstrated to CARF that it provides high quality services. <a href="https://carf.org/" target="_blank">Learn
                                                                                                                more</a>.

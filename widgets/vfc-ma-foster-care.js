@@ -1,9 +1,8 @@
 export default {
    id: "vfc-ma-foster-care",
    title: "MA foster care",
-  inputDefinitions: [],
-  stylesheets: [
-`
+  inputs: [],
+  style: `
 #massachusetts {
  display: flex;
  background: #F2F2F2;
@@ -69,8 +68,7 @@ export default {
   top: -20px;
  }
 }
-`
-  ],
+`,
   content: `
 <section id="massachusetts" class="wrapper">
    <div class="details">

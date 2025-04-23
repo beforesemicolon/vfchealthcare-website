@@ -1,9 +1,8 @@
 export default {
   id: "vfc-services-article",
   title: "Services article",
-  inputDefinitions: [],
-  stylesheets: [
-    `
+  inputs: [],
+  style: `
 #services {
  --header-bg: #7196a8;
  --section-gap: 50px;
@@ -132,13 +131,11 @@ export default {
   min-width: 200px;
  }
 }
-
-    `
-  ],
+`,
   content: `
   <article id="services">
   <header class="wrapper">
-   <img src="./assets/vfc-healthcare-solutions-service.png" alt="vfc healthcare solutions services">
+   <img src="/assets/vfc-healthcare-solutions-service.png" alt="vfc healthcare solutions services">
    <h2>Services</h2>
   </header>
   <main class="wrapper">
@@ -212,7 +209,7 @@ export default {
        and link them to resources available in their community. </p>
     <a href="tel:7744804991" class="call-us-btn">Call us: (774) 480 - 4991</a>
    </section>
-   <img src="./assets/nurse-force.jpeg" alt="vfc nurses">
+   <img src="/assets/nurse-force.jpeg" alt="vfc nurses">
   </main>
  </article>
   `

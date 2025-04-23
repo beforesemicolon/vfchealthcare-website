@@ -1,9 +1,8 @@
 export default {
    id: "vfc-footer",
    title: "Footer",
-  inputDefinitions: [],
-  stylesheets: [
-`
+  inputs: [],
+  style: `
 footer {
  background: #EBFBFF;
  padding-top: 35px;
@@ -77,12 +76,11 @@ footer #social a {
   text-align: left;
  }
 }
-`
-  ],
+`,
   content: `
 <footer class="wrapper">
   <a href="/" class="logo">
-   <img src="./assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45" height="45">
+   <img src="/assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45" height="45">
    <div class="details">
     <h1>VFC Healthcare Solutions</h1>
     <p><em>Veracity. Fidelity. Compassion</em></p>

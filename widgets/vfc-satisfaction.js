@@ -1,10 +1,8 @@
 export default {
   id: "vfc-satisfaction",
   title: "Satisfaction",
-  inputDefinitions: [],
-  stylesheets: [
-`
-
+  inputs: [],
+  style: `
 #satisfaction {
  display: flex;
  justify-content: center;
@@ -51,18 +49,17 @@ export default {
   width: 3vw;
  }
 }
-`
-  ],
+`,
   content: `
 <div id="satisfaction" class="wrapper">
-   <img src="./assets/icons/care.icon.svg" alt="care icon" height="35">
+   <img src="/assets/icons/care.icon.svg" alt="care icon" height="35">
    <p>Year After Year Customer Satisfaction</p>
    <div class="rating">
-    <img src="./assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="./assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="./assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="./assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="./assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
    </div>
   </div>
   `

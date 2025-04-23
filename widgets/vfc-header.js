@@ -1,7 +1,7 @@
 export default {
    id: "vfc-header",
    title: "Header",
-  inputDefinitions: [
+  inputs: [
     {
       name: 'menu',
       type: 'group',
@@ -39,8 +39,7 @@ export default {
       ]
     }
   ],
-  stylesheets: [
-`
+  style: `
 #main-header {
  position: sticky;
  top: 0;
@@ -82,7 +81,7 @@ export default {
 
 #contact-bar .primary {
  padding-left: 25px;
- background: url("../assets/icons/phone.icon.svg") no-repeat left center;
+ background: url("./assets/icons/phone.icon.svg") no-repeat left center;
  background-size: 20px;
 }
 
@@ -265,7 +264,7 @@ nav ul li a.primary[active]{
   height: 30px;
   font-size: 2rem;
   display: inline-block;
-  background: url("../assets/icons/close.icon.svg") no-repeat center center;
+  background: url("./assets/icons/close.icon.svg") no-repeat center center;
   z-index: 1;
   opacity: 0;
   animation: appear 0.3s ease 0.2s forwards;
@@ -285,9 +284,8 @@ nav ul li a.primary[active]{
   border-bottom: none;
  }
 }
-`
-  ],
-  content: ({page = '', menu = {}}) => {
+`,
+  render: ({page = '', menu = {}}) => {
     const navItems = [
       ...(menu.referrals ? [{name: 'referrals', label: menu.referrals, pathname: '/referrals', cls: 'primary'}] : []),
       ...(menu.services ? [{name: 'services', label: menu.services, pathname: '/services', cls: ''}] : []),
@@ -302,7 +300,7 @@ nav ul li a.primary[active]{
       <header id="main-header">
         <div class="branding wrapper">
          <a href="/" class="logo">
-          <img src="./assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45"
+          <img src="/assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45"
                height="45">
           <div class="details">
            <h1>VFC Healthcare Solutions</h1>

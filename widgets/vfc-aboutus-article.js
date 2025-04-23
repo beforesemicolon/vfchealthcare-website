@@ -1,9 +1,8 @@
 export default {
    id: "vfc-aboutus-article",
    title: "About us article",
-  inputDefinitions: [],
-  stylesheets: [
-    `
+  inputs: [],
+  style: `
 #about-us {
  --aboutus-gap: 30px;
  display: flex;
@@ -101,8 +100,7 @@ export default {
 
 
 
-    `
-  ],
+    `,
   content: `
 <article class="wrapper" id="about-us">
   <header>
@@ -122,7 +120,7 @@ export default {
     <li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li>
    </ul>
   </main>
-  <img src="./assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
+  <img src="/assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
  </article>
   `
 }

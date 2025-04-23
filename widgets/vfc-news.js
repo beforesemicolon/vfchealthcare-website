@@ -1,9 +1,8 @@
 export default {
    id: "vfc-news",
    title: "News",
-  inputDefinitions: [],
-  stylesheets: [
-    `
+  inputs: [],
+  style: `
 #news {
  display: flex;
  flex-wrap: wrap;
@@ -180,7 +179,7 @@ export default {
  width: 20px;
  height: 20px;
  margin-left: 3px;
- background: url("../assets/icons/ext-link.icon.svg") no-repeat center right;
+ background: url("./assets/icons/ext-link.icon.svg") no-repeat center right;
  background-size: 18px;
 }
 
@@ -214,8 +213,7 @@ export default {
  }
 }
 
-    `
-  ],
+    `,
   content: `
 <main id="news" class="wrapper">
 <div id="announcements">

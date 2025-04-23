@@ -1,7 +1,7 @@
 export default {
   id: "vfc-top-bar",
   title: "Top bar",
-  inputDefinitions: [
+  inputs: [
     {
       name: "phone",
       type: "string",
@@ -14,17 +14,16 @@ export default {
     },
     {
       name: "facebook",
-      type: "long-string",
+      type: "string",
       value: 'https://www.facebook.com/people/VFC-Healthcare-Solutions/100086915456939/'
     },
     {
       name: "instagram",
-      type: "long-string",
+      type: "string",
       value: 'https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D'
     }
   ],
-  stylesheets: [
-`
+  style: `
 #contact-bar {
  background: var(--vfc-highlight-color);
  padding-top: 6px;
@@ -47,7 +46,7 @@ export default {
 
 #contact-bar .primary {
  padding-left: 25px;
- background: url("../assets/icons/phone.icon.svg") no-repeat left center;
+ background: url("./assets/icons/phone.icon.svg") no-repeat left center;
  background-size: 20px;
 }
 
@@ -56,13 +55,10 @@ export default {
   display: none;
  }
 }
-`
-  ],
-  content: (props = {}) => {
+`,
+  render: (props = {}) => {
     const phoneNumber = (props.phone ?? '').trim().replace(/[^\d]/g, '');
     const faxNumber = (props.fax ?? '').trim().replace(/[^\d]/g, '');
-    
-    console.log(props);
     
     return `
 <div id="contact-bar" class="wrapper">
