@@ -21,12 +21,6 @@
   "homepage": "https://github.com/beforesemicolon/vfchealthcare-website#readme",
   "dependencies": {
     "@beforesemicolon/html-parser": "^0.8.0",
-    "@beforesemicolon/site-builder": "^0.1.0",
-    "clean-css": "^5.3.3",
-    "dotenv": "^16.4.7",
-    "esbuild": "^0.25.0",
-    "express": "^4.21.2",
-    "git": "^0.1.5",
-    "html-minifier": "^4.0.0"
+    "@beforesemicolon/site-builder": "^0.2.0"
   }
 }
