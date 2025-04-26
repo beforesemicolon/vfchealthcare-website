@@ -1,9 +1,9 @@
 {
   "extends": "base",
   "type": "page",
-  "name": "contactus",
-  "route": "/contact-us",
-  "path": "/contact.html",
+  "name": "about",
+  "route": "/about",
+  "path": "/about.html",
   "content": [
     {
       "name": "widget",
@@ -16,11 +16,11 @@
     {
       "name": "widget",
       "id": "vfc-header",
-      "page": "contactus"
+      "page": "aboutus"
     },
     {
       "name": "widget",
-      "id": "vfc-contact"
+      "id": "vfc-aboutus-article"
     },
     {
       "name": "widget",
