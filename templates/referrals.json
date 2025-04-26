@@ -1,5 +1,6 @@
 {
   "extends": "base",
+  "type": "page",
   "name": "services",
   "route": "/services",
   "path": "/services.html",

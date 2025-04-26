@@ -1,5 +1,6 @@
 {
   "extends": "base",
+  "type": "page",
   "name": "contactus",
   "route": "/contact-us",
   "path": "/contact.html",

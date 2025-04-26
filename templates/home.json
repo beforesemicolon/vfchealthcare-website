@@ -1,4 +1,6 @@
 {
+  "extends": "base",
+  "type": "page",
   "name": "home",
   "route": "/",
   "path": "/index.html",
