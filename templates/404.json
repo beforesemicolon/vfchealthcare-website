@@ -1,0 +1,29 @@
+{
+  "id": "404",
+  "type": "page",
+  "extends": "base",
+  "name": "404",
+  "title": "404 - Page Not Found",
+  "pathname": "/404",
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "contactus"
+    },
+    {
+      "name": "h2",
+      "children": [
+        "404 - Page Not Found"
+      ]
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}

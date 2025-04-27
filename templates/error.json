@@ -1,0 +1,29 @@
+{
+  "id": "error",
+  "type": "page",
+  "extends": "base",
+  "name": "Error",
+  "title": "Error - Something went wrong",
+  "pathname": "/error",
+  "content": [
+    {
+      "name": "widget",
+      "id": "vfc-top-bar"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-header",
+      "page": "contactus"
+    },
+    {
+      "name": "h2",
+      "children": [
+        "Error - Something went wrong"
+      ]
+    },
+    {
+      "name": "widget",
+      "id": "vfc-footer"
+    }
+  ]
+}
