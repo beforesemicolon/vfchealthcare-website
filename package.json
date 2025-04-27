@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/beforesemicolon/vfchealthcare-website#readme",
   "dependencies": {
-    "@beforesemicolon/site-builder": "^0.2.1"
+    "@beforesemicolon/site-builder": "^0.3.0"
   }
 }
