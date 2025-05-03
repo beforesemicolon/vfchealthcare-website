@@ -1,9 +1,10 @@
 {
   "extends": "base",
   "type": "page",
+  "id": "contact",
   "name": "contact",
   "route": "/contact",
-  "path": "/contact.html",
+  "pathname": "/contact.html",
   "content": [
     {
       "name": "widget",
