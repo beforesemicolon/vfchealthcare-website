@@ -285,7 +285,7 @@ nav ul li a.primary[active]{
  }
 }
 `,
-  render: ({page = '', menu = {}}) => {
+  render: ({page = '', menu = {}, env}) => {
     const navItems = [
       ...(menu.referrals ? [{name: 'referrals', label: menu.referrals, pathname: '/referrals', cls: 'primary'}] : []),
       ...(menu.services ? [{name: 'services', label: menu.services, pathname: '/services', cls: ''}] : []),
@@ -296,7 +296,7 @@ nav ul li a.primary[active]{
     ].map(item => `<li><a href="${item.pathname}" class="${item.cls}" ${page === item.name ? 'active' : ''}>${item.label}</a></li>`)
       .join('');
     
-    return ({env}) => `
+    return `
       <header id="main-header">
         <div class="branding wrapper">
          <a href="/" class="logo">
