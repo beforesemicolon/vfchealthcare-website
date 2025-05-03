@@ -58,7 +58,7 @@ main > * {
 }
 
 `,
-  content: `
+  content: ({env}) => `
 <main class="wrapper">
   <form id="referral" name="adult-family-care" novalidate>
    <p class="error-check-msg">Please fix the invalid fields before you send.</p>
@@ -201,7 +201,7 @@ main > * {
     }
    })
   </script>
-  <img src="/assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
+  <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
  </main>
   `
 }

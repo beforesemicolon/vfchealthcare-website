@@ -101,7 +101,7 @@ export default {
 
 
     `,
-  content: `
+  content: ({env}) => `
 <article class="wrapper" id="about-us">
   <header>
    <h2>About us</h2>
@@ -120,7 +120,7 @@ export default {
     <li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li>
    </ul>
   </main>
-  <img src="/assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
+  <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
  </article>
   `
 }

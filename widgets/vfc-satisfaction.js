@@ -50,16 +50,16 @@ export default {
  }
 }
 `,
-  content: `
+  content: ({env}) => `
 <div id="satisfaction" class="wrapper">
-   <img src="/assets/icons/care.icon.svg" alt="care icon" height="35">
+   <img src="${env.assetsOrigin}assets/icons/care.icon.svg" alt="care icon" height="35">
    <p>Year After Year Customer Satisfaction</p>
    <div class="rating">
-    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
-    <img src="/assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="${env.assetsOrigin}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="${env.assetsOrigin}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="${env.assetsOrigin}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="${env.assetsOrigin}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
+    <img src="${env.assetsOrigin}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
    </div>
   </div>
   `

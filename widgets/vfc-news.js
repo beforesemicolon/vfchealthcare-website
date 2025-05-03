@@ -2,7 +2,7 @@ export default {
    id: "vfc-news",
    title: "News",
   inputs: [],
-  style: `
+  style: ({env}) => `
 #news {
  display: flex;
  flex-wrap: wrap;
@@ -179,7 +179,7 @@ export default {
  width: 20px;
  height: 20px;
  margin-left: 3px;
- background: url("./assets/icons/ext-link.icon.svg") no-repeat center right;
+ background: url("${env.assetsOrigin}assets/icons/ext-link.icon.svg") no-repeat center right;
  background-size: 18px;
 }
 
@@ -214,7 +214,7 @@ export default {
 }
 
     `,
-  content: `
+  content: (env) => `
 <main id="news" class="wrapper">
 <div id="announcements">
    <h2>Announcements</h2>

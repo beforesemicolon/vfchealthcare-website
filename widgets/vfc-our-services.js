@@ -162,7 +162,7 @@ export default {
  }
 }
 `,
-  content: `
+  content: ({env}) => `
 <section id="services" class="wrapper">
  <h2>Our Services</h2>
  <div class="content">
@@ -175,7 +175,7 @@ export default {
    </ul>
    <a href="/services" class="btn">Learn More</a>
   </div>
-  <img src="/assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
+  <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
  </div>
 </section>
   `

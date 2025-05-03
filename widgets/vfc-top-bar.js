@@ -23,7 +23,7 @@ export default {
       value: 'https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D'
     }
   ],
-  style: `
+  style: ({env}) => `
 #contact-bar {
  background: var(--vfc-highlight-color);
  padding-top: 6px;
@@ -46,7 +46,7 @@ export default {
 
 #contact-bar .primary {
  padding-left: 25px;
- background: url("./assets/icons/phone.icon.svg") no-repeat left center;
+ background: url("${env.assetsOrigin}assets/icons/phone.icon.svg") no-repeat left center;
  background-size: 20px;
 }
 

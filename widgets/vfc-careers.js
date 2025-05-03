@@ -2,7 +2,7 @@ export default {
    id: "vfc-careers",
    title: "Careers",
   inputs: [],
-  style: `
+  style: ({env}) => `
 #careers {
  margin-bottom: 50px;
 }
@@ -82,7 +82,7 @@ export default {
  width: 20px;
  height: 20px;
  margin-left: 3px;
- background: url("./assets/icons/ext-link.icon.svg") no-repeat center right;
+ background: url("${env.assetsOrigin}assets/icons/ext-link.icon.svg") no-repeat center right;
  background-size: 18px;
 }
 
@@ -104,10 +104,10 @@ export default {
 
 
     `,
-  content: `
+  content: ({env}) =>`
 <main id="careers">
   <header class="wrapper">
-   <img src="/assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">
+   <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">
    <h2>Careers</h2>
   </header>
   <div class="content wrapper">
