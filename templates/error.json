@@ -4,7 +4,8 @@
   "extends": "base",
   "name": "Error",
   "title": "Error - Something went wrong",
-  "pathname": "/error",
+  "route": "/error",
+  "pathname": "/error.html",
   "content": [
     {
       "name": "widget",
