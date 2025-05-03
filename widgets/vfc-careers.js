@@ -104,7 +104,7 @@ export default {
 
 
     `,
-  content: ({env}) =>`
+  render: ({env}) =>`
 <main id="careers">
   <header class="wrapper">
    <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">

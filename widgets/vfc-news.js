@@ -214,7 +214,7 @@ export default {
 }
 
     `,
-  content: (env) => `
+  content: `
 <main id="news" class="wrapper">
 <div id="announcements">
    <h2>Announcements</h2>

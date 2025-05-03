@@ -77,7 +77,7 @@ footer #social a {
  }
 }
 `,
-  content: ({env}) => `
+  render: ({env}) => `
 <footer class="wrapper">
   <a href="/" class="logo">
    <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45" height="45">

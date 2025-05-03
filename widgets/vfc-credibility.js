@@ -40,7 +40,7 @@ export default {
  }
 }
 `,
-  content: ({env}) => `
+  render: ({env}) => `
 <div id="credibility" class="wrapper">
    <img src="${env.assetsOrigin}assets/carf.png" alt="carf logo" width="150" height="150">
    <p>VFC Healthcare Solutions LLC has gone through a rigorous peer review process and

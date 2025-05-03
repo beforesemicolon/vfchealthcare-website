@@ -58,7 +58,7 @@ main > * {
 }
 
 `,
-  content: ({env}) => `
+  render: ({env}) => `
 <main class="wrapper">
   <form id="referral" name="adult-family-care" novalidate>
    <p class="error-check-msg">Please fix the invalid fields before you send.</p>

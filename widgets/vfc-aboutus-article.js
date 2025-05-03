@@ -101,7 +101,7 @@ export default {
 
 
     `,
-  content: ({env}) => `
+  render: ({env}) => `
 <article class="wrapper" id="about-us">
   <header>
    <h2>About us</h2>

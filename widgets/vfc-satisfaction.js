@@ -50,7 +50,7 @@ export default {
  }
 }
 `,
-  content: ({env}) => `
+  render: ({env}) => `
 <div id="satisfaction" class="wrapper">
    <img src="${env.assetsOrigin}assets/icons/care.icon.svg" alt="care icon" height="35">
    <p>Year After Year Customer Satisfaction</p>

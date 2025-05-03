@@ -132,7 +132,7 @@ export default {
  }
 }
 `,
-  content: ({env}) => `
+  render: ({env}) => `
   <article id="services">
   <header class="wrapper">
    <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-service.png" alt="vfc healthcare solutions services">

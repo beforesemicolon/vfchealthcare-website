@@ -162,7 +162,7 @@ export default {
  }
 }
 `,
-  content: ({env}) => `
+  render: ({env}) => `
 <section id="services" class="wrapper">
  <h2>Our Services</h2>
  <div class="content">
