@@ -1,9 +1,10 @@
 {
   "extends": "base",
   "type": "page",
+  "id": "home",
   "name": "home",
   "route": "/",
-  "path": "/index.html",
+  "pathname": "/index.html",
   "stylesheets": [
     "form.css",
     ":root {--gap-size: 50px;}"

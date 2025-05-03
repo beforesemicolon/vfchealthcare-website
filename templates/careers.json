@@ -2,8 +2,9 @@
   "extends": "base",
   "type": "page",
   "name": "careers",
+  "id": "careers",
   "route": "/careers",
-  "path": "/careers.html",
+  "pathname": "/careers.html",
   "content": [
     {
       "name": "widget",

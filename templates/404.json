@@ -4,7 +4,8 @@
   "extends": "base",
   "name": "404",
   "title": "404 - Page Not Found",
-  "pathname": "/404",
+  "route": "/404",
+  "pathname": "/404.html",
   "content": [
     {
       "name": "widget",

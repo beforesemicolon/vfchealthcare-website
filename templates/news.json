@@ -1,9 +1,10 @@
 {
   "extends": "base",
   "type": "page",
+  "id": "news",
   "name": "news",
   "route": "/news",
-  "path": "/news.html",
+  "pathname": "/news.html",
   "content": [
     {
       "name": "widget",
