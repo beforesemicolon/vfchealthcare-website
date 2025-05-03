@@ -1,9 +1,10 @@
 {
   "extends": "base",
   "type": "page",
+  "id": "services",
   "name": "services",
   "route": "/services",
-  "path": "/services.html",
+  "pathname": "/services.html",
   "content": [
     {
       "name": "widget",
