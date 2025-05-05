@@ -81,7 +81,7 @@ export default {
 
 #contact-bar .primary {
  padding-left: 25px;
- background: url("${env.assetsOrigin}assets/icons/phone.icon.svg") no-repeat left center;
+ background: url("${env.assetsOrigin || '/'}assets/icons/phone.icon.svg") no-repeat left center;
  background-size: 20px;
 }
 
@@ -264,7 +264,7 @@ nav ul li a.primary[active]{
   height: 30px;
   font-size: 2rem;
   display: inline-block;
-  background: url("${env.assetsOrigin}assets/icons/close.icon.svg") no-repeat center center;
+  background: url("${env.assetsOrigin || '/'}assets/icons/close.icon.svg") no-repeat center center;
   z-index: 1;
   opacity: 0;
   animation: appear 0.3s ease 0.2s forwards;
@@ -300,7 +300,7 @@ nav ul li a.primary[active]{
       <header id="main-header">
         <div class="branding wrapper">
          <a href="/" class="logo">
-          <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45"
+          <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45"
                height="45">
           <div class="details">
            <h1>VFC Healthcare Solutions</h1>

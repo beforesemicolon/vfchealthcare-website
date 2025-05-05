@@ -201,7 +201,7 @@ main > * {
     }
    })
   </script>
-  <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
+  <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
  </main>
   `
 }

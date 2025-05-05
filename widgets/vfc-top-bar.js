@@ -46,7 +46,7 @@ export default {
 
 #contact-bar .primary {
  padding-left: 25px;
- background: url("${env.assetsOrigin}assets/icons/phone.icon.svg") no-repeat left center;
+ background: url("${env.assetsOrigin || '/'}assets/icons/phone.icon.svg") no-repeat left center;
  background-size: 20px;
 }
 

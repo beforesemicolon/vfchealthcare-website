@@ -195,7 +195,7 @@ export default {
   render: ({phrase, env} = {}) => `
 <section id="request-service">
   <div class="wrapper hero-image">
-   <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
+   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
         height="400">
   </div>
   <div class="wrapper form-container">

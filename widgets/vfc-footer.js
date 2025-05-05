@@ -80,7 +80,7 @@ footer #social a {
   render: ({env}) => `
 <footer class="wrapper">
   <a href="/" class="logo">
-   <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45" height="45">
+   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45" height="45">
    <div class="details">
     <h1>VFC Healthcare Solutions</h1>
     <p><em>Veracity. Fidelity. Compassion</em></p>

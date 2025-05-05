@@ -175,7 +175,7 @@ export default {
    </ul>
    <a href="/services" class="btn">Learn More</a>
   </div>
-  <img src="${env.assetsOrigin}assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
+  <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
  </div>
 </section>
   `

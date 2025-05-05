@@ -179,7 +179,7 @@ export default {
  width: 20px;
  height: 20px;
  margin-left: 3px;
- background: url("${env.assetsOrigin}assets/icons/ext-link.icon.svg") no-repeat center right;
+ background: url("${env.assetsOrigin || '/'}assets/icons/ext-link.icon.svg") no-repeat center right;
  background-size: 18px;
 }
 
