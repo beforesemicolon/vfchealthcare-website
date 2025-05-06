@@ -210,8 +210,7 @@ export default {
                                           title="Must be full name, for example: John Doe, Jane D"></label>
      <label aria-label="email"><input type="email" name="email" placeholder="Email"></label>
      <label aria-label="phone">
-      <input type="tel" name="phone" placeholder="Phone Number *" required pattern="[0-9]{3} [0-9]{3}-[0-9]{4}"
-             title="Must match format: XXX XXX-XXXX">
+      <input type="tel" name="phone" placeholder="Phone Number *" required>
      </label>
     </fieldset>
     <fieldset>
