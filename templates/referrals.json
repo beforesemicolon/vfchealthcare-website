@@ -1,10 +1,10 @@
 {
   "extends": "base",
   "type": "page",
-  "id": "services",
-  "name": "services",
-  "route": "/services",
-  "pathname": "/services.html",
+  "id": "referrals",
+  "name": "referrals",
+  "route": "/referrals",
+  "pathname": "/referrals.html",
   "stylesheets": [
     "form.css"
   ],
