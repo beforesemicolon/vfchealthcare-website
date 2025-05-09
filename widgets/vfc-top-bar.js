@@ -4,22 +4,22 @@ export default {
   inputs: [
     {
       name: "phone",
-      type: "string",
+      type: "tel",
       value: '(774) 272 - 9322'
     },
     {
       name: "fax",
-      type: "string",
+      type: "tel",
       value: '(774) 480 - 4991'
     },
     {
       name: "facebook",
-      type: "string",
+      type: "url",
       value: 'https://www.facebook.com/people/VFC-Healthcare-Solutions/100086915456939/'
     },
     {
       name: "instagram",
-      type: "string",
+      type: "url",
       value: 'https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D'
     }
   ],

@@ -8,32 +8,32 @@ export default {
       definitions: [
         {
           name: 'referrals',
-          type: 'string',
+          type: 'text',
           value: 'Referrals'
         },
         {
           name: 'services',
-          type: 'string',
+          type: 'text',
           value: 'Services'
         },
         {
           name: 'aboutus',
-          type: 'string',
+          type: 'text',
           value: 'About Us'
         },
         {
           name: 'news',
-          type: 'string',
+          type: 'text',
           value: 'News'
         },
         {
           name: 'careers',
-          type: 'string',
+          type: 'text',
           value: 'Careers'
         },
         {
           name: 'contactus',
-          type: 'string',
+          type: 'text',
           value: 'Contact Us'
         }
       ]

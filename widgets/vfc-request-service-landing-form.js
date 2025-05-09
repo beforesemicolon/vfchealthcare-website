@@ -4,7 +4,7 @@ export default {
   inputs: [
     {
       name: "phrase",
-      type: "string",
+      type: "text",
       value: 'We are your healthcare solution.'
     },
     {
@@ -13,7 +13,7 @@ export default {
       definitions: [
         {
           name: 'title',
-          type: 'string',
+          type: 'text',
           value: 'Request a Service'
         },
         {
@@ -22,22 +22,22 @@ export default {
           definitions: [
             {
               name: 'name',
-              type: 'string',
+              type: 'text',
               value: 'Full Name *'
             },
             {
               name: 'email',
-              type: 'string',
+              type: 'text',
               value: 'Email'
             },
             {
               name: 'phone',
-              type: 'string',
+              type: 'text',
               value: 'Phone Number *'
             },
             {
               name: 'services',
-              type: 'string',
+              type: 'text',
               value: 'Services *'
             }
           ]
@@ -45,11 +45,11 @@ export default {
         {
           name: 'services',
           type: 'options',
-          value: [
+          value: 'adult foster/family care',
+          definitions: [
             {
               label: 'Adult Foster/Family care',
               value: 'adult foster/family care',
-              selected: true
             },
             {
               label: 'Home care',
@@ -71,12 +71,12 @@ export default {
         },
         {
           name: 'disclosure',
-          type: 'string',
+          type: 'textarea',
           value: 'By requesting care I understand that VFC may contact me at this number via calls or texts (including through use of an automatic telephone dialing system) to provide information about or to help me enroll in my requested service. Message and data rates may apply.'
         },
         {
           name: 'button',
-          type: 'string',
+          type: 'text',
           value: 'Send Request'
         }
       ]
