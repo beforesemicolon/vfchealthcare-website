@@ -152,7 +152,7 @@ h2 {
   </div>
   <section id="contact-details">
    <h2>${header}</h2>
-   <p>${description}<a href="mailto:${email}">${email}</a></p>
+   <p>${description} <a href="mailto:${email}">${email}</a></p>
    <address>
     <a href="tel:${phone.replace(/\D/g, '')}"><strong>Phone</strong>: ${phone}</a>
     <a href="tel:${tollFree.replace(/\D/g, '')}"><strong>Tol Free</strong>: ${tollFree}</a>

@@ -14,7 +14,7 @@ export default {
     },
     {
       type: "text",
-      nane: "headline",
+      name: "headline",
       value: "Join Our Team!"
     },
     {
