@@ -14,7 +14,7 @@ export default {
     },
     {
       type: "text",
-      name: "quote-author",
+      name: "quoteAuthor",
       value: "Mark Twain",
     },
     {
