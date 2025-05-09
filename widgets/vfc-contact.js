@@ -1,7 +1,54 @@
 export default {
    id: "vfc-contact",
    title: "Contact",
-  inputs: [],
+  inputs: [
+    {
+      name: "header",
+      type: "text",
+      value: "Call or mail us!"
+    },
+    {
+      name: "description",
+      type: "textarea",
+      value: "Please contact us directly with any questions, concerns or inquiries you may have. You can use the following email:"
+    },
+    {
+      name: "contactForm",
+      type: "url",
+      value: "https://us8.list-manage.com/contact-form?u=18f1d06a6f0fb92a4f12b437c&form_id=8476f8e660d5b2ea98ede0b3da06e4ef"
+    },
+    {
+      name: "email",
+      type: "email",
+      value: "info@vfchealthcare.com"
+    },
+    {
+      name: "phone",
+      type: "tel",
+      value: "(774) 480 - 4991"
+    },
+    {
+      name: "tollFree",
+      label: "Toll Free",
+      type: "tel",
+      value: "(888) 718 - 4683"
+    },
+    {
+      name: "fax",
+      type: "tel",
+      value: "(774) 272 - 9322"
+    },
+    {
+      name: "address",
+      type: "html",
+      value: "<span>810 Washington Street,</span><span>Stoughton,</span><span>MA. 02072</span>"
+    },
+    {
+      type: "html",
+      name: "googleMapEmbed",
+      value: "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.2395241517434!2d-71.10390752332923!3d42.12375524999702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e486a8e3b9af09%3A0x7b36201e6ea70532!2s810%20Washington%20St%2C%20Stoughton%2C%20MA%2002072!5e0!3m2!1sen!2sus!4v1740178375145!5m2!1sen!2sus\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+    }
+  ],
   style: `
 main {
  display: flex;
@@ -91,37 +138,33 @@ h2 {
 }
 
     `,
-  content: `
+  render: ({email, description, header, phone, tollFree, fax, address, googleMapEmbed, contactForm}) => {
+     const addressText = address.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+     const url = new URL('https://maps.apple.com');
+     url.searchParams.set('address', addressText);
+     
+     return `
 <main class="wrapper">
   <div id="contact-container">
    <div class="inner-box">
-    <iframe id="contact-form"
-            src="https://us8.list-manage.com/contact-form?u=18f1d06a6f0fb92a4f12b437c&form_id=8476f8e660d5b2ea98ede0b3da06e4ef"></iframe>
+    <iframe id="contact-form" src="${contactForm}"></iframe>
    </div>
   </div>
-  <!-- /#contat-container -->
   <section id="contact-details">
-   <h2>Call or mail us!</h2>
-   <p>Please contact us directly with any questions, concerns or inquiries you may have. You can use the following
-      email:
-    <a href="mailto:info@vfchealthcare.com">info@vfchealthcare.com</a></p>
+   <h2>${header}</h2>
+   <p>${description}<a href="mailto:${email}">${email}</a></p>
    <address>
-    <a href="tel:7744804991"><strong>Phone</strong>: (774) 480 - 4991</a>
-    <a href="tel:7744804991"><strong>Tol Free</strong>: (888) 718 - 4683</a>
-    <a href="tel:7742729322" class="fax"><strong>Fax</strong>: (774) 272 - 9322</a>
+    <a href="tel:${phone.replace(/\D/g, '')}"><strong>Phone</strong>: ${phone}</a>
+    <a href="tel:${tollFree.replace(/\D/g, '')}"><strong>Tol Free</strong>: ${tollFree}</a>
+    <a href="tel:${fax.replace(/\D/g, '')}"><strong>Fax</strong>: ${fax}</a>
     <p><strong>All mail corespondences should be sent to:</strong></p>
-    <a class="mail-address"
-       href="https://maps.apple.com/?address=810%20Washington%20St,%20Stoughton,%20MA%20%2002072,%20United%20States&ll=42.123759,-71.101336&q=810%20Washington%20St&t=m">
-     <span>810 Washington Street,</span>
-     <span>Stoughton,</span>
-     <span>MA. 02072</span>
+    <a class="mail-address" href="${url.href}">
+     ${address}
     </a>
    </address>
-   <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.2395241517434!2d-71.10390752332923!3d42.12375524999702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e486a8e3b9af09%3A0x7b36201e6ea70532!2s810%20Washington%20St%2C%20Stoughton%2C%20MA%2002072!5e0!3m2!1sen!2sus!4v1740178375145!5m2!1sen!2sus"
-     style="border:0;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"></iframe>
+   ${googleMapEmbed}
   </section>
  </main>
   `
+  }
 }

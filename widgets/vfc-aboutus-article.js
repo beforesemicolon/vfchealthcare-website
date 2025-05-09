@@ -1,7 +1,33 @@
 export default {
    id: "vfc-aboutus-article",
    title: "About us article",
-  inputs: [],
+  inputs: [
+    {
+      type: "text",
+      name: "header",
+      value: "About us",
+    },
+    {
+      type: "textarea",
+      name: "quote",
+      value: "Kindness is the language which the deaf can hear and the blind can see.",
+    },
+    {
+      type: "text",
+      name: "quote-author",
+      value: "Mark Twain",
+    },
+    {
+      type: "html",
+      name: "content",
+      value: "<p>The story of VFC Healthcare Solutions began with a dedication to community and passionate healthcare professionals who started from the bottom and worked their way up to become Registered Nurses and advanced Practice Clinicians.</p>" +
+        "<p>Our journey gives us a unique understanding of the healthcare system and the importance of bridging the gaps that affect the communities we serve.</p>" +
+        "<p>Our team provides top-notch quality care that reflects our name to all our clients. VFC stands for our shared values of:</p>" +
+        "<ul><li><strong>Veracity</strong>: We are honest in all our interactions with our clients and other professionals</li>" +
+        "<li><strong>Fidelity</strong>: We keep our commitments to our clients to build trust, rapport and credibility</li>" +
+        "<li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li></ul>"
+    },
+  ],
   style: `
 #about-us {
  --aboutus-gap: 30px;
@@ -101,24 +127,14 @@ export default {
 
 
     `,
-  render: ({env}) => `
+  render: ({env, content, header, quote, quoteAuthor}) => `
 <article class="wrapper" id="about-us">
   <header>
-   <h2>About us</h2>
+   <h2>${header}</h2>
   </header>
   <main>
-   <blockquote>
-    Kindness is the language which the deaf can hear and the blind can see.
-    <span class="author">-- Mark Twain</span>
-   </blockquote>
-   <p>The story of VFC Healthcare Solutions began with a dedication to community and passionate healthcare professionals who started from the bottom and worked their way up to become Registered Nurses and advanced Practice Clinicians.</p>
-   <p>Our journey gives us a unique understanding of the healthcare system and the importance of bridging the gaps that affect the communities we serve.</p>
-   <p>Our team provides top-notch quality care that reflects our name to all our clients. VFC stands for our shared values of:</p>
-   <ul>
-    <li><strong>Veracity</strong>: We are honest in all our interactions with our clients and other professionals</li>
-    <li><strong>Fidelity</strong>: We keep our commitments to our clients to build trust, rapport and credibility</li>
-    <li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li>
-   </ul>
+   <blockquote>${quote}<span class="author">-- ${quoteAuthor}</span></blockquote>
+   ${content}
   </main>
   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
  </article>

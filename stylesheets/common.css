@@ -103,19 +103,19 @@ button:disabled, .btn:disabled {
 }
 
 .facebook-social {
-	background: url("../assets/icons/facebook.icon.svg") 0 0 no-repeat;
+	background: url("/assets/icons/facebook.icon.svg") 0 0 no-repeat;
 }
 
 .instagram-social {
-	background: url("../assets/icons/instagram.icon.svg") 0 0 no-repeat;
+	background: url("/assets/icons/instagram.icon.svg") 0 0 no-repeat;
 }
 
 .facebook-social-black {
-	background: url("../assets/icons/facebook-black.icon.svg") 0 0 no-repeat;
+	background: url("/assets/icons/facebook-black.icon.svg") 0 0 no-repeat;
 }
 
 .instagram-social-black {
-	background: url("../assets/icons/instagram-black.icon.svg") 0 0 no-repeat;
+	background: url("/assets/icons/instagram-black.icon.svg") 0 0 no-repeat;
 }
 
 .wrapper {

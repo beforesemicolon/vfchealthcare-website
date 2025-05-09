@@ -1,7 +1,13 @@
 export default {
   id: "vfc-satisfaction",
   title: "Satisfaction",
-  inputs: [],
+  inputs: [
+    {
+      name: "satisfaction",
+      type: "text",
+      value: "Year After Year Customer Satisfaction",
+    }
+  ],
   style: `
 #satisfaction {
  display: flex;
@@ -50,10 +56,10 @@ export default {
  }
 }
 `,
-  render: ({env}) => `
+  render: ({env, satisfaction}) => `
 <div id="satisfaction" class="wrapper">
    <img src="${env.assetsOrigin || '/'}assets/icons/care.icon.svg" alt="care icon" height="35">
-   <p>Year After Year Customer Satisfaction</p>
+   <p>${satisfaction}</p>
    <div class="rating">
     <img src="${env.assetsOrigin || '/'}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">
     <img src="${env.assetsOrigin || '/'}assets/icons/star.icon.svg" alt="star icon" width="24" height="24">

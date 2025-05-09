@@ -1,7 +1,84 @@
 export default {
    id: "vfc-our-services",
    title: "Our services",
-  inputs: [],
+  inputs: [
+    {
+      type: "text",
+      name: "header",
+      value: "Our Services"
+    },
+    {
+      type: "list",
+      name: "services",
+      definitions: [
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Adult Foster/Family Care"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#adult-family-care"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Home care"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#homecare"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Nurse Recruiting/Staffing"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#nurse-recruiting-staffing"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Nurse Case Management"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#nurse-case-management"
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: "text",
+      name: "action",
+      value: "Learn More"
+    }
+  ],
   style: `
 #services {
  background:
@@ -162,18 +239,13 @@ export default {
  }
 }
 `,
-  render: ({env}) => `
+  render: ({env, services, action, header}) => `
 <section id="services" class="wrapper">
- <h2>Our Services</h2>
+ <h2>${header}</h2>
  <div class="content">
   <div class="details">
-   <ul>
-    <li><a href="/services#adult-family-care">Adult Foster/Family Care</a></li>
-    <li><a href="/services#homecare">Home care</a></li>
-    <li><a href="/services#nurse-recruiting-staffing">Nurse Recruiting/Staffing</a></li>
-    <li><a href="/services#nurse-case-management">Nurse Case Management</a></li>
-   </ul>
-   <a href="/services" class="btn">Learn More</a>
+    <ul>${services.map((service) => `<li><a href="${service.link}">${service.label}</a></li>`).join('')}</ul>
+   <a href="/services" class="btn">${action}</a>
   </div>
   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
  </div>

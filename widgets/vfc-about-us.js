@@ -1,7 +1,18 @@
 export default {
    id: "vfc-about-us",
    title: "About us",
-  inputs: [],
+  inputs: [
+    {
+      type: "text",
+      name: "header",
+      value: "Welcome to VFC"
+    },
+    {
+      type: "textarea",
+      name: "description",
+      value: "VFC Healthcare Solutions mission is to provide high quality, person-centered services to our members to help them age in place and remain in their community of choice. Our goal is to improve access to care and community resources through, education, advocacy, and partnership with other stakeholders."
+    }
+  ],
   style: `
 #about-us {
   display: flex;
@@ -19,12 +30,10 @@ export default {
   }
 }
 `,
-  content: `
+  render: ({header, description}) =>`
 <section id="about-us" class="wrapper">
- <h2>Welcome to VFC</h2>
- <p>VFC Healthcare Solutions mission is to provide high quality, person-centered services to our members to help
-    them age in place and remain in their community of choice. Our goal is to improve access to care and community
-    resources through, education, advocacy, and partnership with other stakeholders.</p>
+ <h2>${header}</h2>
+ <p>${description}</p>
 </section>
   `
 }

@@ -1,7 +1,23 @@
 export default {
    id: "vfc-ma-foster-care",
    title: "MA foster care",
-  inputs: [],
+  inputs: [
+    {
+      name: "header",
+      type: "text",
+      value: "Live in Massachusetts?",
+    },
+    {
+      name: "description",
+      type: "html",
+      value: "<p>If you are at least 16 years old, need help performing day-to-day activities, have Mass Health insurance, and live with a relative capable of taking care of you, you may qualify for Massachussetts <a href=\"https://www.mass.gov/info-details/home-care-program\">Home Care Program</a>.</p>"
+    },
+    {
+      name: "action",
+      type: "text",
+      value: "Check Eligibility",
+    },
+  ],
   style: `
 #massachusetts {
  display: flex;
@@ -69,16 +85,12 @@ export default {
  }
 }
 `,
-  content: `
+  render: ({header, action, description}) => `
 <section id="massachusetts" class="wrapper">
    <div class="details">
-    <h2>Live in Massachusetts?</h2>
-    <p>
-     If you are at least 16 years old, need help performing day-to-day activities, have Mass Health insurance, and
-     live with a relative capable of taking care of you, you may qualify for Massachussetts
-     <a href="https://www.mass.gov/info-details/home-care-program">Home Care Program</a>.
-    </p>
-    <a href="/contact" class="btn">Check Eligibility</a>
+    <h2>${header}</h2>
+    ${description}
+    <a href="/contact" class="btn">${action}</a>
    </div>
    <div class="image">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

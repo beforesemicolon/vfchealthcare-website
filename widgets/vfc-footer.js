@@ -1,7 +1,178 @@
 export default {
    id: "vfc-footer",
    title: "Footer",
-  inputs: [],
+  inputs: [
+    {
+      name: "phone",
+      type: "tel",
+      value: "(774) 480 - 4991"
+    },
+    {
+      name: "tollFree",
+      label: "Toll Free",
+      type: "tel",
+      value: "(888) 718 - 4683"
+    },
+    {
+      name: "fax",
+      type: "tel",
+      value: "(774) 272 - 9322"
+    },
+    {
+      name: "address",
+      type: "html",
+      value: "<span>810 Washington Street,</span><span>Stoughton,</span><span>MA. 02072</span>"
+    },
+    {
+      type: "list",
+      name: "services",
+      definitions: [
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Adult Foster/Family Care"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#adult-family-care"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Home care"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#homecare"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Nurse Recruiting/Staffing"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#nurse-recruiting-staffing"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Nurse Case Management"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#nurse-case-management"
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: "list",
+      name: "quickLinks",
+      label: "Quick Links",
+      definitions: [
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Referrals"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/referrals"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "News"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/news"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Careers"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/careers"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Caregiver Portal"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "https://generations.idb-sys.com/Views/loginnew.aspx?ReturnUrl=%2f"
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: "group",
+      name: "social",
+      definitions: [
+        {
+          name: "facebook",
+          type: "url",
+          value: "https://www.facebook.com/people/VFC-Healthcare-Solutions/100086915456939/"
+        },
+        {
+          name: "instagram",
+          type: "url",
+          value: "https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D"
+        }
+      ]
+    }
+  ],
   style: `
 footer {
  background: #EBFBFF;
@@ -77,7 +248,12 @@ footer #social a {
  }
 }
 `,
-  render: ({env}) => `
+  render: ({env, phone, tollFree, fax, address, services, social, quickLinks}) => {
+    const addressText = address.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const url = new URL('https://maps.apple.com');
+    url.searchParams.set('address', addressText);
+    
+     return `
 <footer class="wrapper">
   <a href="/" class="logo">
    <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-logo.svg" alt="vfc healthcare solutions logo" width="45" height="45">
@@ -87,44 +263,33 @@ footer #social a {
    </div>
   </a>
   <div class="content">
-   <address>
-    <a href="tel:7744804991"><strong>Phone</strong>: (774) 480 - 4991</a>
-    <a href="tel:7744804991"><strong>Tol Free</strong>: (888) 718 - 4683</a>
-    <a href="tel:7742729322" class="fax"><strong>Fax</strong>: (774) 272 - 9322</a>
-    <a class="mail-address"
-       href="https://maps.apple.com/?address=810%20Washington%20St,%20Stoughton,%20MA%20%2002072,%20United%20States&ll=42.123759,-71.101336&q=810%20Washington%20St&t=m">
-     <span>810 Washington Street,</span>
-     <span>Stoughton,</span>
-     <span>MA. 02072</span>
+  <address>
+    <a href="tel:${phone.replace(/\D/g, '')}"><strong>Phone</strong>: ${phone}</a>
+    <a href="tel:${tollFree.replace(/\D/g, '')}"><strong>Tol Free</strong>: ${tollFree}</a>
+    <a href="tel:${fax.replace(/\D/g, '')}"><strong>Fax</strong>: ${fax}</a>
+    <p><strong>All mail corespondences should be sent to:</strong></p>
+    <a class="mail-address" href="${url.href}">
+     ${address}
     </a>
    </address>
    <section id="footer-services">
     <h4>Services:</h4>
-    <ul>
-     <li><a href="/services#adult-family-care">Adult Foster/Family Care</a></li>
-     <li><a href="/services#homecare">Home care</a></li>
-     <li><a href="/services#nurse-recruiting-staffing">Nurse Recruiting/Staffing</a></li>
-     <li><a href="/services#nurse-case-management">Nurse Case Management</a></li>
-    </ul>
+    <ul>${services.map((service) => `<li><a href="${service.link}">${service.label}</a></li>`).join('')}</ul>
    </section>
    <section id="quick-links">
     <h4>Quick Links:</h4>
-    <ul>
-     <li><a href="/referrals">Referrals</a></li>
-     <li><a href="/news">News</a></li>
-     <li><a href="/careers">Careers</a></li>
-     <li><a href="https://generations.idb-sys.com/Views/loginnew.aspx?ReturnUrl=%2f">Caregiver Portal</a></li>
-    </ul>
+    <ul>${quickLinks.map((ql) => `<li><a href="${ql.link}">${ql.label}</a></li>`).join('')}</ul>
    </section>
    <section id="social">
     <h4>Follow Us:</h4>
-    <a href="https://www.facebook.com/people/VFC-Healthcare-Solutions/100086915456939/"
+    <a href="${social.facebook}"
        class="facebook-social-black"><span>facebook</span></a>
-    <a href="https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D"
+    <a href="${social.instagram}"
        class="instagram-social-black"><span>instagram</span></a>
    </section>
   </div>
-  <p><small>Copyright © 2025 VFC Healthcare Solutions - All Rights Reserved.</small></p>
+  <p><small>Copyright © ${(new Date()).getFullYear()} VFC Healthcare Solutions - All Rights Reserved.</small></p>
 </footer>
   `
+  }
 }

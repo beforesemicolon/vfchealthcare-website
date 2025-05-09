@@ -1,7 +1,62 @@
 export default {
    id: "vfc-careers",
    title: "Careers",
-  inputs: [],
+  inputs: [
+    {
+      type: "text",
+      name: "header",
+      value: "Careers",
+    },
+    {
+      type: "text",
+      name: "disclosure",
+      value: "VFC Healthcare Solutions as an equal opportunity employer, does not discriminate on the basis of race, color, religion, sex, national origin, age, disability, or genetic information."
+    },
+    {
+      type: "text",
+      nane: "headline",
+      value: "Join Our Team!"
+    },
+    {
+      type: "list",
+      name: "jobPosts",
+      label: "Job Posts",
+      definitions: [
+        {
+          type: "group",
+          name: "jobPost",
+          label: "Job Post",
+          definitions: [
+            {
+              type: "text",
+              name: "location",
+              value: "Boston, MA"
+            },
+            {
+              type: "text",
+              name: "headline",
+              value: "Certified Nurse Assistant"
+            },
+            {
+              type: "text",
+              name: "payment",
+              value: "$25 - $35 per hour"
+            },
+            {
+              type: "text",
+              name: "benefits",
+              value: "Medical + 2 benefits"
+            },
+            {
+              type: "url",
+              name: "link",
+              value: "https://www.vfchealthcare.com/careers"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   style: ({env}) => `
 #careers {
  margin-bottom: 50px;
@@ -104,45 +159,30 @@ export default {
 
 
     `,
-  render: ({env}) =>`
+  render: ({env, header, disclosure, jobPosts, headline}) =>`
 <main id="careers">
   <header class="wrapper">
    <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">
-   <h2>Careers</h2>
+   <h2>${header}</h2>
   </header>
   <div class="content wrapper">
-   <p class="disclosure">
-    VFC Healthcare Solutions as an equal opportunity employer, does not discriminate on the basis of race, color, religion, sex, national origin, age, disability, or genetic information.
-   </p>
-   <h3>Join Our Team!</h3>
+   <p class="disclosure">${disclosure}</p>
+   <h3>${headline}</h3>
    <div class="job-posts">
-    <div class="job-post">
-     <p class="location">Boston, MA</p>
-     <h4>Certified Nurse Assistant</h4>
-     <p>
-      <strong class="payment">$25 - $35 per hour</strong>
-      <span class="benefits">Medical + 2 benefits</span>
-     </p>
-     <a href="" target="_blank">Apply</a>
-    </div>
-    <div class="job-post">
-     <p class="location">Boston, MA</p>
-     <h4>Certified Nurse Assistant</h4>
-     <p>
-      <strong class="payment">$25 - $35 per hour</strong>
-      <span class="benefits">Medical + 2 benefits</span>
-     </p>
-     <a href="" target="_blank">Apply</a>
-    </div>
-    <div class="job-post">
-     <p class="location">Boston, MA</p>
-     <h4>Certified Nurse Assistant</h4>
-     <p>
-      <strong class="payment">$25 - $35 per hour</strong>
-      <span class="benefits">Medical + 2 benefits</span>
-     </p>
-     <a href="" target="_blank">Apply</a>
-    </div>
+    ${jobPosts
+      .map(({location, headline, payment, benefits, link}) => `
+        <div class="job-post">
+         <p class="location">${location}</p>
+         <h4>${headline}</h4>
+         <p>
+          <strong class="payment">${payment}</strong>
+          <span class="benefits">${benefits}</span>
+         </p>
+         <a href="${link}" target="_blank">Apply</a>
+        </div>
+        `)
+      .join('')
+   }
    </div>
   </div>
  </main>
