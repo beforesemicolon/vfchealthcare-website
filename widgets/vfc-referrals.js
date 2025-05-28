@@ -1,7 +1,14 @@
 export default {
    id: "vfc-referrals",
    title: "Referrals",
-  inputs: [],
+  inputs: [
+    {
+      name: "reCAPTCHA",
+      label: "reCAPTCHA site key",
+      type: "text",
+      value: '6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr'
+    },
+  ],
   style: `
 main {
  padding-top: 50px;
@@ -58,7 +65,7 @@ main > * {
 }
 
 `,
-  render: ({env}) => `
+  render: ({env, reCAPTCHA}) => `
 <main class="wrapper">
   <form id="referral" name="adult-family-care" novalidate>
    <p class="error-check-msg">Please fix the invalid fields before you send.</p>
@@ -95,15 +102,6 @@ main > * {
       <span>Myself</span>
      </label>
     </div>
-   </fieldset>
-   <fieldset id="documents">
-    <legend>Attach Documents</legend>
-    <p><em>e.g: PCP form, insurance verification.</em></p>
-    <label aria-label="documents" class="btn">
-     <span>Select file(s)</span>
-     <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none" multiple size="512000">
-    </label>
-    <ul class="selected-files"></ul>
    </fieldset>
    <fieldset id="patient">
     <legend>About the patient</legend>
@@ -177,30 +175,10 @@ main > * {
    </div>
    <button>send</button>
    <div class="g-recaptcha"
-        data-sitekey="6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"
+        data-sitekey="${reCAPTCHA}"
         data-callback="SubmitForm"
         data-size="invisible"></div>
   </form>
-  <script>
-   handleForm('referral');
-   
-   const attach = document.getElementById('documents');
-   const selectedFilesList = document.querySelector('ul.selected-files');
-   
-   attach.addEventListener('change', () => {
-    const files = attach.querySelector('input[type="file"]').files;
-    selectedFilesList.innerHTML = '';
-    for (let i = 0; i < files.length; i++) {
-     const file = files[i];
-     const li = document.createElement('li');
-     const toobig = file.size > 500 * 1024;
-     li.style.background = toobig ? '#900' : '#225400';
-     li.title = toobig ? 'File too big (> 500kb)' : 'File size is good';
-     li.textContent = file.name;
-     selectedFilesList.appendChild(li);
-    }
-   })
-  </script>
   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
  </main>
   `

@@ -16,7 +16,7 @@
       "defer": true
     },
     "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js",
-    "emailjs.init({publicKey: 'PCOzI_NKfzoaJDQkC',});",
+    "emailjs.init({publicKey: 'df43sDhTtpOjyDM_7',});",
     "handle-form.js",
     "handleForm('service-request');"
   ],

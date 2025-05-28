@@ -11,57 +11,67 @@ function fileToBase64(file) {
 let currentForm = {};
 
 async function SubmitForm(token) {
-  const formData = new FormData(currentForm.form);
-  const data = {};
-
-  for (let [key, value] of formData) {
-    if (value instanceof File) {
-      data[key] = await fileToBase64(value);
-      data['filename'] = value.name;
-    } else {
-      data[key] = value.trim();
+  try {
+    const formData = new FormData(currentForm.form);
+    const data = {};
+    
+    for (let [key, value] of formData) {
+      if (value instanceof File) {
+        data[key] = await fileToBase64(value);
+        data['filename'] = value.name;
+      } else {
+        data[key] = value.trim();
+      }
     }
+    
+    emailjs.send("vfc_service_info", currentForm.emailTemplate, {
+        ...data,
+        "g-recaptcha-response": token
+      })
+      .then(() => {
+        currentForm.form.reset();
+        currentForm.form.className = 'success-request';
+      })
+      .catch(err => {
+        console.error(err);
+        currentForm.form.className = 'failed-request';
+      });
+    
+    scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
+    grecaptcha.reset();
+  } catch(e) {
+    console.error("Error submitting form:", e);
+    currentForm.form.className = 'failed-request';
+    scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
   }
-  
-  emailjs.send("service_lpq2084", currentForm.emailTemplate, {
-      ...data,
-      "g-recaptcha-response": token
-    })
-    .then(() => {
-      currentForm.form.reset();
-      currentForm.form.className = 'success-request';
-    })
-    .catch(err => {
-      console.error(err);
-      currentForm.form.className = 'failed-request';
-    });
-  
-  scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
-  grecaptcha.reset();
 }
 
 function handleForm(formId, emailTemplate = 'vfc_service_request') {
-  const form = document.getElementById(formId);
-  const successBtn = form.querySelector('.success-request-message button');
-  const failedBtn = form.querySelector('.failed-request-message button');
-  
-  [successBtn, failedBtn].forEach(btn => {
-    btn.addEventListener('click', () => {
-      form.className = '';
-    })
-  })
-  
-  form.addEventListener('submit', ev => {
-    ev.preventDefault();
-    form.className = '';
+  try {
+    const form = document.getElementById(formId);
+    const successBtn = form.querySelector('.success-request-message button');
+    const failedBtn = form.querySelector('.failed-request-message button');
     
-    if (!form.checkValidity()) {
-      form.className = 'invalid-form';
-      scrollTo(form.clientTop, form.clientLeft);
-    } else {
-      form.className = 'sending-form';
-      currentForm = {form, emailTemplate};
-      grecaptcha.execute()
-    }
-  })
+    [successBtn, failedBtn].forEach(btn => {
+      btn.addEventListener('click', () => {
+        form.className = '';
+      })
+    })
+    
+    form.addEventListener('submit', ev => {
+      ev.preventDefault();
+      form.className = '';
+      
+      if (!form.checkValidity()) {
+        form.className = 'invalid-form';
+        scrollTo(form.clientTop, form.clientLeft);
+      } else {
+        form.className = 'sending-form';
+        currentForm = {form, emailTemplate};
+        grecaptcha.execute()
+      }
+    })
+  } catch (e) {
+    console.error(`Error handling form with ID ${formId}:`, e);
+  }
 }

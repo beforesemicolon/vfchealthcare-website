@@ -8,6 +8,12 @@ export default {
       value: 'We are your healthcare solution.'
     },
     {
+      name: "reCAPTCHA",
+      label: "reCAPTCHA site key",
+      type: "text",
+      value: '6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr'
+    },
+    {
       name: "form",
       type: "group",
       definitions: [
@@ -192,7 +198,7 @@ export default {
  padding: 0 25px;
 }
 `,
-  render: ({phrase, env} = {}) => `
+  render: ({phrase, reCAPTCHA, env} = {}) => `
 <section id="request-service">
   <div class="wrapper hero-image">
    <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
@@ -246,7 +252,7 @@ export default {
      <button type="submit">Retry</button>
     </div>
     <div class="g-recaptcha"
-         data-sitekey="6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr"
+         data-sitekey="${reCAPTCHA}"
          data-callback="SubmitForm"
          data-size="invisible"></div>
    </form>
