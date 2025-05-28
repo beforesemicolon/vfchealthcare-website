@@ -19,7 +19,7 @@ main > * {
 	position: relative;
 }
 
-#who:has(input[value="myself"]:focus) ~ #patient {
+#who:has(input[value="myself"]) ~ #patient {
 	display: none;
 }
 
