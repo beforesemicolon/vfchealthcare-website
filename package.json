@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "node build.js",
+    "build:watch": "nodemon --watch templates --watch widgets --watch scripts --watch stylesheets --watch assets --exec \"npm run build\"",
     "start": "serve public",
-    "local": "nodemon --watch templates --watch widgets -e js,json --exec \"npm run build && npm run start\"",
+    "local": "concurrently -k \"npm run build:watch\" \"npm run start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,7 @@
     "@beforesemicolon/site-builder": "^0.11.0"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.0",
     "serve": "^14.2.3"
   }

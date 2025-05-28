@@ -28,7 +28,7 @@ main > * {
  position: relative;
 }
 
-#who:has(input[value="myself"]:focus) ~ #patient {
+#who:has(input[name="patient"][value="myself"]:checked) ~ #patient {
  display: none;
 }
 
