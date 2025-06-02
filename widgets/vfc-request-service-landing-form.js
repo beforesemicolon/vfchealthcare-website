@@ -54,24 +54,79 @@ export default {
           value: 'adult foster/family care',
           definitions: [
             {
-              label: 'Adult Foster/Family care',
-              value: 'adult foster/family care',
+              type: 'group',
+              definitions: [
+                {
+                  type: 'text',
+                  name: 'label',
+                  value: 'Adult Foster/Family care'
+                },
+                {
+                  type: 'text',
+                  name: 'value',
+                  value: 'adult foster/family care'
+                }
+              ]
             },
             {
-              label: 'Home care',
-              value: 'home care'
+              type: 'group',
+              definitions: [
+                {
+                  type: 'text',
+                  name: 'label',
+                  value: 'Home care'
+                },
+                {
+                  type: 'text',
+                  name: 'value',
+                  value: 'home care'
+                }
+              ]
             },
             {
-              label: 'Nurse Recruiting/Staffing',
-              value: 'nurse staffing'
+              type: 'group',
+              definitions: [
+                {
+                  type: 'text',
+                  name: 'label',
+                  value: 'Nurse Recruiting/Staffing'
+                },
+                {
+                  type: 'text',
+                  name: 'value',
+                  value: 'nurse staffing'
+                }
+              ]
             },
             {
-              label: 'Nurse Case Management',
-              value: 'nurse case management'
+              type: 'group',
+              definitions: [
+                {
+                  type: 'text',
+                  name: 'label',
+                  value: 'Nurse Case Management'
+                },
+                {
+                  type: 'text',
+                  name: 'value',
+                  value: 'nurse case management'
+                }
+              ]
             },
             {
-              label: 'Other',
-              value: 'other'
+              type: 'group',
+              definitions: [
+                {
+                  type: 'text',
+                  name: 'label',
+                  value: 'Other'
+                },
+                {
+                  type: 'text',
+                  name: 'value',
+                  value: 'other'
+                }
+              ]
             }
           ]
         },
@@ -198,7 +253,7 @@ export default {
  padding: 0 25px;
 }
 `,
-  render: ({phrase, reCAPTCHA, env} = {}) => `
+  render: ({phrase, reCAPTCHA, env, form} = {}) => `
 <section id="request-service">
   <div class="wrapper hero-image">
    <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
@@ -207,39 +262,31 @@ export default {
   <div class="wrapper form-container">
    <h2>${phrase}</h2>
    <form id="service-request" class="sending-form">
-    <h3>Request Service</h3>
+    <h3>${form.title}</h3>
     <p class="error-check-msg">Please fix the invalid fields before you send.</p>
     <fieldset>
      <legend>Contact Information *</legend>
-     <label aria-label="full name"><input type="text" name="fullname" placeholder="Full Name *" required
+     <label aria-label="full name"><input type="text" name="fullname" placeholder="${form.labels.name}" required
                                           pattern="^(\\w\\w+)\\s(\\w+)$"
                                           title="Must be full name, for example: John Doe, Jane D"></label>
-     <label aria-label="email"><input type="email" name="email" placeholder="Email"></label>
+     <label aria-label="email"><input type="email" name="email" placeholder="${form.labels.email}"></label>
      <label aria-label="phone">
-      <input type="tel" name="phone" placeholder="Phone Number *" required>
+      <input type="tel" name="phone" placeholder="${form.labels.phone}" required>
      </label>
     </fieldset>
     <fieldset>
-     <legend>Service *</legend>
+     <legend>${form.labels.services}</legend>
      <label aria-label="service">
       <select name="service">
-       <option value="adult foster/family care" selected>Adult Foster/Family Care</option>
-       <option value="home care">Home care</option>
-       <option value="nurse staffing">Nurse Recruiting/Staffing</option>
-       <option value="nurse case management">Nurse Case Management</option>
-       <option value="other">Other</option>
+        ${form.services.options.map(({value, label}) => `<option value="${value}" ${value === form.services.value ? 'selected' : ''}>${label}</option>`)}
       </select>
      </label>
     </fieldset>
     <fieldset>
      <p class="disclosure">
-      <small>
-       By requesting care I understand that VFC may contact me at this number via calls or texts (including
-       through use of an automatic telephone dialing system) to provide information about or to help me enroll
-       in my requested service. Message and data rates may apply.
-      </small>
+      <small>${form.disclosure}</small>
      </p>
-     <button type="submit">Send Request</button>
+     <button type="submit">${form.button}</button>
     </fieldset>
     <div class="success-request-message">
      <h4>Request Sent!</h4>
