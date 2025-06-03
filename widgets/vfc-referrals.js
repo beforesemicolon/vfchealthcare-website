@@ -191,7 +191,6 @@ main > * {
   <script defer>
    const attach = document.getElementById('documents');
    const selectedFilesList = document.querySelector('ul.selected-files');
-	 const textarea = document.querySelector('textarea[name="additionalinfo"]');
    
    attach.addEventListener('change', () => {
     const files = attach.querySelector('input[type="file"]').files;
@@ -211,19 +210,6 @@ main > * {
 		 }
     }
    });
-  
-    textarea.addEventListener('input', function () {
-      const maxBytes = 50 * 1024;
-      // Use Blob to get actual byte size (handles UTF-8)
-      const byteLength = new Blob([this.value]).size;
-      if (byteLength > maxBytes) {
-        this.setCustomValidity('Additional information must be less than 51,200 characters.');
-        this.classList.add('invalid');
-      } else {
-        this.setCustomValidity('');
-        this.classList.remove('invalid');
-      }
-    });
   </script>
   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
  </main>
