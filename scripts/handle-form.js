@@ -19,32 +19,25 @@ async function SubmitForm(token) {
     const MAX_FILES = 5;
     const MAX_TOTAL_SIZE = 40 * 1024; // 40KB for all attachments
 
+    // Add all non-file fields
     for (let [key, value] of formData) {
-      if (value instanceof FileList) {
-        for (let i = 0; i < value.length && fileCount < MAX_FILES; i++) {
-          const file = value[i];
-          // Convert to Base64 and check size
-          const base64 = await fileToBase64(file);
-          const base64Size = Math.ceil((base64.length * 3) / 4); // Approximate original size
-          if (totalBase64Size + base64Size > MAX_TOTAL_SIZE) break;
-          data[`attachment_${fileCount + 1}`] = base64;
-          data[`filename_${fileCount + 1}`] = file.name;
-          totalBase64Size += base64Size;
-          fileCount++;
-        }
-      } else if (value instanceof File) {
-        if (fileCount < MAX_FILES) {
-          const base64 = await fileToBase64(value);
-          const base64Size = Math.ceil((base64.length * 3) / 4);
-          if (totalBase64Size + base64Size <= MAX_TOTAL_SIZE) {
-            data[`attachment_${fileCount + 1}`] = base64;
-            data[`filename_${fileCount + 1}`] = value.name;
-            totalBase64Size += base64Size;
-            fileCount++;
-          }
-        }
-      } else {
+      if (!(value instanceof File) && !(value instanceof FileList)) {
         data[key] = typeof value === 'string' ? value.trim() : value;
+      }
+    }
+
+    // Explicitly handle file input
+    const fileInput = currentForm.form.querySelector('input[type="file"][name="attachment"]');
+    if (fileInput && fileInput.files && fileInput.files.length) {
+      for (let i = 0; i < fileInput.files.length && fileCount < MAX_FILES; i++) {
+        const file = fileInput.files[i];
+        const base64 = await fileToBase64(file);
+        const base64Size = Math.ceil((base64.length * 3) / 4);
+        if (totalBase64Size + base64Size > MAX_TOTAL_SIZE) break;
+        data[`attachment_${fileCount + 1}`] = base64;
+        data[`filename_${fileCount + 1}`] = file.name;
+        totalBase64Size += base64Size;
+        fileCount++;
       }
     }
 
