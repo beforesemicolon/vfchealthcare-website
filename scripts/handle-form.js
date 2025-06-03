@@ -11,7 +11,6 @@ function fileToBase64(file) {
 let currentForm = {};
 
 async function SubmitForm(token = '') {
-  console.log('-- SubmitForm', token);
   try {
     const formData = new FormData(currentForm.form);
     const data = {};
@@ -52,8 +51,6 @@ async function SubmitForm(token = '') {
     if (totalVariablesSize > MAX_VARIABLES_SIZE) {
       return alert(`Total data size exceeds EmailJS 50KB limit. Please reduce the size or number of attachments.`);
     }
-
-    console.log('-- data', data);
 
     await emailjs.send("vfc_service_info", currentForm.emailTemplate, {
       ...data,
