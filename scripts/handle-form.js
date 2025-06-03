@@ -14,38 +14,50 @@ async function SubmitForm(token) {
   try {
     const formData = new FormData(currentForm.form);
     const data = {};
-    
+    let fileCount = 0;
+    let totalBase64Size = 0;
+    const MAX_FILES = 5;
+    const MAX_TOTAL_SIZE = 40 * 1024; // 40KB for all attachments
+
     for (let [key, value] of formData) {
       if (value instanceof FileList) {
-        for (let i = 0; i < value.length; i++) {
+        for (let i = 0; i < value.length && fileCount < MAX_FILES; i++) {
           const file = value[i];
-          data[`attachment_${i+1}`] = await fileToBase64(file);
-          data[`filename_${i+1}`] = file.name;
+          // Convert to Base64 and check size
+          const base64 = await fileToBase64(file);
+          const base64Size = Math.ceil((base64.length * 3) / 4); // Approximate original size
+          if (totalBase64Size + base64Size > MAX_TOTAL_SIZE) break;
+          data[`attachment_${fileCount + 1}`] = base64;
+          data[`filename_${fileCount + 1}`] = file.name;
+          totalBase64Size += base64Size;
+          fileCount++;
         }
       } else if (value instanceof File) {
-        data[key] = await fileToBase64(value);
-        data['filename'] = value.name;
+        if (fileCount < MAX_FILES) {
+          const base64 = await fileToBase64(value);
+          const base64Size = Math.ceil((base64.length * 3) / 4);
+          if (totalBase64Size + base64Size <= MAX_TOTAL_SIZE) {
+            data[`attachment_${fileCount + 1}`] = base64;
+            data[`filename_${fileCount + 1}`] = value.name;
+            totalBase64Size += base64Size;
+            fileCount++;
+          }
+        }
       } else {
-        data[key] = value.trim();
+        data[key] = typeof value === 'string' ? value.trim() : value;
       }
     }
-    
-    emailjs.send("vfc_service_info", currentForm.emailTemplate, {
-        ...data,
-        "g-recaptcha-response": token
-      })
-      .then(() => {
-        currentForm.form.reset();
-        currentForm.form.className = 'success-request';
-      })
-      .catch(err => {
-        console.error(err);
-        currentForm.form.className = 'failed-request';
-      });
-    
+
+    await emailjs.send("vfc_service_info", currentForm.emailTemplate, {
+      ...data,
+      "g-recaptcha-response": token
+    });
+
+    currentForm.form.reset();
+    currentForm.form.className = 'success-request';
     scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
     grecaptcha.reset();
-  } catch(e) {
+  } catch (e) {
     console.error("Error submitting form:", e);
     currentForm.form.className = 'failed-request';
     scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
