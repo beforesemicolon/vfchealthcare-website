@@ -103,6 +103,15 @@ main > * {
      </label>
     </div>
    </fieldset>
+   <fieldset id="documents">
+    <legend>Attach Documents</legend>
+    <p><em>e.g: PCP form, insurance verification.</em></p>
+    <label aria-label="documents" class="btn">
+     <span>Select file(s)</span>
+     <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none" multiple>
+    </label>
+    <ul class="selected-files"></ul>
+   </fieldset>
    <fieldset id="patient">
     <legend>About the patient</legend>
     <label aria-label="full name"><input name="patientfullname" type="text" placeholder="Full Name" pattern="^(\\w\\w+)\\s(\\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
@@ -179,6 +188,29 @@ main > * {
         data-callback="SubmitForm"
         data-size="invisible"></div>
   </form>
+  <script defer>
+   const attach = document.getElementById('documents');
+   const selectedFilesList = document.querySelector('ul.selected-files');
+   
+   attach.addEventListener('change', () => {
+    const files = attach.querySelector('input[type="file"]').files;
+    selectedFilesList.innerHTML = '';
+    for (let i = 0; i < files.length; i++) {
+     const file = files[i];
+     const li = document.createElement('li');
+     const toobig = file.size > 500 * 1024;
+		 
+		 if (toobig) {
+       attach.querySelector('input[type="file"]').value = '';
+		   alert('File too big (> 500kb): ' + file.name + '. Please select a smaller file.');
+		 } else {
+       li.style.background = '#225400';
+       li.textContent = file.name;
+       selectedFilesList.appendChild(li);
+		 }
+    }
+   })
+  </script>
   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
  </main>
   `

@@ -16,7 +16,13 @@ async function SubmitForm(token) {
     const data = {};
     
     for (let [key, value] of formData) {
-      if (value instanceof File) {
+      if (value instanceof FileList) {
+        for (let i = 0; i < value.length; i++) {
+          const file = value[i];
+          data[`attachment_${i+1}`] = await fileToBase64(file);
+          data[`filename_${i+1}`] = file.name;
+        }
+      } else if (value instanceof File) {
         data[key] = await fileToBase64(value);
         data['filename'] = value.name;
       } else {
