@@ -39,8 +39,7 @@ async function SubmitForm(token) {
         if (totalAttachmentSize + file.size > MAX_ATTACHMENT_SIZE) {
           return alert(`Total attachment size exceeds ${MAX_ATTACHMENT_SIZE / 1024}KB. Please reduce the size of your attachments.`);
         }
-        const base64 = await fileToBase64(file);
-        data[`attachment_${fileCount + 1}`] = base64;
+        data[`attachment_${fileCount + 1}`] = await fileToBase64(file);
         data[`filename_${fileCount + 1}`] = file.name;
         totalAttachmentSize += file.size;
         fileCount++;
