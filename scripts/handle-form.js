@@ -16,8 +16,7 @@ async function SubmitForm(token) {
     const data = {};
     let fileCount = 0;
     let totalBase64Size = 0;
-    const MAX_FILES = 5;
-    const MAX_TOTAL_SIZE = 40 * 1024; // 40KB for all attachments
+    const MAX_TOTAL_SIZE = 50 * 1024; // 50KB for all attachments
 
     // Add all non-file fields
     for (let [key, value] of formData) {
@@ -29,7 +28,7 @@ async function SubmitForm(token) {
     // Explicitly handle file input
     const fileInput = currentForm.form.querySelector('input[type="file"][name="attachment"]');
     if (fileInput && fileInput.files && fileInput.files.length) {
-      for (let i = 0; i < fileInput.files.length && fileCount < MAX_FILES; i++) {
+      for (let i = 0; i < fileInput.files.length; i++) {
         const file = fileInput.files[i];
         const base64 = await fileToBase64(file);
         const base64Size = Math.ceil((base64.length * 3) / 4);
