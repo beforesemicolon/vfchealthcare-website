@@ -3,7 +3,7 @@ function fileToBase64(file) {
     const reader = new FileReader();
     
     reader.readAsDataURL(file); // Read file as Base64
-    reader.onload = () => resolve(reader.result.split(",")[1]); // Extract Base64 content
+    reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
 }
