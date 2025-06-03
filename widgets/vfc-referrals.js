@@ -67,7 +67,7 @@ main > * {
 `,
   render: ({env, reCAPTCHA}) => `
 <main class="wrapper">
-  <form id="referral" name="adult-family-care" novalidate>
+  <form id="referral" name="adult-family-care" novalidate recaptcha="${reCAPTCHA}">
    <p class="error-check-msg">Please fix the invalid fields before you send.</p>
    <fieldset>
     <legend>Service *</legend>
@@ -183,10 +183,13 @@ main > * {
     <button type="submit">Retry</button>
    </div>
    <button>send</button>
-   <div class="g-recaptcha"
+   ${
+    env.prod ?
+      `<div class="g-recaptcha"
         data-sitekey="${reCAPTCHA}"
         data-callback="SubmitForm"
-        data-size="invisible"></div>
+        data-size="invisible"></div>` : ''
+  }
   </form>
   <script defer>
    const attach = document.getElementById('documents');

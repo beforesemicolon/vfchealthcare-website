@@ -10,17 +10,22 @@ function fileToBase64(file) {
 
 let currentForm = {};
 
-async function SubmitForm(token) {
+async function SubmitForm(token = '') {
+  console.log('-- SubmitForm', token);
   try {
     const formData = new FormData(currentForm.form);
     const data = {};
     let fileCount = 0;
     let totalAttachmentSize = 0;
+    let totalVariablesSize = 0;
     const MAX_ATTACHMENT_SIZE = 500 * 1024; // 500KB for all attachments
+    const MAX_VARIABLES_SIZE = 50 * 1024; // 50KB for EmailJS
 
+    // Add non-file fields to data and count their size
     for (let [key, value] of formData) {
       if (!(value instanceof File) && !(value instanceof FileList)) {
         data[key] = typeof value === 'string' ? value.trim() : value;
+        totalVariablesSize += String(data[key]).length;
       }
     }
 
@@ -32,21 +37,33 @@ async function SubmitForm(token) {
         if (totalAttachmentSize + file.size > MAX_ATTACHMENT_SIZE) {
           return alert(`Total attachment size exceeds ${MAX_ATTACHMENT_SIZE / 1024}KB. Please reduce the size of your attachments.`);
         }
-        data[`attachment_${fileCount + 1}`] = await fileToBase64(file);
+        // Estimate base64 size
+        const base64 = await fileToBase64(file);
+        const base64Size = Math.ceil(file.size * 4 / 3);
+        data[`attachment_${fileCount + 1}`] = base64;
         data[`filename_${fileCount + 1}`] = file.name;
         totalAttachmentSize += file.size;
+        totalVariablesSize += base64.length + file.name.length;
         fileCount++;
       }
     }
 
-    await emailjs.sendForm("vfc_service_info", currentForm.emailTemplate, currentForm.form, {
-      // "g-recaptcha-response": token
+    // Check total variables size for EmailJS
+    if (totalVariablesSize > MAX_VARIABLES_SIZE) {
+      return alert(`Total data size exceeds EmailJS 50KB limit. Please reduce the size or number of attachments.`);
+    }
+
+    console.log('-- data', data);
+
+    await emailjs.send("vfc_service_info", currentForm.emailTemplate, {
+      ...data,
+      ...(token ? {"g-recaptcha-response": token} : {})
     });
 
     currentForm.form.reset();
     currentForm.form.className = 'success-request';
     scrollTo(currentForm.form.clientTop, currentForm.form.clientLeft);
-    grecaptcha.reset();
+    location.hostname !== 'localhost' && grecaptcha.reset();
   } catch (e) {
     console.error("Error submitting form:", e);
     currentForm.form.className = 'failed-request';

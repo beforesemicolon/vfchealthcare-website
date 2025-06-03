@@ -8,7 +8,7 @@
     "build": "node build.js",
     "build:watch": "nodemon --watch templates --watch widgets --watch scripts --watch stylesheets --watch assets --exec \"npm run build\"",
     "start": "serve public",
-    "local": "concurrently -k \"npm run build:watch\" \"npm run start\"",
+    "local": "NODE_ENV=development concurrently -k \"npm run build:watch\" \"npm run start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

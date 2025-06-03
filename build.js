@@ -7,9 +7,12 @@ const __dirname = path.dirname(__filename);
 
 const publicDir = path.resolve(__dirname, 'public');
 
+const isDevelopment =  process.env.NODE_ENV === 'development'
+
 buildTemplates({
   publicDir,
-  srcDir: __dirname
+  srcDir: __dirname,
+  prod: !isDevelopment
 })
   .then(() => console.log('Build complete in', publicDir))
   .catch(console.error)
