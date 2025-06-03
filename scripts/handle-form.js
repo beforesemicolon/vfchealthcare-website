@@ -18,17 +18,10 @@ async function SubmitForm(token) {
     let totalAttachmentSize = 0;
     const MAX_ATTACHMENT_SIZE = 500 * 1024; // 500KB for all attachments
 
-    // Add all non-file fields (dynamic variables)
-    let dynamicVarsSize = 0;
     for (let [key, value] of formData) {
       if (!(value instanceof File) && !(value instanceof FileList)) {
-        const val = typeof value === 'string' ? value.trim() : value;
-        dynamicVarsSize += (key.length + String(val).length);
-        data[key] = val;
+        data[key] = typeof value === 'string' ? value.trim() : value;
       }
-    }
-    if (dynamicVarsSize > 50 * 1024) {
-      return alert('Form data (excluding attachments) exceeds 50KB. Please shorten your input.');
     }
 
     // Explicitly handle file input
