@@ -14,6 +14,10 @@
     "https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css",
     "common.css"
   ],
+  "scripts": [
+    "https://www.googletagmanager.com/gtag/js?id=G-2JS0B25BC7",
+    "window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-2JS0B25BC7');"
+  ],
   "manifest": "manifest.json",
   "favicons": [
     {
