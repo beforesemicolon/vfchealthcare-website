@@ -40,7 +40,7 @@ async function SubmitForm(token) {
     }
 
     await emailjs.sendForm("vfc_service_info", currentForm.emailTemplate, currentForm.form, {
-      "g-recaptcha-response": token
+      // "g-recaptcha-response": token
     });
 
     currentForm.form.reset();
