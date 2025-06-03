@@ -15,14 +15,20 @@ async function SubmitForm(token) {
     const formData = new FormData(currentForm.form);
     const data = {};
     let fileCount = 0;
-    let totalBase64Size = 0;
-    const MAX_TOTAL_SIZE = 50 * 1024; // 50KB for all attachments
+    let totalAttachmentSize = 0;
+    const MAX_ATTACHMENT_SIZE = 500 * 1024; // 500KB for all attachments
 
-    // Add all non-file fields
+    // Add all non-file fields (dynamic variables)
+    let dynamicVarsSize = 0;
     for (let [key, value] of formData) {
       if (!(value instanceof File) && !(value instanceof FileList)) {
-        data[key] = typeof value === 'string' ? value.trim() : value;
+        const val = typeof value === 'string' ? value.trim() : value;
+        dynamicVarsSize += (key.length + String(val).length);
+        data[key] = val;
       }
+    }
+    if (dynamicVarsSize > 50 * 1024) {
+      return alert('Form data (excluding attachments) exceeds 50KB. Please shorten your input.');
     }
 
     // Explicitly handle file input
@@ -30,14 +36,13 @@ async function SubmitForm(token) {
     if (fileInput && fileInput.files && fileInput.files.length) {
       for (let i = 0; i < fileInput.files.length; i++) {
         const file = fileInput.files[i];
-        const base64 = await fileToBase64(file);
-        const base64Size = Math.ceil((base64.length * 3) / 4);
-        if (totalBase64Size + base64Size > MAX_TOTAL_SIZE) {
-          return alert(`Total attachment size exceeds ${MAX_TOTAL_SIZE / 1024}KB. Please reduce the size of your attachments.`);
+        if (totalAttachmentSize + file.size > MAX_ATTACHMENT_SIZE) {
+          return alert(`Total attachment size exceeds ${MAX_ATTACHMENT_SIZE / 1024}KB. Please reduce the size of your attachments.`);
         }
+        const base64 = await fileToBase64(file);
         data[`attachment_${fileCount + 1}`] = base64;
         data[`filename_${fileCount + 1}`] = file.name;
-        totalBase64Size += base64Size;
+        totalAttachmentSize += file.size;
         fileCount++;
       }
     }
