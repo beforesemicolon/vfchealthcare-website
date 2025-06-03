@@ -14,7 +14,7 @@ export default {
  justify-content: center;
  align-items: center;
  gap: 25px;
- background: #216C81;
+ background: var(--vfc-color);
  color: #fff;
  text-align: center;
  padding-top: 10px;
