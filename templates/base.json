@@ -17,6 +17,11 @@
   "manifest": "manifest.json",
   "favicons": [
     {
+      "rel": "icon",
+      "type": "image/x-icon",
+      "href": "favicon.ico"
+    },
+    {
       "rel": "apple-touch-icon",
       "sizes": "57x57",
       "href": "apple-icon-57x57.png"
