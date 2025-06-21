@@ -1,0 +1,20 @@
+{
+  "id": "vfc-no-script-for-forms",
+  "content": [
+    {
+      "name": "noscript",
+      "children": [
+        {
+          "name": "p",
+          "children": [
+            {
+              "name": "strong",
+              "children": ["No JavaScript detected"]
+            },
+            ": This page has a form that relies on JavaScript. You may continue to browse but you won't be able to interact with the form."
+          ]
+        }
+      ]
+    }
+  ]
+}

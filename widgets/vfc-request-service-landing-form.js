@@ -1,17 +1,12 @@
 export default {
-   id: "vfc-request-service-landing-form",
-   title: "Request service form",
+  id: "vfc-request-service-landing-form",
+  title: "Request service form",
+  cssSelector: "#request-service",
   inputs: [
     {
       name: "phrase",
       type: "text",
       value: 'We are your healthcare solution.'
-    },
-    {
-      name: "reCAPTCHA",
-      label: "reCAPTCHA site key",
-      type: "text",
-      value: '6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr'
     },
     {
       name: "form",
@@ -143,167 +138,162 @@ export default {
       ]
     }
   ],
-  style: `
-#request-service {
- background: #E5E0DA;
- position: relative;
-}
-
-#request-service .hero-image {
- overflow: hidden;
-}
-
-#request-service img {
- transform: translateX(-50px);
-}
-
-#request-service .form-container {
- color: #fff;
- position: relative;
- background: var(--vfc-color);
- display: flex;
- gap: 20px;
- height: 65px;
-}
-
-#request-service h2 {
- font-size: 34px;
- flex: 1;
- margin: 10px 20px 10px 0;
- text-wrap: nowrap;
-}
-
-#request-service form {
- background: #fff;
- color: #222;
- border-radius: 5px;
- overflow: hidden;
- flex: 1;
- margin-top: -450px;
- margin-right: 5%;
- transform: translateY(15%);
- box-shadow: -3px 6px 10px rgba(0, 0, 0, 0.1);
- height: max-content;
-}
-
-@media screen and (max-width: 1024px) {
- 
- #request-service .hero-image {
-  padding: 0;
- }
- 
- #request-service img {
-  transform: none;
-  height: auto !important;
-  width: 100%;
- }
- 
- #request-service .form-container {
-  flex-direction: column;
-  height: auto;
-  padding: 0;
-  gap: 0;
- }
- 
- #request-service h2 {
-  display: none;
- }
- 
- #request-service form {
-  margin: 0;
-  transform: none;
-  box-shadow: none;
-  border-radius: 0;
- }
-}
-
-@media screen and (max-width: 425px) {
- #request-service .hero-image {
-  height: 60vh;
-  position: relative;
- }
- 
- #request-service img {
-  position: absolute;
-  left: 70%;
-  top: 50%;
-  width: auto;
-  min-width: 100%;
-  min-height: 100% !important;
-  transform: translate(-50%, -50%);
-  max-width: unset;
- }
-}
-
-#request-service form h3 {
- background: var(--vfc-highlight-color);
- font-size: 32px;
- text-align: center;
- padding: 10px 0;
- color: #fff;
-}
-
-#request-service form .disclosure {
- font-size: 14px;
- line-height: 110%;
- color: #666;
-}
-
-#request-service form fieldset {
- padding: 0 25px;
-}
-`,
-  render: ({phrase, reCAPTCHA, env, form} = {}) => `
-<section id="request-service">
-  <div class="wrapper hero-image">
-   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
-        height="400">
-  </div>
-  <div class="wrapper form-container">
-   <h2>${phrase}</h2>
-   <form id="service-request" class="sending-form">
-    <h3>${form.title}</h3>
-    <p class="error-check-msg">Please fix the invalid fields before you send.</p>
-    <fieldset>
-     <legend>Contact Information *</legend>
-     <label aria-label="full name"><input type="text" name="fullname" placeholder="${form.labels.name}" required
-                                          pattern="^(\\w\\w+)\\s(\\w+)$"
-                                          title="Must be full name, for example: John Doe, Jane D"></label>
-     <label aria-label="email"><input type="email" name="email" placeholder="${form.labels.email}"></label>
-     <label aria-label="phone">
-      <input type="tel" name="phone" placeholder="${form.labels.phone}" required>
-     </label>
-    </fieldset>
-    <fieldset>
-     <legend>${form.labels.services}</legend>
-     <label aria-label="service">
-      <select name="service">
-        ${form.services.options.map(({value, label}) => `<option value="${value}" ${value === form.services.value ? 'selected' : ''}>${label}</option>`)}
-      </select>
-     </label>
-    </fieldset>
-    <fieldset>
-     <p class="disclosure">
-      <small>${form.disclosure}</small>
-     </p>
-     <button type="submit">${form.button}</button>
-    </fieldset>
-    <div class="success-request-message">
-     <h4>Request Sent!</h4>
-     <p>Someone will be reaching out soon for more details.</p>
-     <button type="button">Ok</button>
-    </div>
-    <div class="failed-request-message">
-     <h4>Oops!</h4>
-     <p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
-     <button type="submit">Retry</button>
-    </div>
-    <div class="g-recaptcha"
-         data-sitekey="${reCAPTCHA}"
-         data-callback="SubmitForm"
-         data-size="invisible"></div>
-   </form>
-  </div>
- </section>
-  `
+  style: {
+    "#request-service": {
+      background: "#E5E0DA",
+      position: "relative",
+      ".hero-image": {
+        overflow: "hidden"
+      },
+      img: {
+        transform: "translateX(-50px)"
+      },
+      ".form-container": {
+        color: "#fff",
+        position: "relative",
+        background: "var(--vfc-color)",
+        display: "flex",
+        gap: "20px",
+        height: "80px",
+        paddingTop: "10px",
+      },
+      h2: {
+        fontSize: "34px",
+        flex: 1,
+        margin: "10px 20px 10px 0",
+        textWrap: "nowrap",
+      },
+      form: {
+        background: "#fff",
+        color: "#222",
+        borderRadius: "5px",
+        overflow: "hidden",
+        flex: 1,
+        marginTop: "-450px",
+        marginRight: "5%",
+        transform: "translateY(15%)",
+        boxShadow: "-3px 6px 10px rgba(0, 0, 0, 0.1)",
+        height: "max-content",
+        h3: {
+          background: "var(--vfc-highlight-color)",
+          fontSize: "32px",
+          textAlign: "center",
+          padding: "20px 0",
+          color: "#fff"
+        },
+        ".disclosure": {
+          fontSize: "14px",
+          lineHeight: "110%",
+          color: "#666"
+        },
+        fieldset: {
+          padding: "0 25px"
+        }
+      }
+    },
+    "@media screen and (max-width: 1024px)": {
+      "#request-service": {
+        ".hero-image": {
+          padding: 0
+        },
+        img: {
+          transform: "none",
+          height: "auto !important",
+          width: "100%"
+        },
+        ".form-container": {
+          flexDirection: "column",
+          height: "auto",
+          padding: 0,
+          gap: 0
+        },
+        h2: {
+          display: "none"
+        },
+        form: {
+          margin: 0,
+          transform: "none",
+          boxShadow: "none",
+          borderRadius: 0
+        }
+      }
+    },
+    "@media screen and (max-width: 425px)": {
+      "#request-service": {
+        ".hero-image": {
+          height: "60vh",
+          position: "relative"
+        },
+        img: {
+          position: "absolute",
+          left: "70%",
+          top: "50%",
+          width: "auto",
+          minWidth: "100%",
+          minHeight: "100% !important",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "unset"
+        }
+      }
+    }
+  },
+  render: ({phrase, env, form} = {}) => {
+    const reCAPTCHA = "6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr";
+    return `
+      <section id="request-service">
+        <div class="wrapper hero-image">
+         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-warm-care.jpg" alt="VFC healthcare solution warm services"
+              height="400">
+        </div>
+        <div class="wrapper form-container">
+         <h2>${phrase}</h2>
+         <form id="service-request" class="sending-form">
+          <h3>${form.title}</h3>
+          <p class="error-check-msg">Please fix the invalid fields before you send.</p>
+          <fieldset>
+           <legend>Contact Information *</legend>
+           <label aria-label="full name"><input type="text" name="fullname" placeholder="${form.labels.name}" required
+                                                pattern="^(\\w\\w+)\\s(\\w+)$"
+                                                title="Must be full name, for example: John Doe, Jane D"></label>
+           <label aria-label="email"><input type="email" name="email" placeholder="${form.labels.email}"></label>
+           <label aria-label="phone">
+            <input type="tel" name="phone" placeholder="${form.labels.phone}" required>
+           </label>
+          </fieldset>
+          <fieldset>
+           <legend>${form.labels.services}</legend>
+           <label aria-label="service">
+            <select name="service">
+              ${form.services.options.map(({
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      value,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      label
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    }) => `<option value="${value}" ${value === form.services.value ? 'selected' : ''}>${label}</option>`)}
+            </select>
+           </label>
+          </fieldset>
+          <fieldset>
+           <p class="disclosure">
+            <small>${form.disclosure}</small>
+           </p>
+           <button type="submit">${form.button}</button>
+          </fieldset>
+          <div class="success-request-message">
+           <h4>Request Sent!</h4>
+           <p>Someone will be reaching out soon for more details.</p>
+           <button type="button">Ok</button>
+          </div>
+          <div class="failed-request-message">
+           <h4>Oops!</h4>
+           <p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
+           <button type="submit">Retry</button>
+          </div>
+          <div class="g-recaptcha"
+               data-sitekey="${reCAPTCHA}"
+               data-callback="SubmitForm"
+               data-size="invisible"></div>
+         </form>
+        </div>
+      </section>
+    `
+  }
 }

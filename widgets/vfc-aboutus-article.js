@@ -1,12 +1,8 @@
 export default {
-   id: "vfc-aboutus-article",
-   title: "About us article",
+  id: "vfc-aboutus-article",
+  cssSelector: "#about-us",
+  title: "About us article",
   inputs: [
-    {
-      type: "text",
-      name: "header",
-      value: "About us",
-    },
     {
       type: "textarea",
       name: "quote",
@@ -28,115 +24,104 @@ export default {
         "<li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li></ul>"
     },
   ],
-  style: `
-#about-us {
- --aboutus-gap: 30px;
- display: flex;
- gap: var(--aboutus-gap);
- flex-wrap: wrap;
- justify-content: space-between;
- padding-bottom: 50px;
-}
-
-#about-us header {
- width: 100%;
-}
-
-#about-us header h2 {
- font-size: 2rem;
- background: var(--vfc-color);
- color: #fff;
- margin: 0;
- padding: 10px 20px;
- clear: both;
-}
-
-#about-us main,
-#about-us img {
- width: calc(50% - var(--aboutus-gap));
-}
-
-#about-us p {
- line-height: 165%;
-}
-
-#about-us p:first-of-type::first-letter {
- initial-letter: 2;
- text-transform: capitalize;
- margin-right: 2px;
-}
-
-#about-us blockquote {
- font-size: 2.8rem;
- margin-bottom: 80px;
- font-family: Futura, serif;
- line-height: 130%;
-}
-
-#about-us blockquote::before {
- content: '"';
- display: block;
- font-size: 5rem;
- line-height: 75%;
- margin-left: -20px;
-}
-
-#about-us blockquote .author {
- font-size: 1.2rem;
- display: block;
- text-align: right;
- margin-top: 30px;
- padding-right: 50px;
- font-style: italic;
- font-weight: 100;
-}
-
-#about-us ul {
- margin: 20px 0;
-}
-
-#about-us li {
- margin: 15px 0;
- line-height: 165%;
-}
-
-@media screen and (max-width: 1024px) {
- #about-us {
-  gap: 30px 0
- }
- 
- #about-us main,
- #about-us img {
-  width: 100%;
- }
-}
-
-@media screen and (max-width: 520px) {
- #about-us blockquote {
-  font-size: 2rem;
- }
-}
-
-@media screen and (max-width: 400px) {
- #about-us blockquote {
-  font-size: 1.4rem;
- }
-}
-
-
-
-
-    `,
-  render: ({env, content, header, quote, quoteAuthor}) => `
-<article class="wrapper" id="about-us">
-  <header>
-   <h2>${header}</h2>
-  </header>
-  <main>
-   <blockquote>${quote}<span class="author">-- ${quoteAuthor}</span></blockquote>
-   ${content}
-  </main>
-  <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
- </article>
+  style: {
+    "#about-us": {
+      "--aboutus-gap": "30px",
+      display: "flex",
+      gap: "var(--aboutus-gap)",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      paddingBottom: "50px",
+      header: {
+        width: "100%",
+        h2: {
+          fontSize: "2rem",
+          background: "var(--vfc-color)",
+          color: "#fff",
+          margin: 0,
+          padding: "10px 20px",
+          clear: "both"
+        }
+      },
+      main: {
+        width: "calc(50% - var(--aboutus-gap))"
+      },
+      img: {
+        width: "calc(50% - var(--aboutus-gap))"
+      },
+      p: {
+        lineHeight: "165%",
+        "&:first-of-type::first-letter": {
+          initialLetter: 2,
+          textTransform: "capitalize",
+          marginRight: "2px"
+        }
+      },
+      blockquote: {
+        fontSize: "2.8rem",
+        marginBottom: "80px",
+        fontFamily: "Futura, serif",
+        lineHeight: "130%",
+        "&::before": {
+          content: '""',
+          display: "block",
+          fontSize: "5rem",
+          lineHeight: "75%",
+          marginLeft: "-20px"
+        },
+        ".author": {
+          fontSize: "1.2rem",
+          display: "block",
+          textAlign: "right",
+          marginTop: "30px",
+          paddingRight: "50px",
+          fontStyle: "italic",
+          fontWeight: 100
+        }
+      },
+      ul: {
+        margin: "20px 0"
+      },
+      li: {
+        margin: "15px 0",
+        lineHeight: "165%"
+      }
+    },
+    "@media screen and (max-width: 1024px)": {
+      "#about-us": {
+        gap: "30px 0",
+        main: {
+          width: "100%"
+        },
+        img: {
+          width: "100%"
+        }
+      }
+    },
+    "@media screen and (max-width: 520px)": {
+      "#about-us": {
+        blockquote: {
+          fontSize: "2rem"
+        }
+      }
+    },
+    "@media screen and (max-width: 400px)": {
+      "#about-us": {
+        blockquote: {
+          fontSize: "1.4rem"
+        }
+      }
+    }
+  },
+  render: ({env, content, header, quote, quoteAuthor}) => {
+    return `
+    <article class="wrapper" id="about-us">
+      <main>
+       <blockquote>${quote}<span class="author">-- ${quoteAuthor}</span></blockquote>
+       ${content}
+      </main>
+      <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
+    </article>
   `
+  }
 }

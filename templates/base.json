@@ -12,7 +12,49 @@
   },
   "stylesheets": [
     "https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css",
-    "common.css"
+    "common.css",
+    {
+      "content": {
+        ".logo": {
+          "display": "flex",
+          "gap": "10px",
+          "alignItems": "center",
+          "textDecoration": "none",
+          "color": "#222",
+          "h1": {
+            "margin": 0,
+            "fontSize": "21px",
+            "lineHeight": "120%",
+            "fontWeight": "bolder"
+          },
+          "p": {
+            "margin": 0,
+            "fontSize": "14px",
+            "color": "#555"
+          },
+          "&:hover": {
+            "textDecoration": "none"
+          },
+          "@media screen and (max-width: 520px)": {
+            "img": {
+              "width": "34px",
+              "height": "34px"
+            },
+            "h1": {
+              "fontSize": "1rem"
+            },
+            "p": {
+              "fontSize": "0.8rem"
+            }
+          },
+          "@media screen and (max-width: 375px)": {
+            "img": {
+              "display": "none"
+            }
+          }
+        }
+      }
+    }
   ],
   "scripts": [
     "https://www.googletagmanager.com/gtag/js?id=G-2JS0B25BC7",

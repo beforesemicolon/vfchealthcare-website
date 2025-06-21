@@ -1,0 +1,82 @@
+{
+  "id": "vfc-logo",
+  "stylesheets": [
+    {
+      "content": {
+        ".logo": {
+          "display": "flex",
+          "gap": "10px",
+          "alignItems": "center",
+          "textDecoration": "none",
+          "color": "#222",
+          "h1": {
+            "margin": 0,
+            "fontSize": "21px",
+            "lineHeight": "120%",
+            "fontWeight": "bolder"
+          },
+          "p": {
+            "margin": 0,
+            "fontSize": "14px",
+            "color": "#555"
+          },
+          "&:hover": {
+            "textDecoration": "none"
+          },
+          "@media screen and (max-width: 520px)": {
+            "img": {
+              "width": "34px",
+              "height": "34px"
+            },
+            "h1": {
+              "fontSize": "1rem"
+            },
+            "p": {
+              "fontSize": "0.8rem"
+            }
+          },
+          "@media screen and (max-width: 375px)": {
+            "img": {
+              "display": "none"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "content": [
+    {
+      "name": "a",
+      "href": "/",
+      "class": "logo",
+      "children": [
+        {
+          "name": "img",
+          "width": "45",
+          "height": "45",
+          "alt": "vfc healthcare solutions logo",
+          "src": "{{env.assetsOrigin}}assets/vfc-healthcare-solutions-logo.svg"
+        },
+        {
+          "name": "div",
+          "class": "details",
+          "children": [
+            {
+              "name": "h1",
+              "children": ["VFC Healthcare Solutions"]
+            },
+            {
+              "name": "p",
+              "children": [
+                {
+                  "name": "em",
+                  "children": ["Veracity. Fidelity. Compassion"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

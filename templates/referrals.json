@@ -8,20 +8,9 @@
   "stylesheets": [
     "form.css"
   ],
-  "scripts": [
-    {
-      "src": "https://www.google.com/recaptcha/api.js",
-      "async": true,
-      "defer": true
-    },
-    "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js",
-    "emailjs.init({publicKey: 'df43sDhTtpOjyDM_7',});",
-    "handle-form.js",
-    "handleForm('referral')"
-  ],
   "content": [
     {
-      "name": "widget",
+      "name": "component",
       "id": "vfc-no-script-for-forms"
     },
     {

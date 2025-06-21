@@ -7,7 +7,7 @@
   "pathname": "/contact.html",
   "content": [
     {
-      "name": "widget",
+      "name": "component",
       "id": "vfc-no-script-for-forms"
     },
     {

@@ -1,6 +1,7 @@
 export default {
   id: "vfc-services-article",
   title: "Services article",
+  cssSelector: "#services",
   inputs: [
     {
       name: "section1",
@@ -81,156 +82,148 @@ export default {
        and link them to resources available in their community. </p>`
     }
   ],
-  style: `
-#services {
- --header-bg: #7196a8;
- --section-gap: 50px;
-}
-
-#services > * {
- width: calc(50% - 30px)
-}
-
-#services p {
- line-height: 165%;
-}
-
-#services header {
- width: 100%;
- background: linear-gradient(90deg, var(--header-bg) 60%, #d2dce4 0) no-repeat 0 0;
-}
-
-#services header img {
- float: right;
- background: var(--header-bg);
- max-height: 300px;
-}
-
-#services header h2 {
- font-size: 2rem;
- background: var(--vfc-color);
- color: #fff;
- margin: 0;
- padding: 10px 20px;
- clear: both;
-}
-
-#services main {
- display: flex;
- flex-wrap: wrap;
- gap: 60px var(--section-gap);
- width: 100%;
- padding-top: 35px;
- padding-bottom: 35px;
- justify-content: space-between;
-}
-
-#services main > * {
- width: calc(50% - var(--section-gap));
-}
-
-#services main section:nth-of-type(odd) {
- position: relative;
-}
-
-#services main section:nth-of-type(odd)::after {
- content: '';
- display: inline-block;
- width: 1px;
- height: 70%;
- position: absolute;
- right: calc(var(--section-gap) * -1);
- top: 50%;
- transform: translateY(-50%);
- background: var(--vfc-color)
-}
-
-#services h3 {
- font-size: 2.8rem;
- font-weight: 300;
- margin-bottom: 20px;
-}
-
-#services ul {
- margin: 20px 0;
-}
-
-#services li {
- margin: 15px 0;
- line-height: 165%;
-}
-
-#services .btn {
- margin-top: 40px;
-}
-
-#services .call-us-btn {
- background: var(--vfc-color);
- color: #fff;
- padding: 10px 25px;
- text-decoration: none;
- border-radius: 20px;
- font-weight: bold;
- margin-top: 40px;
- display: inline-block;
-}
-
-@media screen and (max-width: 1024px) {
- #services main {
-  gap: 30px;
- }
- 
- #services main > * {
-  width: auto;
-  max-width: 100%;
-  min-width: 425px;
- }
- 
- #services main section:nth-of-type(odd)::after {
-  display: none;
- }
-}
-
-@media screen and (max-width: 520px) {
- #services header {
-  padding: 0;
- }
- 
- #services header img {
-  float: none;
- }
- 
- #services h3 {
-  font-size: 2rem;
- }
-}
-
-@media screen and (max-width: 435px) {
- #services main > * {
-  min-width: 200px;
- }
-}
-`,
-  render: ({env, section1, section2, section3}) => `
-  <article id="services">
-  <header class="wrapper">
-   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.png" alt="vfc healthcare solutions services">
-   <h2>Services</h2>
-  </header>
-  <main class="wrapper">
-   <section>
-    ${section1}
-    <a href="/referrals" class="btn">Request Service</a>
-   </section>
-   <section>
-    ${section2}
-   </section>
-   <section>
-    ${section3}
-    <a href="tel:7744804991" class="call-us-btn">Call us: (774) 480 - 4991</a>
-   </section>
-   <img src="${env.assetsOrigin || '/'}assets/nurse-force.jpeg" alt="vfc nurses">
-  </main>
- </article>
-  `
+  style: {
+    "#services": {
+      "--header-bg": "#7196a8",
+      "--section-gap": "80px",
+      "> *": {
+        width: "calc(50% - 30px)"
+      },
+      "p": {
+        lineHeight: "165%"
+      },
+      "header": {
+        width: "100%",
+        background: "linear-gradient(90deg, var(--header-bg) 60%, #d2dce4 0) no-repeat 0 0",
+        marginBottom: "50px",
+        "img": {
+          float: "right",
+          background: "var(--header-bg)",
+          maxHeight: "300px"
+        },
+        "h2": {
+          fontSize: "2rem",
+          background: "var(--vfc-color)",
+          color: "#fff",
+          margin: 0,
+          padding: "10px 20px",
+          clear: "both"
+        }
+      },
+      "main": {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "60px var(--section-gap)",
+        width: "100%",
+        paddingTop: "35px",
+        paddingBottom: "35px",
+        justifyContent: "space-between",
+        "> *": {
+          width: "calc(50% - var(--section-gap))"
+        },
+        "section:nth-of-type(odd)": {
+          position: "relative",
+          "::after": {
+            content: "''",
+            display: "inline-block",
+            width: "1px",
+            height: "70%",
+            position: "absolute",
+            right: "calc(var(--section-gap) * -1)",
+            top: "50%",
+            transform: "translateY(-50%)",
+            background: "var(--vfc-color)"
+          }
+        }
+      },
+      "h3": {
+        fontSize: "2.8rem",
+        fontWeight: 300,
+        marginBottom: "20px"
+      },
+      "ul": {
+        margin: "20px 0"
+      },
+      "li": {
+        margin: "15px 0",
+        lineHeight: "165%"
+      },
+      ".btn": {
+        marginTop: "40px"
+      },
+      ".call-us-btn": {
+        background: "var(--vfc-color)",
+        color: "#fff",
+        padding: "10px 25px",
+        textDecoration: "none",
+        borderRadius: "20px",
+        fontWeight: "bold",
+        marginTop: "40px",
+        display: "inline-block"
+      }
+    },
+    "@media screen and (max-width: 1024px)": {
+      "#services": {
+        "main": {
+          gap: "30px",
+          "> *": {
+            width: "auto",
+            maxWidth: "100%",
+            minWidth: "425px"
+          },
+          "section:nth-of-type(odd)": {
+            "::after": {
+              display: "none"
+            }
+          }
+        }
+      }
+    },
+    "@media screen and (max-width: 520px)": {
+      "#services": {
+        "header": {
+          padding: 0,
+          "img": {
+            float: "none"
+          }
+        },
+        "h3": {
+          fontSize: "2rem"
+        }
+      }
+    },
+    "@media screen and (max-width: 435px)": {
+      "#services": {
+        "main": {
+          "> *": {
+            minWidth: "200px"
+          }
+        }
+      }
+    }
+  },
+  render: ({env, section1, section2, section3}) => {
+    return `
+      <article id="services">
+        <header class="wrapper">
+         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.png" alt="vfc healthcare solutions services">
+         <h2>Services</h2>
+        </header>
+        <main class="wrapper">
+         <section>
+          ${section1}
+          <a href="/referrals" class="btn">Request Service</a>
+         </section>
+         <section>
+          ${section2}
+         </section>
+         <section>
+          ${section3}
+          <a href="tel:7744804991" class="call-us-btn">Call us: (774) 480 - 4991</a>
+         </section>
+         <img src="${env.assetsOrigin || '/'}assets/nurse-force.jpeg" alt="vfc nurses">
+        </main>
+      </article>
+    `
+  }
 }

@@ -8,10 +8,6 @@
   "content": [
     {
       "name": "widget",
-      "id": "vfc-no-script-for-forms"
-    },
-    {
-      "name": "widget",
       "id": "vfc-top-bar"
     },
     {

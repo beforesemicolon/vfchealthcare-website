@@ -1,6 +1,7 @@
 export default {
-   id: "vfc-careers",
-   title: "Careers",
+  id: "vfc-careers",
+  title: "Careers",
+  cssSelector: "#careers",
   inputs: [
     {
       type: "text",
@@ -24,7 +25,6 @@ export default {
       definitions: [
         {
           type: "group",
-          name: "jobPost",
           label: "Job Post",
           definitions: [
             {
@@ -57,134 +57,123 @@ export default {
       ]
     }
   ],
-  style: ({env}) => `
-#careers {
- margin-bottom: 50px;
-}
-
-#careers header {
- width: 100%;
- background: #4b3627;
-}
-
-#careers header h2 {
- font-size: 2rem;
- background: var(--vfc-color);
- color: #fff;
- margin: 0;
- padding: 10px 20px;
- clear: both;
-}
-
-#careers header img {
- width: 100%;
-}
-
-#careers .disclosure {
- max-width: 60%;
- margin: 40px 0 30px;
-}
-
-#careers h3 {
- font-size: 2.4rem;
- font-weight: 300;
-}
-
-#careers .job-posts {
- display: flex;
- flex-wrap: wrap;
- gap: 30px;
-}
-
-#careers .job-post {
- background: #f5f5f5;
- padding: 20px;
- flex: 2 0 400px;
- border-radius: 5px;
- max-width: calc(50% - 15px);
- min-width: 300px;
-}
-
-#careers .job-post h4 {
-  font-size: 1.5rem;
- margin: 0 0 3px;
-}
-
-#careers .job-post .location {
- font-size: 0.8rem;
- background: #222;
- color: #fff;
- display: inline-block;
- padding: 3px 12px;
- border-radius: 25px;
- font-weight: 700;
-}
-
-#careers .job-post .payment {
- margin-right: 10px;
-}
-
-#careers .job-post a {
- text-transform: capitalize;
- color: var(--vfc-highlight-color);
- display: flex;
- font-weight: bold;
-}
-
-#careers .job-post a::after {
- content: '';
- display: inline-block;
- width: 20px;
- height: 20px;
- margin-left: 3px;
- background: url("${env.assetsOrigin || '/'}assets/icons/ext-link.icon.svg") no-repeat center right;
- background-size: 18px;
-}
-
-@media screen and (max-width: 1024px){
- #careers .disclosure {
-  max-width: 100%;
- }
- 
- #careers header {
-  padding: 0;
- }
-}
-
-@media screen and (max-width: 680px){
- #careers .job-post {
-  max-width: 100%;
- }
-}
-
-
-    `,
-  render: ({env, header, disclosure, jobPosts, headline}) =>`
-<main id="careers">
-  <header class="wrapper">
-   <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">
-   <h2>${header}</h2>
-  </header>
-  <div class="content wrapper">
-   <p class="disclosure">${disclosure}</p>
-   <h3>${headline}</h3>
-   <div class="job-posts">
-    ${jobPosts
-      .map(({location, headline, payment, benefits, link}) => `
-        <div class="job-post">
-         <p class="location">${location}</p>
-         <h4>${headline}</h4>
-         <p>
-          <strong class="payment">${payment}</strong>
-          <span class="benefits">${benefits}</span>
-         </p>
-         <a href="${link}" target="_blank">Apply</a>
+  style: ({env}) => ({
+    "#careers": {
+      marginBottom: "50px",
+      header: {
+        width: "100%",
+        background: "#4b3627",
+        h2: {
+          fontSize: "2rem",
+          background: "var(--vfc-color)",
+          color: "#fff",
+          margin: 0,
+          padding: "10px 20px",
+          clear: "both"
+        },
+        img: {
+          width: "100%"
+        }
+      },
+      ".disclosure": {
+        maxWidth: "60%",
+        margin: "40px 0 30px"
+      },
+      h3: {
+        fontSize: "2.4rem",
+        fontWeight: 300
+      },
+      ".job-posts": {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "30px"
+      },
+      ".job-post": {
+        background: "#f5f5f5",
+        padding: "20px",
+        flex: "2 0 400px",
+        borderRadius: "5px",
+        maxWidth: "calc(50% - 15px)",
+        minWidth: "300px",
+        h4: {
+          fontSize: "1.5rem",
+          margin: "0 0 3px"
+        },
+        ".location": {
+          fontSize: "0.8rem",
+          background: "#222",
+          color: "#fff",
+          display: "inline-block",
+          padding: "3px 12px",
+          borderRadius: "25px",
+          fontWeight: 700
+        },
+        ".payment": {
+          marginRight: "10px"
+        },
+        a: {
+          textTransform: "capitalize",
+          color: "var(--vfc-highlight-color)",
+          display: "flex",
+          fontWeight: "bold",
+          "&::after": {
+            content: "''",
+            display: "inline-block",
+            width: "20px",
+            height: "20px",
+            marginLeft: "3px",
+            background: `url("${env.assetsOrigin || '/'}assets/icons/ext-link.icon.svg") no-repeat center right`,
+            backgroundSize: "18px"
+          }
+        }
+      }
+    },
+    "@media screen and (max-width: 1024px)": {
+      "#careers": {
+        ".disclosure": {
+          maxWidth: "100%"
+        },
+        header: {
+          padding: 0
+        }
+      }
+    },
+    "@media screen and (max-width: 680px)": {
+      "#careers": {
+        ".job-post": {
+          maxWidth: "100%"
+        }
+      }
+    }
+  }),
+  render: ({env, header, disclosure, jobPosts, headline}) => {
+    return `
+      <main id="careers">
+        <header class="wrapper">
+         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">
+         <h2>${header}</h2>
+        </header>
+        <div class="content wrapper">
+         <p class="disclosure">${disclosure}</p>
+         <h3>${headline}</h3>
+         <div class="job-posts">
+          ${jobPosts
+            .map(({location, headline, payment, benefits, link}) => `
+              <div class="job-post">
+               <p class="location">${location}</p>
+               <h4>${headline}</h4>
+               <p>
+                <strong class="payment">${payment}</strong>
+                <span class="benefits">${benefits}</span>
+               </p>
+               <a href="${link}" target="_blank">Apply</a>
+              </div>
+              `)
+            .join('')
+          }
+         </div>
         </div>
-        `)
-      .join('')
-   }
-   </div>
-  </div>
- </main>
-  `
+      </main>
+    `
+  }
 }
