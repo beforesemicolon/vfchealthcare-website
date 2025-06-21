@@ -304,7 +304,7 @@ export default {
   render: ({menu = {}, env, $comp}) => {
     const navItems = menu
       .filter(item => item.visible)
-      .map(item => `<li><a href="${item.path}" class="${item.cta ? 'primary' : ''}" ${env.route === item.path ? 'active' : ''}>${item.label}</a></li>`)
+      .map(item => `<li><a href="${item.path}" class="${item.cta ? 'primary' : ''}" ${env.route === item.path ? 'active' : ''} aria-label="${item.label} page">${item.label}</a></li>`)
       .join('');
     
     return `

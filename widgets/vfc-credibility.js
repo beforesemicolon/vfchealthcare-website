@@ -5,8 +5,8 @@ export default {
   inputs: [
     {
       name: "description",
-      type: "textarea",
-      value: "VFC Healthcare Solutions LLC has gone through a rigorous peer review process and demonstrated to CARF that it provides high quality services."
+      type: "html",
+      value: "<p>VFC Healthcare Solutions LLC has gone through a rigorous peer review process and demonstrated to <a href=\"https://carf.org/\" target=\"_blank\">CARF</a> that it provides high quality services.</p>"
     }
   ],
   style: {
@@ -48,7 +48,7 @@ export default {
     return `
       <div id="credibility" class="wrapper">
        <img src="${env.assetsOrigin || '/'}assets/carf.png" alt="carf logo" width="150" height="150">
-       <p>${description} <a href="https://carf.org/" target="_blank">Learn more</a>.</p>
+       ${description}
       </div>
     `
   }

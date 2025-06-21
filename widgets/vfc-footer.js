@@ -251,11 +251,11 @@ export default {
         ${$comp("vfc-logo")}
         <div class="content">
           <address>
-            <a href="tel:${phone.replace(/\D/g, '')}"><strong>Phone</strong>: ${phone}</a>
-            <a href="tel:${tollFree.replace(/\D/g, '')}"><strong>Toll Free</strong>: ${tollFree}</a>
-            <a href="tel:${fax.replace(/\D/g, '')}"><strong>Fax</strong>: ${fax}</a>
+            <a href="tel:${phone.replace(/\D/g, '')}" aria-label="phone number"><strong>Phone</strong>: ${phone}</a>
+            <a href="tel:${tollFree.replace(/\D/g, '')}" aria-label="toll-free number"><strong>Toll Free</strong>: ${tollFree}</a>
+            <a href="tel:${fax.replace(/\D/g, '')}" aria-label="fax number"><strong>Fax</strong>: ${fax}</a>
             <p><strong>All mail corespondences should be sent to:</strong></p>
-            <a class="mail-address" href="${url.href}">
+            <a class="mail-address" href="${url.href}" aria-label="address on map">
              ${address}
             </a>
           </address>
@@ -269,9 +269,9 @@ export default {
           </section>
           <section id="social">
             <h4>Follow Us:</h4>
-            <a href="${social.facebook}"
+            <a href="${social.facebook}" aria-label="facebook page"
                class="facebook-social-black"><span>facebook</span></a>
-            <a href="${social.instagram}"
+            <a href="${social.instagram}" aria-label="instagram page"
                class="instagram-social-black"><span>instagram</span></a>
           </section>
         </div>

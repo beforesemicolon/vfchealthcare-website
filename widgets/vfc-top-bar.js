@@ -60,10 +60,10 @@ export default {
     
     return `
       <div id="contact-bar" class="wrapper">
-       ${faxNumber ? `<a href="tel:${faxNumber}">Fax: <span>${props.fax}</span></a>` : ''}
-       ${phoneNumber ? `<a href="tel:${phoneNumber}">Phone: <span>${props.phone}</span></a>` : ''}
-       ${props.facebook ? `<a href="${props.facebook}" class="facebook-social"><span>Facebook</span></a>` : ''}
-       ${props.instagram ? `<a href="${props.instagram}" class="instagram-social"><span>Instagram</span></a>` : ''}
+       ${faxNumber ? `<a href="tel:${faxNumber}" aria-label="fax number">Fax: <span>${props.fax}</span></a>` : ''}
+       ${phoneNumber ? `<a href="tel:${phoneNumber}" aria-label="phone number">Phone: <span>${props.phone}</span></a>` : ''}
+       ${props.facebook ? `<a href="${props.facebook}" class="facebook-social" aria-label="facebook page"><span>Facebook</span></a>` : ''}
+       ${props.instagram ? `<a href="${props.instagram}" class="instagram-social" aria-label="instagram page"><span>Instagram</span></a>` : ''}
       </div>
     `
   }
