@@ -142,7 +142,7 @@ export default {
           <a href="tel:${tollFree.replace(/\D/g, '')}"><strong>Toll Free</strong>: ${tollFree}</a>
           <a href="tel:${fax.replace(/\D/g, '')}"><strong>Fax</strong>: ${fax}</a>
           <p><strong>All mail corespondences should be sent to:</strong></p>
-          <a class="mail-address" href="${url.href}">
+          <a class="mail-address" href="${url.href}" target="_blank">
            ${address}
           </a>
          </address>

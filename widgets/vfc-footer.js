@@ -255,7 +255,7 @@ export default {
             <a href="tel:${tollFree.replace(/\D/g, '')}" aria-label="toll-free number"><strong>Toll Free</strong>: ${tollFree}</a>
             <a href="tel:${fax.replace(/\D/g, '')}" aria-label="fax number"><strong>Fax</strong>: ${fax}</a>
             <p><strong>All mail corespondences should be sent to:</strong></p>
-            <a class="mail-address" href="${url.href}" aria-label="address on map">
+            <a class="mail-address" href="${url.href}" aria-label="address on map" target="_blank">
              ${address}
             </a>
           </address>
@@ -270,9 +270,9 @@ export default {
           <section id="social">
             <h4>Follow Us:</h4>
             <a href="${social.facebook}" aria-label="facebook page"
-               class="facebook-social-black"><span>facebook</span></a>
+               class="facebook-social-black" target="_blank"><span>facebook</span></a>
             <a href="${social.instagram}" aria-label="instagram page"
-               class="instagram-social-black"><span>instagram</span></a>
+               class="instagram-social-black" target="_blank"><span>instagram</span></a>
           </section>
         </div>
         <p><small>Copyright © ${(new Date()).getFullYear()} VFC Healthcare Solutions - All Rights Reserved.</small></p>

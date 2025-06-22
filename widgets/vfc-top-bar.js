@@ -62,8 +62,8 @@ export default {
       <div id="contact-bar" class="wrapper">
        ${faxNumber ? `<a href="tel:${faxNumber}" aria-label="fax number">Fax: <span>${props.fax}</span></a>` : ''}
        ${phoneNumber ? `<a href="tel:${phoneNumber}" aria-label="phone number">Phone: <span>${props.phone}</span></a>` : ''}
-       ${props.facebook ? `<a href="${props.facebook}" class="facebook-social" aria-label="facebook page"><span>Facebook</span></a>` : ''}
-       ${props.instagram ? `<a href="${props.instagram}" class="instagram-social" aria-label="instagram page"><span>Instagram</span></a>` : ''}
+       ${props.facebook ? `<a href="${props.facebook}" class="facebook-social" aria-label="facebook page" target="_blank"><span>Facebook</span></a>` : ''}
+       ${props.instagram ? `<a href="${props.instagram}" class="instagram-social" aria-label="instagram page" target="_blank"><span>Instagram</span></a>` : ''}
       </div>
     `
   }
