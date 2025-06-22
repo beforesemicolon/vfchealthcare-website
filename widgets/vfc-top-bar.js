@@ -5,12 +5,12 @@ export default {
     {
       name: "phone",
       type: "tel",
-      value: '(774) 272 - 9322'
+      value: '(774) 480 - 4991'
     },
     {
       name: "fax",
       type: "tel",
-      value: '(774) 480 - 4991'
+      value: '(774) 272 - 9322'
     },
     {
       name: "facebook",

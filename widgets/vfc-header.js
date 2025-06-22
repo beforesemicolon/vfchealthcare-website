@@ -264,7 +264,7 @@ export default {
           },
           "#mobile-menu-close": {
             position: "absolute",
-            top: "50px",
+            bottom: "50px",
             right: "30px",
             width: "30px",
             height: "30px",
