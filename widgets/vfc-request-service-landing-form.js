@@ -179,7 +179,7 @@ export default {
           background: "#222",
           fontSize: "25px",
           textAlign: "center",
-          padding: "10px 0",
+          padding: "20px 0",
           color: "#fff",
           letterSpacing: "0.06rem"
         },

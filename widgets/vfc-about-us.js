@@ -18,7 +18,7 @@ export default {
     "#about-us": {
       display: "flex",
       flexDirection: "column",
-      margin: "40px 0 60px",
+      margin: "60px 0",
       "& > *": {
         width: "calc(50% - 30px)"
       }
