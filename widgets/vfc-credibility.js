@@ -47,7 +47,7 @@ export default {
   render: ({env, description}) => {
     return `
       <div id="credibility" class="wrapper">
-       <img src="${env.assetsOrigin || '/'}assets/carf.png" alt="carf logo" width="150" height="150">
+       <img src="${env.assetsOrigin || '/'}assets/carf.webp" alt="carf logo" width="150" height="150">
        ${description}
       </div>
     `
