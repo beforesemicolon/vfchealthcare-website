@@ -166,7 +166,7 @@ export default {
       form: {
         background: "#fff",
         color: "#222",
-        borderRadius: "5px",
+        borderRadius: "3px",
         overflow: "hidden",
         flex: 1,
         marginTop: "-450px",
@@ -179,7 +179,8 @@ export default {
           fontSize: "32px",
           textAlign: "center",
           padding: "20px 0",
-          color: "#fff"
+          color: "#fff",
+          letterSpacing: "0.06rem"
         },
         ".disclosure": {
           fontSize: "14px",
