@@ -209,13 +209,25 @@ export default {
           gap: 0
         },
         h2: {
-          display: "none"
+          textAlign: "center",
+          whiteSpace: "wrap",
+          fontSize: "28px",
+          margin: "15px 20px",
+          lineHeight: "1.5",
         },
         form: {
           margin: 0,
           transform: "none",
           boxShadow: "none",
-          borderRadius: 0
+          borderRadius: 0,
+          h3: {
+            background: "none",
+            color: "black",
+            padding: "25px 25px 25px",
+            margin: 0,
+            textAlign: "left",
+            fontSize: "24px"
+          },
         }
       }
     },
