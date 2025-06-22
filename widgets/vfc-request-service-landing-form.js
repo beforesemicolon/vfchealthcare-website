@@ -176,7 +176,7 @@ export default {
         boxShadow: "-3px 6px 10px rgba(0, 0, 0, 0.1)",
         height: "max-content",
         h3: {
-          background: "var(--vfc-highlight-color)",
+          background: "#222",
           fontSize: "25px",
           textAlign: "center",
           padding: "10px 0",
