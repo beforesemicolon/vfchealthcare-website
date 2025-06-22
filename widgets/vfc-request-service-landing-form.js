@@ -245,7 +245,8 @@ export default {
           minWidth: "100%",
           minHeight: "100% !important",
           transform: "translate(-50%, -50%)",
-          maxWidth: "unset"
+          maxWidth: "unset",
+          maxHeight: "80vh"
         }
       }
     }
