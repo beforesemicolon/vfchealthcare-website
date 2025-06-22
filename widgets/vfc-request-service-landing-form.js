@@ -177,9 +177,9 @@ export default {
         height: "max-content",
         h3: {
           background: "var(--vfc-highlight-color)",
-          fontSize: "32px",
+          fontSize: "25px",
           textAlign: "center",
-          padding: "20px 0",
+          padding: "10px 0",
           color: "#fff",
           letterSpacing: "0.06rem"
         },
