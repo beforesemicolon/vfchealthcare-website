@@ -65,6 +65,10 @@
     {
       "name": "widget",
       "id": "vfc-footer"
+    },
+    {
+      "name": "widget",
+      "id": "vfc-cookies-warning"
     }
   ]
 }
