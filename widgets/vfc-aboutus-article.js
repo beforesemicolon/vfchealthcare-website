@@ -120,7 +120,7 @@ export default {
        <blockquote>${quote}<span class="author">-- ${quoteAuthor}</span></blockquote>
        ${content}
       </main>
-      <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-aboutus.jpeg" alt="vfc healthcare solutions founder Florence">
+      <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-aboutus.webp" alt="vfc healthcare solutions founder Florence">
     </article>
   `
   }

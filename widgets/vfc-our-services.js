@@ -233,7 +233,7 @@ export default {
           <ul>${services.map((service) => `<li><a href="${service.link}">${service.label}</a></li>`).join('')}</ul>
          <a href="/services" class="btn">${action}</a>
         </div>
-        <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.png" alt="VFC healthcare solutions services">
+        <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.webp" alt="VFC healthcare solutions services">
        </div>
       </section>
     `

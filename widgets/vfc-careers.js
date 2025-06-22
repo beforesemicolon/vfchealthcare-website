@@ -150,7 +150,7 @@ export default {
     return `
       <main id="careers">
         <header class="wrapper">
-         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-careers.png" alt="vfc healthcare solutions careers">
+         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-careers.webp" alt="vfc healthcare solutions careers">
          <h2>${header}</h2>
         </header>
         <div class="content wrapper">

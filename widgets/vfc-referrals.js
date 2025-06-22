@@ -191,7 +191,7 @@ export default {
               data-size="invisible"></div>` : ''
     }
         </form>
-        <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.jpg" alt="vfc healthcare solutions referral">
+        <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.webp" alt="vfc healthcare solutions referral">
        </main>
      `
   }

@@ -206,7 +206,7 @@ export default {
     return `
       <article id="services">
         <header class="wrapper">
-         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.png" alt="vfc healthcare solutions services">
+         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-service.webp" alt="vfc healthcare solutions services">
          <h2>Services</h2>
         </header>
         <main class="wrapper">
@@ -221,7 +221,7 @@ export default {
           ${section3}
           <a href="tel:7744804991" class="call-us-btn">Call us: (774) 480 - 4991</a>
          </section>
-         <img src="${env.assetsOrigin || '/'}assets/nurse-force.jpeg" alt="vfc nurses">
+         <img src="${env.assetsOrigin || '/'}assets/nurse-force.webp" alt="vfc nurses">
         </main>
       </article>
     `
