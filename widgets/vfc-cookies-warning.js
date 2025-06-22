@@ -6,7 +6,7 @@ export default {
     {
       type: "text",
       name: "message",
-      value: "This website uses cookies to ensure you get the best experience on our website."
+      value: "We use cookies to understand how people use our site so we can improve the experience. We do not collect personal data unless you explicitly provide it to us."
     },
     {
       type: "text",
