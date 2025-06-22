@@ -80,6 +80,7 @@ button, .btn {
 	font-weight: bold;
 	display: inline-block;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 button:disabled, .btn:disabled {
