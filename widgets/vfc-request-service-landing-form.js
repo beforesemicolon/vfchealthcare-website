@@ -190,6 +190,9 @@ export default {
         },
         fieldset: {
           padding: "0 25px"
+        },
+        button: {
+          background: "#f44336",
         }
       }
     },
