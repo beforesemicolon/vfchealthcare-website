@@ -174,7 +174,7 @@ export default {
       ]
     }
   ],
-  style: {
+  style: ({env}) => ({
     footer: {
       background: "#EBFBFF",
       paddingTop: "60px",
@@ -252,7 +252,7 @@ export default {
         }
       }
     }
-  },
+  }),
   render: ({env, phone, tollFree, fax, address, services, social, quickLinks, $comp}) => {
     const addressText = address.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
     const url = new URL('https://maps.apple.com');
