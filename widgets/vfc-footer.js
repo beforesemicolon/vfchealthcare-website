@@ -222,6 +222,18 @@ export default {
         a: {
           marginLeft: "15px"
         }
+      },
+      ".facebook-social": {
+        background: `url("${env.assetsOrigin || '/'}assets/icons/facebook.icon.svg") 0 0 no-repeat`
+      },
+      ".instagram-social": {
+        background: `url("${env.assetsOrigin || '/'}assets/icons/instagram.icon.svg") 0 0 no-repeat`
+      },
+      ".facebook-social-black": {
+        background: `url("${env.assetsOrigin || '/'}assets/icons/facebook-black.icon.svg") 0 0 no-repeat`
+      },
+      ".instagram-social-black": {
+        background: `url("${env.assetsOrigin || '/'}assets/icons/instagram-black.icon.svg") 0 0 no-repeat`
       }
     },
     "@media screen and (max-width: 960px)": {

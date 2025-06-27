@@ -106,22 +106,6 @@ button:disabled, .btn:disabled {
 	height: 20px;
 }
 
-.facebook-social {
-	background: url("/assets/icons/facebook.icon.svg") 0 0 no-repeat;
-}
-
-.instagram-social {
-	background: url("/assets/icons/instagram.icon.svg") 0 0 no-repeat;
-}
-
-.facebook-social-black {
-	background: url("/assets/icons/facebook-black.icon.svg") 0 0 no-repeat;
-}
-
-.instagram-social-black {
-	background: url("/assets/icons/instagram-black.icon.svg") 0 0 no-repeat;
-}
-
 .wrapper {
 	padding-left: calc((100vw - 1280px) / 2);
 	padding-right: calc((100vw - 1280px) / 2);
