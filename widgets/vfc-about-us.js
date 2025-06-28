@@ -1,6 +1,7 @@
 export default {
   id: "vfc-about-us",
   cssSelector: "#about-us",
+  type: "local",
   title: "About us",
   inputs: [
     {

@@ -1,5 +1,6 @@
 export default {
   id: "vfc-top-bar",
+  type: "global",
   title: "Top bar",
   inputs: [
     {

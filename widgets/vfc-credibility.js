@@ -1,5 +1,6 @@
 export default {
   id: "vfc-credibility",
+  type: "local",
   title: "Credibility",
   cssSelector: "#credibility",
   inputs: [

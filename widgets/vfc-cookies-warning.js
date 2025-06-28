@@ -1,5 +1,6 @@
 export default {
   id: "vfc-cookies-warning",
+  type: "global",
   cssSelector: "#cookies-warning",
   title: "Cookies Warning",
   inputs: [

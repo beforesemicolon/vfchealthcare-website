@@ -1,5 +1,6 @@
 export default {
   id: "vfc-request-service-landing-form",
+  type: "local",
   title: "Request service form",
   cssSelector: "#request-service",
   inputs: [

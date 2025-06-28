@@ -1,5 +1,6 @@
 export default {
   id: "vfc-news",
+  type: "local",
   title: "News",
   cssSelector: "#news",
   inputs: [

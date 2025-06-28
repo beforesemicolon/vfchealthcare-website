@@ -1,5 +1,6 @@
 export default {
   id: "vfc-our-services",
+  type: "local",
   title: "Our services",
   cssSelector: "#services",
   inputs: [

@@ -1,5 +1,6 @@
 export default {
   id: "vfc-ma-foster-care",
+  type: "local",
   title: "MA foster care",
   cssSelector: "#massachusetts",
   inputs: [

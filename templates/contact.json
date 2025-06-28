@@ -2,6 +2,7 @@
   "extends": "base",
   "type": "page",
   "id": "contact",
+  "title": "Contact - VFC Healthcare Solutions",
   "name": "contact",
   "route": "/contact",
   "pathname": "/contact.html",

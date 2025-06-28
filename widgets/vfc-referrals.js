@@ -1,5 +1,6 @@
 export default {
   id: "vfc-referrals",
+  type: "local",
   title: "Referrals",
   cssSelector: "#referrals",
   scripts: [

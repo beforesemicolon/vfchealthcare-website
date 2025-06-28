@@ -1,5 +1,6 @@
 export default {
   id: "vfc-careers",
+  type: "local",
   title: "Careers",
   cssSelector: "#careers",
   inputs: [

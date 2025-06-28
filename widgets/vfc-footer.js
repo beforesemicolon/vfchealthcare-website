@@ -1,5 +1,6 @@
 export default {
   id: "vfc-footer",
+  type: "global",
   title: "Footer",
   cssSelector: "footer",
   inputs: [

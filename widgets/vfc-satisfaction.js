@@ -1,5 +1,6 @@
 export default {
   id: "vfc-satisfaction",
+  type: "local",
   title: "Satisfaction",
   inputs: [
     {

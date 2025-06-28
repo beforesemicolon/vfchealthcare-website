@@ -1,5 +1,6 @@
 export default {
   id: "vfc-header",
+  type: "global",
   title: "Header",
   cssSelector: '#main-header',
   inputs: [

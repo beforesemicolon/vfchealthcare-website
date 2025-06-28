@@ -1,5 +1,6 @@
 export default {
   id: "vfc-contact",
+  type: "local",
   title: "Contact",
   inputs: [
     {
