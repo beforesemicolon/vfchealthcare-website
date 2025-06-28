@@ -17,9 +17,16 @@
       "page": "contactus"
     },
     {
-      "name": "h2",
+      "name": "div",
+      "class": "wrapper",
       "children": [
-        "404 - Page Not Found"
+        {
+          "name": "h2",
+          "style": "margin: 50px 0;",
+          "children": [
+            "404 - Page Not Found"
+          ]
+        }
       ]
     },
     {
