@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://vfchealthcare-website.com/sitemap.xml
