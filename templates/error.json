@@ -5,7 +5,6 @@
   "name": "Error",
   "title": "Error - Something went wrong",
   "route": "/error",
-  "pathname": "/error.html",
   "content": [
     {
       "name": "widget",
@@ -17,9 +16,16 @@
       "page": "contactus"
     },
     {
-      "name": "h2",
+      "name": "div",
+      "class": "wrapper",
       "children": [
-        "Error - Something went wrong"
+        {
+          "name": "h2",
+          "style": "margin: 50px 0;",
+          "children": [
+            "Error - Something went wrong"
+          ]
+        }
       ]
     },
     {

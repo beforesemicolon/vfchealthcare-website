@@ -5,7 +5,6 @@
   "title": "Contact - VFC Healthcare Solutions",
   "name": "contact",
   "route": "/contact",
-  "pathname": "/contact.html",
   "content": [
     {
       "name": "component",

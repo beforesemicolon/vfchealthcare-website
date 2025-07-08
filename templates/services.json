@@ -5,7 +5,6 @@
   "title": "Services - VFC Healthcare Solutions",
   "name": "services",
   "route": "/services",
-  "pathname": "/services.html",
   "content": [
     {
       "name": "widget",

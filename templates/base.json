@@ -144,5 +144,28 @@
     "open-sans/OpenSans-Semibold.ttf",
     "open-sans/OpenSans-SemiboldItalic.ttf",
     "open-sans/OpenSans-ExtraBold.ttf"
-  ]
+  ],
+  "widgetsData": {
+    "vfc-header": {
+      "menu": [
+        {
+          "label": "Referrals",
+          "path": "/referrals",
+          "cta": true
+        },
+        {
+          "label": "Services",
+          "path": "/services"
+        },
+        {
+          "label": "About Us",
+          "path": "/about"
+        },
+        {
+          "label": "Contact Us",
+          "path": "/contact"
+        }
+      ]
+    }
+  }
 }

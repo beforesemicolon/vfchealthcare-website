@@ -5,7 +5,6 @@
   "name": "referrals",
   "title": "Referrals - VFC Healthcare Solutions",
   "route": "/referrals",
-  "pathname": "/referrals.html",
   "stylesheets": [
     "form.css"
   ],

@@ -6,7 +6,6 @@
   "name": "news",
   "excluded": true,
   "route": "/news",
-  "pathname": "/news.html",
   "content": [
     {
       "name": "widget",

@@ -4,7 +4,6 @@
   "id": "home",
   "name": "home",
   "route": "/",
-  "pathname": "/index.html",
   "stylesheets": [
     "form.css",
     ":root {--gap-size: 50px;}"

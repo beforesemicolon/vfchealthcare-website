@@ -5,7 +5,6 @@
   "name": "about",
   "title": "About - VFC Healthcare Solutions",
   "route": "/about",
-  "pathname": "/about.html",
   "content": [
     {
       "name": "widget",

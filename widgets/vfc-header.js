@@ -23,11 +23,6 @@ export default {
               readonly: true
             },
             {
-              name: 'visible',
-              type: 'boolean',
-              value: true
-            },
-            {
               name: 'cta',
               type: 'boolean',
               value: true,
@@ -48,11 +43,6 @@ export default {
               type: 'text',
               value: '/services',
               readonly: true
-            },
-            {
-              name: 'visible',
-              type: 'boolean',
-              value: true
             }
           ]
         },
@@ -69,11 +59,6 @@ export default {
               type: 'text',
               value: '/about',
               readonly: true
-            },
-            {
-              name: 'visible',
-              type: 'boolean',
-              value: true
             }
           ]
         },
@@ -90,11 +75,6 @@ export default {
               type: 'text',
               value: '/news',
               readonly: true
-            },
-            {
-              name: 'visible',
-              type: 'boolean',
-              value: false
             }
           ]
         },
@@ -111,11 +91,6 @@ export default {
               type: 'text',
               value: '/careers',
               readonly: true
-            },
-            {
-              name: 'visible',
-              type: 'boolean',
-              value: false
             }
           ]
         },
@@ -132,11 +107,6 @@ export default {
               type: 'text',
               value: '/contact',
               readonly: true
-            },
-            {
-              name: 'visible',
-              type: 'boolean',
-              value: true
             }
           ]
         }
@@ -304,7 +274,6 @@ export default {
   }),
   render: ({menu = {}, env, $comp}) => {
     const navItems = menu
-      .filter(item => item.visible)
       .map(item => `<li><a href="${item.path}" class="${item.cta ? 'primary' : ''}" ${env.route === item.path ? 'active' : ''} aria-label="${item.label} page">${item.label}</a></li>`)
       .join('');
     
