@@ -117,36 +117,6 @@ export default {
             {
               name: "label",
               type: "text",
-              value: "News"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/news"
-            },
-          ]
-        },
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Careers"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/careers"
-            },
-          ]
-        },
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
               value: "Caregiver Portal"
             },
             {
