@@ -42,12 +42,12 @@ export default {
     {
       name: "address",
       type: "html",
-      value: "<span>810 Washington Street,</span><span>Stoughton,</span><span>MA. 02072</span>"
+      value: "<span>348 N Pearl St,</span><span>Brockton,</span><span>MA. 02301</span>"
     },
     {
       type: "html",
       name: "googleMapEmbed",
-      value: "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.2395241517434!2d-71.10390752332923!3d42.12375524999702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e486a8e3b9af09%3A0x7b36201e6ea70532!2s810%20Washington%20St%2C%20Stoughton%2C%20MA%2002072!5e0!3m2!1sen!2sus!4v1740178375145!5m2!1sen!2sus\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+      value: "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8456.951590788418!2d-71.07228120702712!3d42.10064877724718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e484441c4f3bdf%3A0xb6645e298dc7d16c!2s348%20N%20Pearl%20St%2C%20Brockton%2C%20MA%2002301!5e1!3m2!1sen!2sus!4v1770488982585!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
     }
   ],
   style: {

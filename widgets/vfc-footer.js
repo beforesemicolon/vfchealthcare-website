@@ -23,7 +23,7 @@ export default {
     {
       name: "address",
       type: "html",
-      value: "<span>810 Washington Street,</span><span>Stoughton,</span><span>MA. 02072</span>"
+      value: "<span>348 N Pearl St,</span><span>Brockton,</span><span>MA. 02301</span>"
     },
     {
       type: "list",
