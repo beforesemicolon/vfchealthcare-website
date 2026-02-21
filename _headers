@@ -1,0 +1,4 @@
+/assets/*
+  Access-Control-Allow-Origin: https://cms.beforesemicolon.com
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Vary: Origin
