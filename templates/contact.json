@@ -4,7 +4,7 @@
   "id": "contact",
   "title": "Contact - VFC Healthcare Solutions",
   "name": "contact",
-  "route": "/contact",
+  "pathname": "/contact",
   "content": [
     {
       "name": "component",

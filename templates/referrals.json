@@ -4,7 +4,7 @@
   "id": "referrals",
   "name": "referrals",
   "title": "Referrals - VFC Healthcare Solutions",
-  "route": "/referrals",
+  "pathname": "/referrals",
   "stylesheets": [
     "form.css"
   ],

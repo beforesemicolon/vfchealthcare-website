@@ -5,7 +5,7 @@
   "title": "News - VFC Healthcare Solutions",
   "name": "news",
   "excluded": true,
-  "route": "/news",
+  "pathname": "/news",
   "content": [
     {
       "name": "widget",

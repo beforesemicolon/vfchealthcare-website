@@ -5,7 +5,7 @@
   "id": "careers",
   "excluded": true,
   "title": "Careers - VFC Healthcare Solutions",
-  "route": "/careers",
+  "pathname": "/careers",
   "content": [
     {
       "name": "widget",
