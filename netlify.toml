@@ -1,0 +1,16 @@
+[build]
+publish = "."
+
+[[headers]]
+for = "/assets/fonts/*"
+[headers.values]
+Access-Control-Allow-Origin = "https://cms.beforesemicolon.com"
+Access-Control-Allow-Methods = "GET, OPTIONS"
+Vary = "Origin"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Access-Control-Allow-Origin = "https://cms.beforesemicolon.com"
+Access-Control-Allow-Methods = "GET, OPTIONS"
+Vary = "Origin"
