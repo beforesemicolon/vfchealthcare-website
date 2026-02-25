@@ -88,6 +88,12 @@ button:disabled, .btn:disabled {
 	cursor: not-allowed;
 }
 
+.row {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
 /* icons */
 
 .facebook-social span,

@@ -1,7 +1,7 @@
 export default {
   id: "vfc-top-bar",
-  type: "global",
-  title: "Top bar",
+  cssSelector: "#vfc-top-bar",
+  name: "Top bar",
   inputs: [
     {
       name: "phone",
@@ -22,48 +22,64 @@ export default {
       name: "instagram",
       type: "url",
       value: 'https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D'
+    },
+    {
+      name: "phoneLabel",
+      type: "text",
+      value: "Phone"
+    },
+    {
+      name: "faxLabel",
+      type: "text",
+      value: "Fax"
+    },
+    {
+      name: "facebookLabel",
+      type: "text",
+      value: "Facebook"
+    },
+    {
+      name: "instagramLabel",
+      type: "text",
+      value: "Instagram"
     }
   ],
   style: ({env}) => ({
-    "#contact-bar": {
-      background: "var(--vfc-highlight-color)",
-      paddingTop: "6px",
-      paddingBottom: "8px",
-      display: "flex",
-      justifyContent: "flex-end",
-      alignItems: "center",
-      gap: "20px",
-      "a": {
-        color: "#fff",
-        fontSize: "1rem",
-        textDecoration: "none"
-      },
-      "span": {
-        fontWeight: "bold"
-      },
-      ".primary": {
-        paddingLeft: "25px",
-        background: `url("${env.assetsOrigin || '/'}assets/icons/phone.icon.svg") no-repeat left center`,
-        backgroundSize: "20px"
-      },
-      ".facebook-social": {
-        background: `url("${env.assetsOrigin || '/'}assets/icons/facebook.icon.svg") 0 0 no-repeat`
-      },
-      ".instagram-social": {
-        background: `url("${env.assetsOrigin || '/'}assets/icons/instagram.icon.svg") 0 0 no-repeat`
-      },
-      ".facebook-social-black": {
-        background: `url("${env.assetsOrigin || '/'}assets/icons/facebook-black.icon.svg") 0 0 no-repeat`
-      },
-      ".instagram-social-black": {
-        background: `url("${env.assetsOrigin || '/'}assets/icons/instagram-black.icon.svg") 0 0 no-repeat`
-      }
+    background: "var(--vfc-highlight-color)",
+    paddingTop: "6px",
+    paddingBottom: "8px",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    gap: "20px",
+    "a": {
+      color: "#fff",
+      fontSize: "1rem",
+      textDecoration: "none"
+    },
+    "span": {
+      fontWeight: "bold"
+    },
+    ".primary": {
+      paddingLeft: "25px",
+      background: `url("${env.assetsOrigin || '/'}assets/icons/phone.icon.svg") no-repeat left center`,
+      backgroundSize: "20px"
+    },
+    ".facebook-social": {
+      background: `url("${env.assetsOrigin || '/'}assets/icons/facebook.icon.svg") 0 0 no-repeat`
+    },
+    ".instagram-social": {
+      background: `url("${env.assetsOrigin || '/'}assets/icons/instagram.icon.svg") 0 0 no-repeat`
+    },
+    ".facebook-social-black": {
+      background: `url("${env.assetsOrigin || '/'}assets/icons/facebook-black.icon.svg") 0 0 no-repeat`
+    },
+    ".instagram-social-black": {
+      background: `url("${env.assetsOrigin || '/'}assets/icons/instagram-black.icon.svg") 0 0 no-repeat`
     },
     "@media screen and (max-width: 520px)": {
-      "#contact-bar": {
-        "a:first-of-type": {
-          display: "none"
-        }
+      "a:first-of-type": {
+        display: "none"
       }
     }
   }),
@@ -72,11 +88,11 @@ export default {
     const faxNumber = (props.fax ?? '').trim().replace(/[^\d]/g, '');
     
     return `
-      <div id="contact-bar" class="wrapper">
-       ${faxNumber ? `<a href="tel:${faxNumber}" aria-label="fax number">Fax: <span>${props.fax}</span></a>` : ''}
-       ${phoneNumber ? `<a href="tel:${phoneNumber}" aria-label="phone number">Phone: <span>${props.phone}</span></a>` : ''}
-       ${props.facebook ? `<a href="${props.facebook}" class="facebook-social" aria-label="facebook page" target="_blank"><span>Facebook</span></a>` : ''}
-       ${props.instagram ? `<a href="${props.instagram}" class="instagram-social" aria-label="instagram page" target="_blank"><span>Instagram</span></a>` : ''}
+      <div class="wrapper row">
+       ${faxNumber ? `<a href="tel:${faxNumber}" aria-label="fax number">${props.faxLabel}: <span>${props.fax}</span></a>` : ''}
+       ${phoneNumber ? `<a href="tel:${phoneNumber}" aria-label="phone number">${props.phoneLabel}: <span>${props.phone}</span></a>` : ''}
+       ${props.facebook ? `<a href="${props.facebook}" class="facebook-social" aria-label="facebook page" target="_blank"><span>${props.facebookLabel}</span></a>` : ''}
+       ${props.instagram ? `<a href="${props.instagram}" class="instagram-social" aria-label="instagram page" target="_blank"><span>${props.instagramLabel}</span></a>` : ''}
       </div>
     `
   }

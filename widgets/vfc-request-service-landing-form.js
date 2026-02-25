@@ -1,8 +1,120 @@
 export default {
   id: "vfc-request-service-landing-form",
-  type: "local",
-  title: "Request service form",
-  cssSelector: "#request-service",
+  cssSelector: "#vfc-request-service-landing-form",
+  name: "Request service form",
+  style: {
+    section: {
+      position: "relative",
+      background: "#e5e0da",
+    },
+    ".hero-image": {
+      overflow: "hidden"
+    },
+    img: {
+      transform: "translateX(-50px)"
+    },
+    ".form-container": {
+      color: "#fff",
+      position: "relative",
+      background: "var(--vfc-color)",
+      display: "flex",
+      gap: "20px",
+      height: "80px",
+      paddingTop: "10px",
+    },
+    h2: {
+      fontSize: "34px",
+      flex: 1,
+      margin: "10px 20px 10px 0",
+      textWrap: "nowrap",
+      textTransform: "capitalize",
+    },
+    form: {
+      background: "#fff",
+      color: "#222",
+      borderRadius: "3px",
+      overflow: "hidden",
+      flex: 1,
+      marginTop: "-450px",
+      marginRight: "5%",
+      transform: "translateY(15%)",
+      boxShadow: "-3px 6px 10px rgba(0, 0, 0, 0.1)",
+      height: "max-content",
+      h3: {
+        background: "#222",
+        fontSize: "25px",
+        textAlign: "center",
+        padding: "20px 0",
+        color: "#fff",
+        letterSpacing: "0.06rem"
+      },
+      ".disclosure": {
+        fontSize: "14px",
+        lineHeight: "110%",
+        color: "#666"
+      },
+      fieldset: {
+        padding: "0 25px"
+      },
+      button: {
+        background: "#f44336",
+      }
+    },
+    "@media screen and (max-width: 1024px)": {
+      ".hero-image": {
+        padding: 0
+      },
+      img: {
+        transform: "none",
+        height: "auto !important",
+        width: "100%"
+      },
+      ".form-container": {
+        flexDirection: "column",
+        height: "auto",
+        padding: 0,
+        gap: 0
+      },
+      h2: {
+        textAlign: "center",
+        whiteSpace: "wrap",
+        fontSize: "28px",
+        margin: "15px 20px",
+        lineHeight: "1.5",
+      },
+      form: {
+        margin: 0,
+        transform: "none",
+        boxShadow: "none",
+        borderRadius: 0,
+        h3: {
+          background: "none",
+          color: "black",
+          padding: "25px 25px 25px",
+          margin: 0,
+          textAlign: "left",
+          fontSize: "24px"
+        },
+      }
+    },
+    "@media screen and (max-width: 425px)": {
+      ".hero-image": {
+        height: "60vh",
+        position: "relative"
+      },
+      img: {
+        position: "absolute",
+        left: "70%",
+        top: "50%",
+        width: "auto",
+        minWidth: "100%",
+        minHeight: "100% !important",
+        transform: "translate(-50%, -50%)",
+        maxWidth: "unset",
+        maxHeight: "80vh"
+      }
+    }
+  },
   inputs: [
     {
       name: "phrase",
@@ -14,9 +126,19 @@ export default {
       type: "group",
       definitions: [
         {
+          name: 'errorMsg',
+          type: 'textarea',
+          value: 'Please fix the invalid fields before you send.'
+        },
+        {
           name: 'title',
           type: 'text',
           value: 'Request a Service'
+        },
+        {
+          name: 'contactInfoLegend',
+          type: 'text',
+          value: 'Contact Information *'
         },
         {
           name: 'labels',
@@ -135,131 +257,66 @@ export default {
           name: 'button',
           type: 'text',
           value: 'Send Request'
+        },
+        {
+          name: "feedback",
+          type: "group",
+          definitions: [
+            {
+              name: "phone",
+              type: "tel",
+              value: "(774) 480 - 4991"
+            },
+            {
+              name: "successTitle",
+              type: "text",
+              value: "Request Sent!"
+            },
+            {
+              name: "successMessage",
+              type: "text",
+              value: "Someone will be reaching out soon for more details."
+            },
+            {
+              name: "successButton",
+              type: "text",
+              value: "Ok"
+            },
+            {
+              name: "failureTitle",
+              type: "text",
+              value: "Oops!"
+            },
+            {
+              name: "failureMessageBeforeCall",
+              type: "text",
+              value: "We experienced an issue trying to send your request. Try again, or"
+            },
+            {
+              name: "callLabel",
+              type: "text",
+              value: "call us"
+            },
+            {
+              name: "failureMessageAfterCall",
+              type: "text",
+              value: "directly."
+            },
+            {
+              name: "failureButton",
+              type: "text",
+              value: "Retry"
+            }
+          ]
         }
       ]
     }
   ],
-  style: {
-    "#request-service": {
-      background: "#E5E0DA",
-      position: "relative",
-      ".hero-image": {
-        overflow: "hidden"
-      },
-      img: {
-        transform: "translateX(-50px)"
-      },
-      ".form-container": {
-        color: "#fff",
-        position: "relative",
-        background: "var(--vfc-color)",
-        display: "flex",
-        gap: "20px",
-        height: "80px",
-        paddingTop: "10px",
-      },
-      h2: {
-        fontSize: "34px",
-        flex: 1,
-        margin: "10px 20px 10px 0",
-        textWrap: "nowrap",
-        textTransform: "capitalize",
-      },
-      form: {
-        background: "#fff",
-        color: "#222",
-        borderRadius: "3px",
-        overflow: "hidden",
-        flex: 1,
-        marginTop: "-450px",
-        marginRight: "5%",
-        transform: "translateY(15%)",
-        boxShadow: "-3px 6px 10px rgba(0, 0, 0, 0.1)",
-        height: "max-content",
-        h3: {
-          background: "#222",
-          fontSize: "25px",
-          textAlign: "center",
-          padding: "20px 0",
-          color: "#fff",
-          letterSpacing: "0.06rem"
-        },
-        ".disclosure": {
-          fontSize: "14px",
-          lineHeight: "110%",
-          color: "#666"
-        },
-        fieldset: {
-          padding: "0 25px"
-        },
-        button: {
-          background: "#f44336",
-        }
-      }
-    },
-    "@media screen and (max-width: 1024px)": {
-      "#request-service": {
-        ".hero-image": {
-          padding: 0
-        },
-        img: {
-          transform: "none",
-          height: "auto !important",
-          width: "100%"
-        },
-        ".form-container": {
-          flexDirection: "column",
-          height: "auto",
-          padding: 0,
-          gap: 0
-        },
-        h2: {
-          textAlign: "center",
-          whiteSpace: "wrap",
-          fontSize: "28px",
-          margin: "15px 20px",
-          lineHeight: "1.5",
-        },
-        form: {
-          margin: 0,
-          transform: "none",
-          boxShadow: "none",
-          borderRadius: 0,
-          h3: {
-            background: "none",
-            color: "black",
-            padding: "25px 25px 25px",
-            margin: 0,
-            textAlign: "left",
-            fontSize: "24px"
-          },
-        }
-      }
-    },
-    "@media screen and (max-width: 425px)": {
-      "#request-service": {
-        ".hero-image": {
-          height: "60vh",
-          position: "relative"
-        },
-        img: {
-          position: "absolute",
-          left: "70%",
-          top: "50%",
-          width: "auto",
-          minWidth: "100%",
-          minHeight: "100% !important",
-          transform: "translate(-50%, -50%)",
-          maxWidth: "unset",
-          maxHeight: "80vh"
-        }
-      }
-    }
-  },
   render: ({phrase, env, form} = {}) => {
     const reCAPTCHA = "6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr";
+    const feedbackPhone = form.feedback?.phone?.replace(/\D/g, '') || "";
     return `
-      <section id="request-service">
+      <section>
         <div class="wrapper hero-image">
          <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-warm-care.webp" alt="VFC healthcare solution warm services"
               height="400" loading="lazy">
@@ -267,10 +324,10 @@ export default {
         <div class="wrapper form-container">
          <h2>${phrase}</h2>
          <form id="service-request" class="sending-form">
-          <h3>${form.title}</h3>
-          <p class="error-check-msg">Please fix the invalid fields before you send.</p>
+         <h3>${form.title}</h3>
+          <p class="error-check-msg">${form.errorMsg ?? form.errorMsgs ?? ""}</p>
           <fieldset>
-           <legend>Contact Information *</legend>
+           <legend>${form.contactInfoLegend}</legend>
            <label aria-label="full name"><input type="text" name="fullname" placeholder="${form.labels.name}" required
                                                 pattern="^(\\w\\w+)\\s(\\w+)$"
                                                 title="Must be full name, for example: John Doe, Jane D"></label>
@@ -297,14 +354,14 @@ export default {
            <button type="submit">${form.button}</button>
           </fieldset>
           <div class="success-request-message">
-           <h4>Request Sent!</h4>
-           <p>Someone will be reaching out soon for more details.</p>
-           <button type="button">Ok</button>
+           <h4>${form.feedback.successTitle}</h4>
+           <p>${form.feedback.successMessage}</p>
+           <button type="button">${form.feedback.successButton}</button>
           </div>
           <div class="failed-request-message">
-           <h4>Oops!</h4>
-           <p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
-           <button type="submit">Retry</button>
+           <h4>${form.feedback.failureTitle}</h4>
+           <p>${form.feedback.failureMessageBeforeCall} <a href="tel:${feedbackPhone}">${form.feedback.callLabel}</a> ${form.feedback.failureMessageAfterCall}</p>
+           <button type="submit">${form.feedback.failureButton}</button>
           </div>
           <div class="g-recaptcha"
                data-sitekey="${reCAPTCHA}"

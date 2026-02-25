@@ -1,8 +1,7 @@
 export default {
   id: "vfc-referrals",
-  type: "local",
-  title: "Referrals",
-  cssSelector: "#referrals",
+  cssSelector: "#vfc-referrals",
+  name: "Referrals",
   scripts: [
     {
       "src": "https://www.google.com/recaptcha/api.js",
@@ -19,7 +18,7 @@ export default {
     },
   ],
   style: {
-    "#referrals": {
+    "main": {
       paddingTop: "50px",
       paddingBottom: "50px",
       display: "flex",
@@ -53,7 +52,7 @@ export default {
       }
     },
     "@media screen and (max-width: 960px)": {
-      "#referrals": {
+      "main": {
         flexDirection: "column",
         "& > *": {
           maxWidth: "100%"
@@ -64,126 +63,168 @@ export default {
       }
     }
   },
-  render: ({env}) => {
-    const reCAPTCHA = "6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr";
+  inputs: [
+    {type: "text", name: "errorMessage", value: "Please fix the invalid fields before you send."},
+    {type: "text", name: "reCAPTCHA", value: "6Ld2DOYqAAAAAIJRFoIEHsD9ZUgsb1d5lAh823Rr", description: "Google reCAPTCHA value that is connected to the form template for submission"},
+    {type: "text", name: "serviceLegend", value: "Service *"},
+    {
+      type: "options",
+      name: "serviceOptions",
+      value: "adult foster/family care",
+      definitions: [
+        {type: "group", definitions: [{type: "text", name: "label", value: "Adult Foster/Family Care"}, {type: "text", name: "value", value: "adult foster/family care"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "Home care"}, {type: "text", name: "value", value: "home care"}]}
+      ]
+    },
+    {type: "text", name: "aboutYouLegend", value: "About you *"},
+    {type: "text", name: "fullNamePlaceholder", value: "Full Name *"},
+    {type: "text", name: "emailPlaceholder", value: "Email *"},
+    {type: "text", name: "phonePlaceholder", value: "Phone Number *"},
+    {type: "text", name: "whoNeedsCareLegend", value: "Who needs care?"},
+    {
+      type: "options",
+      name: "patientOptions",
+      value: "someone in my care",
+      definitions: [
+        {type: "group", definitions: [{type: "text", name: "label", value: "Someone in my care"}, {type: "text", name: "value", value: "someone in my care"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "A love one | family"}, {type: "text", name: "value", value: "love one"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "Myself"}, {type: "text", name: "value", value: "myself"}]}
+      ]
+    },
+    {type: "text", name: "documentsLegend", value: "Attach Documents"},
+    {type: "text", name: "documentsHint", value: "e.g: PCP form, insurance verification."},
+    {type: "text", name: "documentsButtonLabel", value: "Select file(s)"},
+    {type: "text", name: "patientLegend", value: "About the patient"},
+    {type: "text", name: "patientFullNamePlaceholder", value: "Full Name"},
+    {type: "text", name: "patientEmailPlaceholder", value: "Email"},
+    {type: "text", name: "patientPhonePlaceholder", value: "Phone Number"},
+    {type: "text", name: "reasonLegend", value: "Reason for referral?"},
+    {
+      type: "options",
+      name: "reasonOptions",
+      value: "medical diagnosis",
+      definitions: [
+        {type: "group", definitions: [{type: "text", name: "label", value: "Medical diagnosis"}, {type: "text", name: "value", value: "medical diagnosis"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "Behavioral"}, {type: "text", name: "value", value: "behavioral"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "Other"}, {type: "text", name: "value", value: "other"}]}
+      ]
+    },
+    {type: "text", name: "insuranceLegend", value: "Insurance type *"},
+    {
+      type: "options",
+      name: "insuranceOptions",
+      value: "mass-health",
+      definitions: [
+        {type: "group", definitions: [{type: "text", name: "label", value: "Mass Health"}, {type: "text", name: "value", value: "mass-health"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "SWH"}, {type: "text", name: "value", value: "swh"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "CCA"}, {type: "text", name: "value", value: "cca"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "TUFTS"}, {type: "text", name: "value", value: "tufts"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "Fallon"}, {type: "text", name: "value", value: "fallon"}]},
+        {type: "group", definitions: [{type: "text", name: "label", value: "Other"}, {type: "text", name: "value", value: "other"}]}
+      ]
+    },
+    {type: "text", name: "additionalInfoLegend", value: "Additional information"},
+    {type: "text", name: "successTitle", value: "Request Sent!"},
+    {type: "text", name: "successMessage", value: "Someone will be reaching out soon for more details."},
+    {type: "text", name: "successButtonLabel", value: "Ok"},
+    {type: "text", name: "failedTitle", value: "Oops!"},
+    {type: "text", name: "failedMessageBeforeCall", value: "We experienced an issue trying to send your request. Try again, or"},
+    {type: "text", name: "callLabel", value: "call us"},
+    {type: "text", name: "failedMessageAfterCall", value: "directly."},
+    {type: "text", name: "retryButtonLabel", value: "Retry"},
+    {type: "text", name: "submitButtonLabel", value: "send"},
+    {type: "tel", name: "contactPhone", value: "(774) 480 - 4991"},
+    {type: "image", name: "thumbnail", value: "assets/vfc-healthcare-solutions-referral.webp"}
+  ],
+  render: ({env, errorMessage, reCAPTCHA, serviceLegend, thumbnail, serviceOptions, aboutYouLegend, fullNamePlaceholder, emailPlaceholder, phonePlaceholder, whoNeedsCareLegend, patientOptions, documentsLegend, documentsHint, documentsButtonLabel, patientLegend, patientFullNamePlaceholder, patientEmailPlaceholder, patientPhonePlaceholder, reasonLegend, reasonOptions, insuranceLegend, insuranceOptions, additionalInfoLegend, successTitle, successMessage, successButtonLabel, failedTitle, failedMessageBeforeCall, callLabel, failedMessageAfterCall, retryButtonLabel, submitButtonLabel, contactPhone}) => {
+    const contactPhoneNumber = contactPhone.replace(/\D/g, '');
     return `
-      <main class="wrapper" id="referrals">
+      <main class="wrapper">
         <form id="referral-form" name="adult-family-care" novalidate recaptcha="${reCAPTCHA}">
-         <p class="error-check-msg">Please fix the invalid fields before you send.</p>
+         <p class="error-check-msg">${errorMessage}</p>
          <fieldset>
-          <legend>Service *</legend>
+          <legend>${serviceLegend}</legend>
           <label aria-label="service">
            <select name="service">
-            <option value="adult foster/family care" selected>Adult Foster/Family Care</option>
-            <option value="home care">Home care</option>
+            ${serviceOptions.options.map(({label, value}) => `<option value="${value}" ${value === serviceOptions.value ? "selected" : ""}>${label}</option>`).join("")}
            </select>
           </label>
          </fieldset>
          <fieldset>
-          <legend>About you *</legend>
-          <label aria-label="full name"><input name="fullname" type="text" placeholder="Full Name *" required pattern="^(\\w\\w+)\\s(\\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
-          <label aria-label="email"><input name="email" type="email" placeholder="Email *" required></label>
+          <legend>${aboutYouLegend}</legend>
+          <label aria-label="full name"><input name="fullname" type="text" placeholder="${fullNamePlaceholder}" required pattern="^(\\w\\w+)\\s(\\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
+          <label aria-label="email"><input name="email" type="email" placeholder="${emailPlaceholder}" required></label>
           <label aria-label="phone">
-           <input type="tel" name="phone" placeholder="Phone Number *" required>
+           <input type="tel" name="phone" placeholder="${phonePlaceholder}" required>
           </label>
          </fieldset>
          <fieldset id="who">
-          <legend>Who needs care?</legend>
+          <legend>${whoNeedsCareLegend}</legend>
           <div class="group">
-           <label aria-label="someone in my care">
-            <input type="radio" name="patient" value="someone in my care" checked>
-            <span>Someone in my care</span>
-           </label>
-           <label aria-label="love one">
-            <input type="radio" name="patient" value="love one">
-            <span>A love one | family</span>
-           </label>
-           <label aria-label="myself">
-            <input type="radio" name="patient" value="myself">
-            <span>Myself</span>
-           </label>
+           ${patientOptions.options.map(({label, value}) => `
+            <label aria-label="${value}">
+             <input type="radio" name="patient" value="${value}" ${value === patientOptions.value ? "checked" : ""}>
+             <span>${label}</span>
+            </label>
+           `).join("")}
           </div>
          </fieldset>
          <fieldset id="documents">
-          <legend>Attach Documents</legend>
-          <p><em>e.g: PCP form, insurance verification.</em></p>
+          <legend>${documentsLegend}</legend>
+          <p><em>${documentsHint}</em></p>
           <label aria-label="documents" class="btn">
-           <span>Select file(s)</span>
+           <span>${documentsButtonLabel}</span>
            <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none" multiple>
           </label>
           <ul class="selected-files"></ul>
          </fieldset>
          <fieldset id="patient">
-          <legend>About the patient</legend>
-          <label aria-label="full name"><input name="patientfullname" type="text" placeholder="Full Name" pattern="^(\\w\\w+)\\s(\\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
-          <label aria-label="email"><input name="patientemail" type="email" placeholder="Email"></label>
+          <legend>${patientLegend}</legend>
+          <label aria-label="full name"><input name="patientfullname" type="text" placeholder="${patientFullNamePlaceholder}" pattern="^(\\w\\w+)\\s(\\w+)$" title="Must be full name, for example: John Doe, Jane D"></label>
+          <label aria-label="email"><input name="patientemail" type="email" placeholder="${patientEmailPlaceholder}"></label>
           <label aria-label="phone">
-           <input type="tel" name="patientphone" placeholder="Phone Number">
+           <input type="tel" name="patientphone" placeholder="${patientPhonePlaceholder}">
           </label>
          </fieldset>
          <fieldset>
-          <legend>Reason for referral?</legend>
+          <legend>${reasonLegend}</legend>
           <div class="group">
-           <label aria-label="medical diagnosis">
-            <input type="radio" name="reason" value="medical diagnosis" checked>
-            <span>Medical diagnosis</span>
-           </label>
-           <label aria-label="behavioral">
-            <input type="radio" name="reason" value="behavioral">
-            <span>Behavioral</span>
-           </label>
-           <label aria-label="other">
-            <input type="radio" name="reason" value="other">
-            <span>Other</span>
-           </label>
+           ${reasonOptions.options.map(({label, value}) => `
+            <label aria-label="${value}">
+             <input type="radio" name="reason" value="${value}" ${value === reasonOptions.value ? "checked" : ""}>
+             <span>${label}</span>
+            </label>
+           `).join("")}
           </div>
          </fieldset>
          <fieldset>
-          <legend>Insurance type *</legend>
+          <legend>${insuranceLegend}</legend>
           <div class="group">
-           <label aria-label="mass health">
-            <input type="radio" name="insurance" value="mass-health" checked>
-            <span>Mass Health</span>
-           </label>
-           <label aria-label="swh">
-            <input type="radio" name="insurance" value="swh">
-            <span>SWH</span>
-           </label>
-           <label aria-label="cca">
-            <input type="radio" name="insurance" value="cca">
-            <span>CCA</span>
-           </label>
-           <label aria-label="tufts">
-            <input type="radio" name="insurance" value="tufts">
-            <span>TUFTS</span>
-           </label>
-           <label aria-label="fallon">
-            <input type="radio" name="insurance" value="fallon">
-            <span>Fallon</span>
-           </label>
-           <label aria-label="other">
-            <input type="radio" name="insurance" value="other">
-            <span>Other</span>
-           </label>
+           ${insuranceOptions.options.map(({label, value}) => `
+            <label aria-label="${value}">
+             <input type="radio" name="insurance" value="${value}" ${value === insuranceOptions.value ? "checked" : ""}>
+             <span>${label}</span>
+            </label>
+           `).join("")}
           </div>
          </fieldset>
          <fieldset>
-          <legend>Additional information</legend>
+          <legend>${additionalInfoLegend}</legend>
           <label aria-label="additional info">
            <textarea name="additionalinfo" cols="30" rows="10"></textarea>
           </label>
          </fieldset>
          <div class="success-request-message">
-          <h4>Request Sent!</h4>
-          <p>Someone will be reaching out soon for more details.</p>
-          <button type="button">Ok</button>
+          <h4>${successTitle}</h4>
+          <p>${successMessage}</p>
+          <button type="button">${successButtonLabel}</button>
          </div>
          <div class="failed-request-message">
-          <h4>Oops!</h4>
-          <p>We experienced an issue trying to send your request. Try again, or <a href="tel:7744804991">call us</a> directly.</p>
-          <button type="submit">Retry</button>
+          <h4>${failedTitle}</h4>
+          <p>${failedMessageBeforeCall} <a href="tel:${contactPhoneNumber}">${callLabel}</a> ${failedMessageAfterCall}</p>
+          <button type="submit">${retryButtonLabel}</button>
          </div>
-         <button>send</button>
+         <button>${submitButtonLabel}</button>
          ${
       env.prod ?
         `<div class="g-recaptcha"
@@ -192,7 +233,7 @@ export default {
               data-size="invisible"></div>` : ''
     }
         </form>
-        <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-referral.webp" alt="vfc healthcare solutions referral" loading="lazy">
+        <img src="${env.assetsOrigin || '/'}${thumbnail}" alt="vfc healthcare solutions referral" loading="lazy">
        </main>
      `
   }

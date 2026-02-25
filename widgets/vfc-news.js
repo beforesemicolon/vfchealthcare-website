@@ -1,9 +1,198 @@
 export default {
   id: "vfc-news",
-  type: "local",
-  title: "News",
-  cssSelector: "#news",
+  cssSelector: "#vfc-news",
+  name: "News",
+  style: ({env}) => ({
+    "main": {
+      display: "flex",
+      flexWrap: "wrap",
+      paddingTop: "25px",
+      paddingBottom: "25px",
+      justifyContent: "flex-start",
+      "& > *": {
+        flex: 1,
+      },
+      "#announcements, .news-block.limited": {
+        minWidth: "50%"
+      },
+      ".view-more-btn": {
+        fontWeight: "bold",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "2px",
+        textTransform: "capitalize",
+        borderTop: "1px solid",
+        padding: "5px 20px",
+        cursor: "pointer",
+        margin: "20px auto 0"
+      },
+      "#announcements": {
+        background: "#30354f",
+        color: "#fff",
+        padding: "20px 30px",
+        borderRadius: "3px",
+        h2: {
+          fontSize: "2rem",
+          borderBottom: "2px solid #fff",
+          margin: 0,
+          alignSelf: "normal",
+          width: "100%"
+        },
+        ".content": {
+          maxHeight: "480px",
+          overflow: "auto",
+          "& > .announcement:nth-of-type(3n)": {
+            display: "none"
+          },
+          "&:has(input:checked) > .announcement:nth-of-type(3n)": {
+            display: "block"
+          },
+          "&:has(input:checked) .view-more-btn": {
+            display: "none"
+          }
+        },
+        ".announcement": {
+          margin: "30px 0",
+          h3: {
+            fontSize: "1.2rem",
+            marginTop: "16px",
+            marginBottom: "10px",
+            lineHeight: "140%",
+            paddingRight: "20%"
+          },
+          p: {
+            fontSize: "0.8rem"
+          },
+          ".datetime": {
+            time: {
+              background: "#fff",
+              color: "#222",
+              padding: "4px 12px",
+              borderRadius: "20px",
+              fontWeight: "bold"
+            }
+          }
+        }
+      },
+      ".news-block": {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "30px",
+        "&.limited": {
+          padding: "30px 0 0 30px",
+          display: "flex",
+          flexDirection: "column",
+          ".news-post": {
+            maxWidth: "100%"
+          }
+        },
+        ".news-post": {
+          maxWidth: "calc(50% - 15px)"
+        },
+        ".news-post:nth-of-type(7n)": {
+          display: "none"
+        },
+        "&:has(input:checked) .news-post:nth-of-type(7n)": {
+          display: "block"
+        },
+        "&:has(input:checked) .view-more-btn": {
+          display: "none"
+        }
+      },
+      ".news-post": {
+        background: "#f4f6ff",
+        padding: "25px",
+        borderRadius: "5px",
+        p: {
+          fontSize: "0.8rem"
+        },
+        a: {
+          textTransform: "capitalize",
+          color: "var(--vfc-highlight-color)",
+          display: "flex",
+          "&::after": {
+            content: "''",
+            display: "inline-block",
+            width: "20px",
+            height: "20px",
+            marginLeft: "3px",
+            background: `url("${env.assetsOrigin || '/'}assets/icons/ext-link.icon.svg") no-repeat center right`,
+            backgroundSize: "18px"
+          }
+        }
+      },
+      ".news-post.highlight": {
+        margin: "30px 0",
+        display: "flex",
+        padding: 0,
+        minWidth: "100%",
+        "--highlight-post-gap": "30px",
+        "& > *": {
+          flex: 1
+        },
+        ".details": {
+          padding: "var(--highlight-post-gap)",
+          maxWidth: "calc(50% + (var(--highlight-post-gap) / 2))"
+        },
+        ".thumbnail": {
+          position: "relative",
+          overflow: "hidden",
+          background: "#eee",
+          maxWidth: "50%",
+          img: {
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            minWidth: "100%",
+            minHeight: "100%"
+          }
+        }
+      }
+    },
+    "@media screen and (max-width: 1024px)": {
+      "main": {
+        "#announcements, .news-block.limited": {
+          minWidth: "100%"
+        },
+        ".news-block.limited": {
+          padding: "30px 0"
+        }
+      }
+    },
+    "@media screen and (max-width: 680px)": {
+      "main": {
+        ".news-block .news-post": {
+          maxWidth: "100%"
+        },
+        ".news-post.highlight": {
+          flexDirection: "column-reverse",
+          ".thumbnail, .details": {
+            maxWidth: "100%"
+          },
+          ".thumbnail": {
+            minHeight: "150px"
+          }
+        }
+      }
+    }
+  }),
   inputs: [
+    {
+      type: "text",
+      name: "announcementsLabel",
+      value: "Announcements"
+    },
+    {
+      type: "text",
+      name: "viewMoreLabel",
+      value: "view more"
+    },
+    {
+      type: "text",
+      name: "readMoreLinkLabel",
+      value: "read more"
+    },
     {
       name: "announcements",
       type: "list",
@@ -203,188 +392,13 @@ export default {
       ]
     },
   ],
-  style: ({env}) => ({
-    "#news": {
-      display: "flex",
-      flexWrap: "wrap",
-      paddingTop: "25px",
-      paddingBottom: "25px",
-      justifyContent: "flex-start",
-      "& > *": {
-        flex: 1,
-      },
-      "#announcements, .news-block.limited": {
-        minWidth: "50%"
-      },
-      ".view-more-btn": {
-        fontWeight: "bold",
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "2px",
-        textTransform: "capitalize",
-        borderTop: "1px solid",
-        padding: "5px 20px",
-        cursor: "pointer",
-        margin: "20px auto 0"
-      },
-      "#announcements": {
-        background: "#30354f",
-        color: "#fff",
-        padding: "20px 30px",
-        borderRadius: "3px",
-        h2: {
-          fontSize: "2rem",
-          borderBottom: "2px solid #fff",
-          margin: 0,
-          alignSelf: "normal",
-          width: "100%"
-        },
-        ".content": {
-          maxHeight: "480px",
-          overflow: "auto",
-          "& > .announcement:nth-of-type(3n)": {
-            display: "none"
-          },
-          "&:has(input:checked) > .announcement:nth-of-type(3n)": {
-            display: "block"
-          },
-          "&:has(input:checked) .view-more-btn": {
-            display: "none"
-          }
-        },
-        ".announcement": {
-          margin: "30px 0",
-          h3: {
-            fontSize: "1.2rem",
-            marginTop: "16px",
-            marginBottom: "10px",
-            lineHeight: "140%",
-            paddingRight: "20%"
-          },
-          p: {
-            fontSize: "0.8rem"
-          },
-          ".datetime": {
-            time: {
-              background: "#fff",
-              color: "#222",
-              padding: "4px 12px",
-              borderRadius: "20px",
-              fontWeight: "bold"
-            }
-          }
-        }
-      },
-      ".news-block": {
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "30px",
-        "&.limited": {
-          padding: "30px 0 0 30px",
-          display: "flex",
-          flexDirection: "column",
-          ".news-post": {
-            maxWidth: "100%"
-          }
-        },
-        ".news-post": {
-          maxWidth: "calc(50% - 15px)"
-        },
-        ".news-post:nth-of-type(7n)": {
-          display: "none"
-        },
-        "&:has(input:checked) .news-post:nth-of-type(7n)": {
-          display: "block"
-        },
-        "&:has(input:checked) .view-more-btn": {
-          display: "none"
-        }
-      },
-      ".news-post": {
-        background: "#f4f6ff",
-        padding: "25px",
-        borderRadius: "5px",
-        p: {
-          fontSize: "0.8rem"
-        },
-        a: {
-          textTransform: "capitalize",
-          color: "var(--vfc-highlight-color)",
-          display: "flex",
-          "&::after": {
-            content: "''",
-            display: "inline-block",
-            width: "20px",
-            height: "20px",
-            marginLeft: "3px",
-            background: `url("${env.assetsOrigin || '/'}assets/icons/ext-link.icon.svg") no-repeat center right`,
-            backgroundSize: "18px"
-          }
-        }
-      },
-      ".news-post.highlight": {
-        margin: "30px 0",
-        display: "flex",
-        padding: 0,
-        minWidth: "100%",
-        "--highlight-post-gap": "30px",
-        "& > *": {
-          flex: 1
-        },
-        ".details": {
-          padding: "var(--highlight-post-gap)",
-          maxWidth: "calc(50% + (var(--highlight-post-gap) / 2))"
-        },
-        ".thumbnail": {
-          position: "relative",
-          overflow: "hidden",
-          background: "#eee",
-          maxWidth: "50%",
-          img: {
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            minWidth: "100%",
-            minHeight: "100%"
-          }
-        }
-      }
-    },
-    "@media screen and (max-width: 1024px)": {
-      "#news": {
-        "#announcements, .news-block.limited": {
-          minWidth: "100%"
-        },
-        ".news-block.limited": {
-          padding: "30px 0"
-        }
-      }
-    },
-    "@media screen and (max-width: 680px)": {
-      "#news": {
-        ".news-block .news-post": {
-          maxWidth: "100%"
-        },
-        ".news-post.highlight": {
-          flexDirection: "column-reverse",
-          ".thumbnail, .details": {
-            maxWidth: "100%"
-          },
-          ".thumbnail": {
-            minHeight: "150px"
-          }
-        }
-      }
-    }
-  }),
-  render: ({announcements, posts, postHighlight}) => {
+  render: ({announcements, posts, postHighlight, announcementsLabel, viewMoreLabel, readMoreLinkLabel}) => {
     const [post1, post2, ...restOfPosts] = posts;
     
     return `
-      <main id="news" class="wrapper">
+      <main class="wrapper">
         <div id="announcements">
-         <h2>Announcements</h2>
+         <h2>${announcementsLabel}</h2>
          <div class="content">
           ${announcements.map(announcement => `
             <div class="announcement">
@@ -396,7 +410,7 @@ export default {
           ${announcements.length > 2 ? `
             <label aria-label="view more button" class="view-more-btn" role="button" tabindex="0">
            <input type="radio" style="display: none;" >
-           <span>view more</span>
+           <span>${viewMoreLabel}</span>
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 20px; height: 20px">
             <path fill="#fff" d="M17.98,8.16c-.17-.33-.52-.55-.9-.55H6.92c-.38,0-.73.22-.9.55-.17.34-.13.75.1,1.05l5.08,6.78c.19.25.49.4.8.4s.61-.15.8-.4l5.08-6.78c.23-.3.27-.71.1-1.05Z"/>
            </svg>
@@ -409,7 +423,7 @@ export default {
            <div class="news-post">
             <h3>${post.title}</h3>
             <p>${post.description}</p>
-            <a href="${post.link}" target="_blank">read more</a>
+            <a href="${post.link}" target="_blank">${readMoreLinkLabel}</a>
            </div>
           `).join('')}
         </div>
@@ -417,7 +431,7 @@ export default {
          <div class="details">
           <h3>${postHighlight.title}</h3>
           <p>${postHighlight.description}</p>
-          <a href="${postHighlight.link}" target="_blank">read more</a>
+          <a href="${postHighlight.link}" target="_blank">${readMoreLinkLabel}</a>
          </div>
          <div class="thumbnail">
           <img src="${postHighlight.thumbnail}" alt="${postHighlight.title}">
@@ -428,12 +442,12 @@ export default {
            <div class="news-post">
             <h3>${post.title}</h3>
             <p>${post.description}</p>
-            <a href="${post.link}" target="_blank">read more</a>
+            <a href="${post.link}" target="_blank">${readMoreLinkLabel}</a>
            </div>
           `).join('')}
          ${restOfPosts.length > 3 ? `
           <label aria-label="view more button" class="view-more-btn" role="button" tabindex="0">
-            <span>view more</span>
+            <span>${viewMoreLabel}</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 20px; height: 20px">
              <path d="M17.98,8.16c-.17-.33-.52-.55-.9-.55H6.92c-.38,0-.73.22-.9.55-.17.34-.13.75.1,1.05l5.08,6.78c.19.25.49.4.8.4s.61-.15.8-.4l5.08-6.78c.23-.3.27-.71.1-1.05Z"/>
             </svg>

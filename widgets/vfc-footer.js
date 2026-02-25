@@ -1,150 +1,7 @@
 export default {
   id: "vfc-footer",
-  type: "global",
-  title: "Footer",
-  cssSelector: "footer",
-  inputs: [
-    {
-      name: "phone",
-      type: "tel",
-      value: "(774) 480 - 4991"
-    },
-    {
-      name: "tollFree",
-      label: "Toll Free",
-      type: "tel",
-      value: "(888) 718 - 4683"
-    },
-    {
-      name: "fax",
-      type: "tel",
-      value: "(774) 272 - 9322"
-    },
-    {
-      name: "address",
-      type: "html",
-      value: "<span>348 N Pearl St,</span><span>Brockton,</span><span>MA. 02301</span>"
-    },
-    {
-      type: "list",
-      name: "services",
-      definitions: [
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Adult Foster/Family Care"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/services#adult-family-care"
-            },
-          ]
-        },
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Home care"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/services#homecare"
-            },
-          ]
-        },
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Nurse Recruiting/Staffing"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/services#nurse-recruiting-staffing"
-            },
-          ]
-        },
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Nurse Case Management"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/services#nurse-case-management"
-            },
-          ]
-        }
-      ]
-    },
-    {
-      type: "list",
-      name: "quickLinks",
-      label: "Quick Links",
-      definitions: [
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Referrals"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "/referrals"
-            },
-          ]
-        },
-        {
-          type: "group",
-          definitions: [
-            {
-              name: "label",
-              type: "text",
-              value: "Caregiver Portal"
-            },
-            {
-              name: "link",
-              type: "text",
-              value: "https://generations.idb-sys.com/Views/loginnew.aspx?ReturnUrl=%2f"
-            },
-          ]
-        }
-      ]
-    },
-    {
-      type: "group",
-      name: "social",
-      definitions: [
-        {
-          name: "facebook",
-          type: "url",
-          value: "https://www.facebook.com/people/VFC-Healthcare-Solutions/100086915456939/"
-        },
-        {
-          name: "instagram",
-          type: "url",
-          value: "https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D"
-        }
-      ]
-    }
-  ],
+  cssSelector: "#vfc-footer",
+  name: "Footer",
   style: ({env}) => ({
     footer: {
       background: "#EBFBFF",
@@ -224,7 +81,209 @@ export default {
       }
     }
   }),
-  render: ({env, phone, tollFree, fax, address, services, social, quickLinks, $comp}) => {
+  inputs: [
+    {
+      name: "phone",
+      type: "tel",
+      value: "(774) 480 - 4991"
+    },
+    {
+      name: "tollFree",
+      label: "Toll Free",
+      type: "tel",
+      value: "(888) 718 - 4683"
+    },
+    {
+      name: "fax",
+      type: "tel",
+      value: "(774) 272 - 9322"
+    },
+    {
+      type: "text",
+      name: "phoneLabel",
+      value: "Phone"
+    },
+    {
+      type: "text",
+      name: "tollFreeLabel",
+      value: "Toll Free"
+    },
+    {
+      type: "text",
+      name: "faxLabel",
+      value: "Fax"
+    },
+    {
+      type: "text",
+      name: "addressLabel",
+      value: "All mail correspondences should be sent to:"
+    },
+    {
+      name: "address",
+      type: "html",
+      value: "<span>348 N Pearl St,</span><span>Brockton,</span><span>MA. 02301</span>"
+    },
+    {
+      type: "text",
+      name: "servicesLabel",
+      value: "Services:"
+    },
+    {
+      type: "list",
+      name: "services",
+      definitions: [
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Adult Foster/Family Care"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#adult-family-care"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Home care"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#homecare"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Nurse Recruiting/Staffing"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#nurse-recruiting-staffing"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Nurse Case Management"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/services#nurse-case-management"
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: "text",
+      name: "quickLinksLabel",
+      value: "Quick Links:"
+    },
+    {
+      type: "list",
+      name: "quickLinks",
+      definitions: [
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Referrals"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "/referrals"
+            },
+          ]
+        },
+        {
+          type: "group",
+          definitions: [
+            {
+              name: "label",
+              type: "text",
+              value: "Caregiver Portal"
+            },
+            {
+              name: "link",
+              type: "text",
+              value: "https://generations.idb-sys.com/Views/loginnew.aspx?ReturnUrl=%2f"
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: "text",
+      name: "socialLabel",
+      value: "Follow Us:"
+    },
+    {
+      type: "group",
+      name: "social",
+      definitions: [
+        {
+          name: "facebook",
+          type: "url",
+          value: "https://www.facebook.com/people/VFC-Healthcare-Solutions/100086915456939/"
+        },
+        {
+          name: "instagram",
+          type: "url",
+          value: "https://www.instagram.com/vfchealthcaresolutions/?igshid=YmMyMTA2M2Y%3D"
+        }
+      ]
+    },
+    {
+      type: "group",
+      name: "socialLabels",
+      definitions: [
+        {
+          name: "facebook",
+          type: "text",
+          value: "facebook"
+        },
+        {
+          name: "instagram",
+          type: "text",
+          value: "instagram"
+        }
+      ]
+    },
+    {
+      type: "text",
+      name: "copyrightLabel",
+      value: "VFC Healthcare Solutions - All Rights Reserved."
+    },
+    {
+      type: "text",
+      name: "copyrightPrefix",
+      value: "Copyright ©"
+    }
+  ],
+  render: ({phone, tollFree, fax, phoneLabel, tollFreeLabel, faxLabel, addressLabel, address, servicesLabel, services, socialLabel, social, socialLabels, copyrightLabel, copyrightPrefix, quickLinksLabel, quickLinks, $comp}) => {
     const addressText = address.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
     const url = new URL('https://maps.apple.com');
     url.searchParams.set('address', addressText);
@@ -234,31 +293,31 @@ export default {
         ${$comp("vfc-logo")}
         <div class="content">
           <address>
-            <a href="tel:${phone.replace(/\D/g, '')}" aria-label="phone number"><strong>Phone</strong>: ${phone}</a>
-            <a href="tel:${tollFree.replace(/\D/g, '')}" aria-label="toll-free number"><strong>Toll Free</strong>: ${tollFree}</a>
-            <a href="tel:${fax.replace(/\D/g, '')}" aria-label="fax number"><strong>Fax</strong>: ${fax}</a>
-            <p><strong>All mail corespondences should be sent to:</strong></p>
+            <a href="tel:${phone.replace(/\D/g, '')}" aria-label="phone number"><strong>${phoneLabel}</strong>: ${phone}</a>
+            <a href="tel:${tollFree.replace(/\D/g, '')}" aria-label="toll-free number"><strong>${tollFreeLabel}</strong>: ${tollFree}</a>
+            <a href="tel:${fax.replace(/\D/g, '')}" aria-label="fax number"><strong>${faxLabel}</strong>: ${fax}</a>
+            <p><strong>${addressLabel}</strong></p>
             <a class="mail-address" href="${url.href}" aria-label="address on map" target="_blank">
              ${address}
             </a>
           </address>
           <section id="footer-services">
-            <h4>Services:</h4>
+            <h4>${servicesLabel}</h4>
             <ul>${services.map((service) => `<li><a href="${service.link}">${service.label}</a></li>`).join('')}</ul>
           </section>
           <section id="quick-links">
-            <h4>Quick Links:</h4>
+            <h4>${quickLinksLabel}</h4>
             <ul>${quickLinks.map((ql) => `<li><a href="${ql.link}">${ql.label}</a></li>`).join('')}</ul>
           </section>
           <section id="social">
-            <h4>Follow Us:</h4>
+            <h4>${socialLabel}</h4>
             <a href="${social.facebook}" aria-label="facebook page"
-               class="facebook-social-black" target="_blank"><span>facebook</span></a>
+               class="facebook-social-black" target="_blank"><span>${socialLabels.facebook}</span></a>
             <a href="${social.instagram}" aria-label="instagram page"
-               class="instagram-social-black" target="_blank"><span>instagram</span></a>
+               class="instagram-social-black" target="_blank"><span>${socialLabels.instagram}</span></a>
           </section>
         </div>
-        <p><small>Copyright © ${(new Date()).getFullYear()} VFC Healthcare Solutions - All Rights Reserved.</small></p>
+        <p><small>${copyrightPrefix} ${(new Date()).getFullYear()} ${copyrightLabel}</small></p>
       </footer>
     `
   }

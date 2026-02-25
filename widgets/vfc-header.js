@@ -1,120 +1,9 @@
 export default {
   id: "vfc-header",
-  type: "global",
-  title: "Header",
-  cssSelector: '#main-header',
-  inputs: [
-    {
-      name: 'menu',
-      type: 'list',
-      definitions: [
-        {
-          type: 'group',
-          definitions: [
-            {
-              name: 'label',
-              type: 'text',
-              value: 'Referrals'
-            },
-            {
-              name: 'path',
-              type: 'text',
-              value: '/referrals',
-              readonly: true
-            },
-            {
-              name: 'cta',
-              type: 'boolean',
-              value: true,
-              readonly: true
-            }
-          ]
-        },
-        {
-          type: 'group',
-          definitions: [
-            {
-              name: 'label',
-              type: 'text',
-              value: 'Services'
-            },
-            {
-              name: 'path',
-              type: 'text',
-              value: '/services',
-              readonly: true
-            }
-          ]
-        },
-        {
-          type: 'group',
-          definitions: [
-            {
-              name: 'label',
-              type: 'text',
-              value: 'About Us'
-            },
-            {
-              name: 'path',
-              type: 'text',
-              value: '/about',
-              readonly: true
-            }
-          ]
-        },
-        {
-          type: 'group',
-          definitions: [
-            {
-              name: 'label',
-              type: 'text',
-              value: 'News'
-            },
-            {
-              name: 'path',
-              type: 'text',
-              value: '/news',
-              readonly: true
-            }
-          ]
-        },
-        {
-          type: 'group',
-          definitions: [
-            {
-              name: 'label',
-              type: 'text',
-              value: 'Careers'
-            },
-            {
-              name: 'path',
-              type: 'text',
-              value: '/careers',
-              readonly: true
-            }
-          ]
-        },
-        {
-          type: 'group',
-          definitions: [
-            {
-              name: 'label',
-              type: 'text',
-              value: 'Contact Us'
-            },
-            {
-              name: 'path',
-              type: 'text',
-              value: '/contact',
-              readonly: true
-            }
-          ]
-        }
-      ]
-    }
-  ],
+  cssSelector: "#vfc-header",
+  name: "Header",
   style: ({env}) => ({
-    "#main-header": {
+    "header": {
       position: "sticky",
       top: 0,
       left: 0,
@@ -272,13 +161,123 @@ export default {
       to: { opacity: 1 }
     }
   }),
+  inputs: [
+    {
+      name: 'menu',
+      type: 'list',
+      definitions: [
+        {
+          type: 'group',
+          definitions: [
+            {
+              name: 'label',
+              type: 'text',
+              value: 'Referrals'
+            },
+            {
+              name: 'path',
+              type: 'text',
+              value: '/referrals',
+              readonly: true
+            },
+            {
+              name: 'cta',
+              type: 'boolean',
+              value: true,
+              readonly: true
+            }
+          ]
+        },
+        {
+          type: 'group',
+          definitions: [
+            {
+              name: 'label',
+              type: 'text',
+              value: 'Services'
+            },
+            {
+              name: 'path',
+              type: 'text',
+              value: '/services',
+              readonly: true
+            }
+          ]
+        },
+        {
+          type: 'group',
+          definitions: [
+            {
+              name: 'label',
+              type: 'text',
+              value: 'About Us'
+            },
+            {
+              name: 'path',
+              type: 'text',
+              value: '/about',
+              readonly: true
+            }
+          ]
+        },
+        {
+          type: 'group',
+          definitions: [
+            {
+              name: 'label',
+              type: 'text',
+              value: 'News'
+            },
+            {
+              name: 'path',
+              type: 'text',
+              value: '/news',
+              readonly: true
+            }
+          ]
+        },
+        {
+          type: 'group',
+          definitions: [
+            {
+              name: 'label',
+              type: 'text',
+              value: 'Careers'
+            },
+            {
+              name: 'path',
+              type: 'text',
+              value: '/careers',
+              readonly: true
+            }
+          ]
+        },
+        {
+          type: 'group',
+          definitions: [
+            {
+              name: 'label',
+              type: 'text',
+              value: 'Contact Us'
+            },
+            {
+              name: 'path',
+              type: 'text',
+              value: '/contact',
+              readonly: true
+            }
+          ]
+        }
+      ]
+    }
+  ],
   render: ({menu = {}, env, $comp}) => {
     const navItems = menu
-      .map(item => `<li><a href="${item.path}" class="${item.cta ? 'primary' : ''}" ${env.route === item.path ? 'active' : ''} aria-label="${item.label} page">${item.label}</a></li>`)
+      .map(item => `<li><a href="${item.path}" class="${item.cta ? 'primary' : ''}" ${env.pathname === item.path ? 'active' : ''} aria-label="${item.label} page">${item.label}</a></li>`)
       .join('');
     
     return `
-      <header id="main-header">
+      <header>
         <div class="branding wrapper">
          ${$comp("vfc-logo")}
          <a href="#menu" id="mobile-menu" role="button" aria-label="open mobile menu"></a>

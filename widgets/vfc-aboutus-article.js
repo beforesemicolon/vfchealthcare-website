@@ -1,32 +1,9 @@
 export default {
   id: "vfc-aboutus-article",
-  type: "local",
-  cssSelector: "#about-us",
-  title: "About us article",
-  inputs: [
-    {
-      type: "textarea",
-      name: "quote",
-      value: "Kindness is the language which the deaf can hear and the blind can see.",
-    },
-    {
-      type: "text",
-      name: "quoteAuthor",
-      value: "Mark Twain",
-    },
-    {
-      type: "html",
-      name: "content",
-      value: "<p>The story of VFC Healthcare Solutions began with a dedication to community and passionate healthcare professionals who started from the bottom and worked their way up to become Registered Nurses and advanced Practice Clinicians.</p>" +
-        "<p>Our journey gives us a unique understanding of the healthcare system and the importance of bridging the gaps that affect the communities we serve.</p>" +
-        "<p>Our team provides top-notch quality care that reflects our name to all our clients. VFC stands for our shared values of:</p>" +
-        "<ul><li><strong>Veracity</strong>: We are honest in all our interactions with our clients and other professionals</li>" +
-        "<li><strong>Fidelity</strong>: We keep our commitments to our clients to build trust, rapport and credibility</li>" +
-        "<li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li></ul>"
-    },
-  ],
+  cssSelector: "#vfc-aboutus-article",
+  name: "About us article",
   style: {
-    "#about-us": {
+    "article": {
       "--aboutus-gap": "30px",
       display: "flex",
       gap: "var(--aboutus-gap)",
@@ -89,7 +66,7 @@ export default {
       }
     },
     "@media screen and (max-width: 1024px)": {
-      "#about-us": {
+      "article": {
         gap: "30px 0",
         main: {
           width: "100%"
@@ -100,29 +77,56 @@ export default {
       }
     },
     "@media screen and (max-width: 520px)": {
-      "#about-us": {
+      "article": {
         blockquote: {
           fontSize: "2rem"
         }
       }
     },
     "@media screen and (max-width: 400px)": {
-      "#about-us": {
+      "article": {
         blockquote: {
           fontSize: "1.4rem"
         }
       }
     }
   },
-  render: ({env, content, header, quote, quoteAuthor}) => {
+  inputs: [
+    {
+      type: "textarea",
+      name: "quote",
+      value: "Kindness is the language which the deaf can hear and the blind can see.",
+    },
+    {
+      type: "text",
+      name: "quoteAuthor",
+      value: "Mark Twain",
+    },
+    {
+      type: "html",
+      name: "content",
+      value: "<p>The story of VFC Healthcare Solutions began with a dedication to community and passionate healthcare professionals who started from the bottom and worked their way up to become Registered Nurses and advanced Practice Clinicians.</p>" +
+        "<p>Our journey gives us a unique understanding of the healthcare system and the importance of bridging the gaps that affect the communities we serve.</p>" +
+        "<p>Our team provides top-notch quality care that reflects our name to all our clients. VFC stands for our shared values of:</p>" +
+        "<ul><li><strong>Veracity</strong>: We are honest in all our interactions with our clients and other professionals</li>" +
+        "<li><strong>Fidelity</strong>: We keep our commitments to our clients to build trust, rapport and credibility</li>" +
+        "<li><strong>Compassion</strong>: We understand where our clients are coming from and empathize with them, while providing needed care and available resources.</li></ul>"
+    },
+    {
+      type: "image",
+      name: "thumbnail",
+      value: "assets/vfc-healthcare-solutions-aboutus.webp",
+    },
+  ],
+  render: ({env, content, thumbnail, quote, quoteAuthor}) => {
     return `
-    <article class="wrapper" id="about-us">
-      <main>
-       <blockquote>${quote}<span class="author">-- ${quoteAuthor}</span></blockquote>
-       ${content}
-      </main>
-      <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-aboutus.webp" alt="vfc healthcare solutions founder Florence" loading="lazy">
-    </article>
-  `
+      <article class="wrapper">
+        <main>
+         <blockquote>${quote}<span class="author">-- ${quoteAuthor}</span></blockquote>
+         ${content}
+        </main>
+        <img src="${env.assetsOrigin}${thumbnail}" alt="vfc healthcare solutions founder Florence" loading="lazy">
+      </article>
+    `
   }
 }

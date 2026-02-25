@@ -1,16 +1,9 @@
 export default {
   id: "vfc-satisfaction",
-  type: "local",
-  title: "Satisfaction",
-  inputs: [
-    {
-      name: "satisfaction",
-      type: "text",
-      value: "Year After Year Customer Satisfaction",
-    }
-  ],
+  cssSelector: "#vfc-satisfaction",
+  name: "Satisfaction",
   style: {
-    "#satisfaction": {
+    ".wrapper": {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -19,44 +12,49 @@ export default {
       color: "#fff",
       textAlign: "center",
       paddingTop: "10px",
-      paddingBottom: "10px",
-      "p": {
-        margin: 0,
-        fontSize: "1.4rem",
-        fontWeight: "bold"
-      },
-      ".rating": {
-        display: "flex",
-        gap: "10px"
-      }
+      paddingBottom: "10px"
+    },
+    "p": {
+      margin: 0,
+      fontSize: "1.4rem",
+      fontWeight: "bold"
+    },
+    ".rating": {
+      display: "flex",
+      gap: "10px"
     },
     "@media screen and (max-width: 960px)": {
-      "#satisfaction": {
-        "p": {
-          fontSize: "3vw"
-        }
+      "p": {
+        fontSize: "3vw"
       }
     },
     "@media screen and (max-width: 768px)": {
-      "#satisfaction": {
+      ".wrapper": {
         gap: "20px",
-        "> img": {
+        "& > img": {
           display: "none"
         },
-        "p": {
-          textAlign: "left"
-        },
-        ".rating": {
-          "img": {
-            width: "3vw"
-          }
+      },
+      "p": {
+        textAlign: "left"
+      },
+      ".rating": {
+        "img": {
+          width: "3vw"
         }
       }
     }
   },
+  inputs: [
+    {
+      name: "satisfaction",
+      type: "text",
+      value: "Year After Year Customer Satisfaction",
+    }
+  ],
   render: ({env, satisfaction}) => {
     return `
-      <div id="satisfaction" class="wrapper">
+      <div class="wrapper">
        <img src="${env.assetsOrigin || '/'}assets/icons/care.icon.svg" alt="care icon" height="35">
        <p>${satisfaction}</p>
        <div class="rating">

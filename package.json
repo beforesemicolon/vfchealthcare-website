@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "build": "node build.js",
-    "build:watch": "nodemon --watch templates --watch widgets --watch components --watch scripts --watch stylesheets --watch assets --exec \"npm run build\"",
+    "build:watch": "nodemon --watch templates --watch widgets --watch components --watch scripts --watch stylesheets --watch assets --ext 'js,css,html,json' --exec \"NODE_ENV=development npm run build\"",
     "start": "serve public",
-    "local": "NODE_ENV=development concurrently -k \"npm run build:watch\" \"npm run start\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "local": "NODE_ENV=development netlify dev",
+    "deploy": "npm run build && netlify deploy --dir=public",
+    "deploy:prod": "npm run build && netlify deploy --prod --dir=public"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/beforesemicolon/vfchealthcare-website#readme",
   "dependencies": {
-    "@beforesemicolon/site-builder": "^0.38.0"
+    "@beforesemicolon/site-builder": "^0.39.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

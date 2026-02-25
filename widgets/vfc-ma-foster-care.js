@@ -1,8 +1,63 @@
 export default {
   id: "vfc-ma-foster-care",
-  type: "local",
-  title: "MA foster care",
-  cssSelector: "#massachusetts",
+  name: "MA foster care",
+  cssSelector: "#vfc-ma-foster-care",
+  style: {
+    section: {
+      display: "flex",
+      background: "#f2f2f2",
+      marginTop: "calc(var(--gap-size) * -1)",
+      paddingTop: "calc(var(--gap-size) * 2)",
+      paddingBottom: "30px",
+      "& > *": {
+        width: "50%",
+        flex: 1
+      },
+    },
+    h2: {
+      fontSize: "2rem"
+    },
+    ".image": {
+      position: "relative",
+      svg: {
+        position: "absolute",
+        top: "-75%",
+        left: 0,
+        overflow: "visible",
+        path: {
+          filter: "drop-shadow( 1px 1px 0 #ddd)"
+        }
+      }
+    },
+    ".btn": {
+      marginTop: "30px"
+    },
+    "@media screen and (max-width: 1024px)": {
+      section: {
+        marginTop: 0,
+        paddingTop: "30px",
+        position: "relative",
+      },
+      ".details": {
+        zIndex: 10
+      },
+      ".image": {
+        position: "absolute",
+        right: 0,
+        top: "-80px",
+        zIndex: 1,
+        opacity: 0.2,
+        svg: {
+          position: "static"
+        }
+      }
+    },
+    "@media screen and (max-width: 768px)": {
+      ".image": {
+        top: "-20px"
+      }
+    }
+  },
   inputs: [
     {
       name: "header",
@@ -20,67 +75,9 @@ export default {
       value: "Check Eligibility",
     },
   ],
-  style: {
-    "#massachusetts": {
-      display: "flex",
-      background: "#f2f2f2",
-      marginTop: "calc(var(--gap-size) * -1)",
-      paddingTop: "calc(var(--gap-size) * 2)",
-      paddingBottom: "30px",
-      h2: {
-        fontSize: "2rem"
-      },
-      "& > *": {
-        width: "50%",
-        flex: 1
-      },
-      ".image": {
-        position: "relative",
-        svg: {
-          position: "absolute",
-          top: "-75%",
-          left: 0,
-          overflow: "visible",
-          path: {
-            filter: "drop-shadow( 1px 1px 0 #ddd)"
-          }
-        }
-      },
-      ".btn": {
-        marginTop: "30px"
-      }
-    },
-    "@media screen and (max-width: 1024px)": {
-      "#massachusetts": {
-        marginTop: 0,
-        paddingTop: "30px",
-        position: "relative",
-        ".details": {
-          zIndex: 10
-        },
-        ".image": {
-          position: "absolute",
-          right: 0,
-          top: "-80px",
-          zIndex: 1,
-          opacity: 0.2,
-          svg: {
-            position: "static"
-          }
-        }
-      }
-    },
-    "@media screen and (max-width: 768px)": {
-      "#massachusetts": {
-        ".image": {
-          top: "-20px"
-        }
-      }
-    }
-  },
   render: ({header, action, description}) => {
     return `
-      <section id="massachusetts" class="wrapper">
+      <section class="wrapper">
        <div class="details">
         <h2>${header}</h2>
         ${description}

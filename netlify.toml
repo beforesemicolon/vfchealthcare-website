@@ -1,5 +1,20 @@
 [build]
-publish = "."
+publish = "public"
+
+[[redirects]]
+from = "/error"
+to = "/error.html"
+status = 200
+
+[[redirects]]
+from = "/404"
+to = "/404.html"
+status = 404
+
+[[redirects]]
+from = "/*"
+to = "/home.html"
+status = 200
 
 [[headers]]
 for = "/assets/fonts/*"

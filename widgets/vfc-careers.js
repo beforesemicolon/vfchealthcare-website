@@ -1,65 +1,9 @@
 export default {
   id: "vfc-careers",
-  type: "local",
-  title: "Careers",
-  cssSelector: "#careers",
-  inputs: [
-    {
-      type: "text",
-      name: "header",
-      value: "Careers",
-    },
-    {
-      type: "text",
-      name: "disclosure",
-      value: "VFC Healthcare Solutions as an equal opportunity employer, does not discriminate on the basis of race, color, religion, sex, national origin, age, disability, or genetic information."
-    },
-    {
-      type: "text",
-      name: "headline",
-      value: "Join Our Team!"
-    },
-    {
-      type: "list",
-      name: "jobPosts",
-      label: "Job Posts",
-      definitions: [
-        {
-          type: "group",
-          label: "Job Post",
-          definitions: [
-            {
-              type: "text",
-              name: "location",
-              value: "Boston, MA"
-            },
-            {
-              type: "text",
-              name: "headline",
-              value: "Certified Nurse Assistant"
-            },
-            {
-              type: "text",
-              name: "payment",
-              value: "$25 - $35 per hour"
-            },
-            {
-              type: "text",
-              name: "benefits",
-              value: "Medical + 2 benefits"
-            },
-            {
-              type: "url",
-              name: "link",
-              value: "https://www.vfchealthcare.com/careers"
-            }
-          ]
-        }
-      ]
-    }
-  ],
+  cssSelector: "#vfc-careers",
+  name: "Careers",
   style: ({env}) => ({
-    "#careers": {
+    "main": {
       marginBottom: "50px",
       header: {
         width: "100%",
@@ -130,7 +74,7 @@ export default {
       }
     },
     "@media screen and (max-width: 1024px)": {
-      "#careers": {
+      "main": {
         ".disclosure": {
           maxWidth: "100%"
         },
@@ -140,18 +84,83 @@ export default {
       }
     },
     "@media screen and (max-width: 680px)": {
-      "#careers": {
+      "main": {
         ".job-post": {
           maxWidth: "100%"
         }
       }
     }
   }),
-  render: ({env, header, disclosure, jobPosts, headline}) => {
+  inputs: [
+    {
+      type: "image",
+      name: "thumbnail",
+      value: "assets/vfc-healthcare-solutions-careers.webp",
+    },
+    {
+      type: "text",
+      name: "header",
+      value: "Careers",
+    },
+    {
+      type: "text",
+      name: "disclosure",
+      value: "VFC Healthcare Solutions as an equal opportunity employer, does not discriminate on the basis of race, color, religion, sex, national origin, age, disability, or genetic information."
+    },
+    {
+      type: "text",
+      name: "headline",
+      value: "Join Our Team!"
+    },
+    {
+      type: "text",
+      name: "applyLabel",
+      value: "Apply"
+    },
+    {
+      type: "list",
+      name: "jobPosts",
+      label: "Job Posts",
+      definitions: [
+        {
+          type: "group",
+          label: "Job Post",
+          definitions: [
+            {
+              type: "text",
+              name: "location",
+              value: "Boston, MA"
+            },
+            {
+              type: "text",
+              name: "headline",
+              value: "Certified Nurse Assistant"
+            },
+            {
+              type: "text",
+              name: "payment",
+              value: "$25 - $35 per hour"
+            },
+            {
+              type: "text",
+              name: "benefits",
+              value: "Medical + 2 benefits"
+            },
+            {
+              type: "url",
+              name: "link",
+              value: "https://www.vfchealthcare.com/careers"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  render: ({env, header, disclosure, jobPosts, headline, thumbnail, applyLabel}) => {
     return `
-      <main id="careers">
+      <main>
         <header class="wrapper">
-         <img src="${env.assetsOrigin || '/'}assets/vfc-healthcare-solutions-careers.webp" alt="vfc healthcare solutions careers" loading="lazy">
+         <img src="${env.assetsOrigin}${thumbnail}" alt="vfc healthcare solutions careers" loading="lazy">
          <h2>${header}</h2>
         </header>
         <div class="content wrapper">
@@ -167,7 +176,7 @@ export default {
                 <strong class="payment">${payment}</strong>
                 <span class="benefits">${benefits}</span>
                </p>
-               <a href="${link}" target="_blank">Apply</a>
+               <a href="${link}" target="_blank">${applyLabel}</a>
               </div>
               `)
             .join('')
