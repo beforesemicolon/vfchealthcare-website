@@ -169,5 +169,38 @@
         }
       ]
     }
+  },
+  "analytics": {
+    "providers": [
+      {
+        "type": "google-analytics",
+        "enabled": true,
+        "clientId": "662631989291-t1ee0vuujvdvbbnqf0u62eoiuovqgluj.apps.googleusercontent.com",
+        "tagId": "G-2JS0B25BC7",
+        "propertyId": "491537934",
+        "config": {
+          "send_page_view": true
+        }
+      }
+    ],
+    "tracking": {
+      "enabled": true,
+      "tracks": {
+        "hero": {
+          "name": "cta_click",
+          "trigger": "click",
+          "enabled": true,
+          "params": {
+            "section": "hero"
+          }
+        },
+        "formSubmit": {
+          "name": "form_submit",
+          "trigger": "submit",
+          "enabled": true,
+          "params": {}
+        }
+      }
+    }
   }
 }
