@@ -175,7 +175,6 @@
       {
         "type": "google-analytics",
         "enabled": true,
-        "clientId": "662631989291-t1ee0vuujvdvbbnqf0u62eoiuovqgluj.apps.googleusercontent.com",
         "tagId": "G-2JS0B25BC7",
         "propertyId": "491537934",
         "config": {
