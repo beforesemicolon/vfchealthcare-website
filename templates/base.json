@@ -11,7 +11,7 @@
     "theme-color": "#277B93"
   },
   "stylesheets": [
-    "https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css",
+    "normalize.css",
     "common.css",
     {
       "content": {

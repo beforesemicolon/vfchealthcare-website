@@ -12,6 +12,11 @@ to = "/404.html"
 status = 404
 
 [[redirects]]
+from = "/admin"
+to = "https://cms.beforesemicolon.com"
+status = 301
+
+[[redirects]]
 from = "/*"
 to = "/home.html"
 status = 200
